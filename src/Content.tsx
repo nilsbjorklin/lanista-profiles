@@ -1,51 +1,60 @@
 import { Index, createEffect, createSignal, Switch, Match, type Component, createMemo } from 'solid-js';
 import { useLayout } from './LayoutProvider';
-import Stats from './data/stats.json';
-import Races from './data/races.json';
+import StatLabelData from './data/statLabelData.json';
+import RaceData from './data/raceData.json';
 import compareObjects from './compareObjects';
-import { Attributes, Race, UsedAttribute } from './data/Types'
+import { Attributes, RaceType, UsedAttribute } from './data/Types'
 import { Stat } from './data/Types'
 
 const baseStats: Stat[] = ['health', 'strength', 'endurance', 'initiative', 'dodge'];
 
 const Content: Component<{
-    race: Race,
+    race: RaceType,
     usedAttributes: UsedAttribute[],
     attributes: Attributes
 }> = (props) => {
-    interface Race {
-        [key: string]: {
+    type Races = {
+        [key in RaceType]: {
             name: string;
             stats: {
-                [key: string]: number
+                [key in Stat]: number
             }
         }
     }
+    type Modifier = {
+        [key in Stat]?: number
+    }
+    type StatLabels = {
+        [key in Stat]: {
+            sm: string,
+            md: string,
+            lg: string,
+            xl: string
+        }
+    }
 
-    const [usedStats, setUsedStats] = createSignal<Stat[]>(baseStats);
-    const modifiers = createMemo(() => getModifiers(), {}, { equals: (prev, next) => compareObjects(prev, next) });
+    const usedStats: () => Stat[] = createMemo(() => getUsedStats(), {}, { equals: (prev, next) => prev.equals(next) });
+    const modifiers: () => Modifier = createMemo(() => getModifiers(), {}, { equals: (prev, next) => compareObjects(prev, next) });
 
-    function getModifiers() {
-        let result: { [key: string]: number } = {};
+    function getModifiers(): Modifier {
+        let result: Modifier = {};
         usedStats().forEach(stat => {
-            result[stat] = (Races as Race)[props.race].stats[stat];
+            result[stat] = (RaceData as Races)[props.race].stats[stat];
         })
         return result;
     }
 
-    createEffect(() => {
-        setUsedStats(baseStats.concat(props.usedAttributes.filter(attr => attr !== '2h') as Stat[]))
-    });
+    function getUsedStats(): Stat[] {
+        return baseStats.concat(props.usedAttributes.filter(attr => attr !== '2h') as Stat[]);
+    }
 
-    // sm less than 600, md less than 900, lg less than 1200, xl larger or equal to 1200
-    //class={useLayout()?.textSize()}
     return (
         <div class='flex flex-col overflow-hidden' >
             <div class='flex flex-col w-full rounded-t-md border-2 border-light mt-1'>
                 <Row>
                     {useLayout()?.desktop() && <ContentHeaderCell value={'Egenskaper'} />}
                     <Index each={usedStats()}>
-                        {stat => <ContentHeaderCell value={(Stats as { [key: string]: { sm: string, md: string, lg: string, xl: string } })[stat()][useLayout()?.size() ?? 'sm']} />}
+                        {stat => <ContentHeaderCell value={(StatLabelData as StatLabels)[stat()][useLayout()?.size() ?? 'sm']} />}
                     </Index>
                 </Row>
                 <Row>
@@ -69,8 +78,8 @@ const Content: Component<{
                                 </Switch>,
                                 <Row>
                                     {useLayout()?.desktop() && <div class={`p-3 text-center bg-light text-dark font-bold ${index === 0 ? 'rounded-bl-md' : 'rounded-l-md'}`}>{(index === 0 ? 150 : 20) - 15}</div>}
-                                    <Index each={Object.keys(props.attributes) as Stat[]}>
-                                        {stat => <div class={`p-3 text-center bg-light text-dark border-dark border-l last:${index === 0 ? 'rounded-br-md' : 'rounded-r-md'}`}>{props?.attributes?.[stat()]?.[index]}</div>}
+                                    <Index each={usedStats()}>
+                                        {stat => <div class={`p-3 text-center bg-light text-dark border-dark border-l last:${index === 0 ? 'rounded-br-md' : 'rounded-r-md'}`}>{props?.attributes?.[stat()]?.[index] ?? 0}</div>}
                                     </Index>
                                 </Row>,
                                 <Switch fallback={<div hidden />}>
@@ -82,8 +91,8 @@ const Content: Component<{
                                 </Switch>,
                                 <Row>
                                     {useLayout()?.desktop() && <div class='p-3 text-center bg-dark text-light font-bold'>{`Grad ${index + 1}`}</div>}
-                                    <Index each={Object.keys(props.attributes) as Stat[]}>
-                                        {stat => <div class='p-3 text-center bg-dark text-light border-light border-l'>{props?.attributes?.[stat()]?.[index]}</div>}
+                                    <Index each={usedStats()}>
+                                        {stat => <div class='p-3 text-center bg-dark text-light border-light border-l'>{props?.attributes?.[stat()]?.[index] ?? 0}</div>}
                                     </Index>
                                 </Row>
                             ])}

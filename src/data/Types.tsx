@@ -1,6 +1,6 @@
 export type Stat = 'health' | 'strength' | 'endurance' | 'initiative' | 'dodge' | 'axes' | 'swords' | 'maces' | 'staves' | 'shield' | 'spears' | 'chain';
 export type UsedAttribute = Stat | '2h';
-export type Race = 'human' | 'elf' | 'dwarf' | 'orc' | 'troll' | 'goblin' | 'undead';
+export type RaceType = 'human' | 'elf' | 'dwarf' | 'orc' | 'troll' | 'goblin' | 'undead';
 export type WeaponType = 'mainhand' | 'mainhandEnchant' | 'offhand' | 'offhandEnchant' | 'distance' | 'distanceEnchant';
 
 export interface Profiles {
@@ -11,7 +11,7 @@ export interface Profiles {
 }
 export interface Profile {
     name: string;
-    race: Race;
+    race: RaceType;
     usedAttributes: UsedAttribute[];
     attributes: Attributes;
     equipment: { [key: string]: Equipment };

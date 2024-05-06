@@ -1,7 +1,7 @@
 import { Index, createSignal, Switch, Match, type Component, createEffect } from 'solid-js';
 import { useLayout } from './LayoutProvider';
 import Modal from './Modal'
-import { Race, UsedAttribute } from './data/Types'
+import { RaceType, UsedAttribute } from './data/Types'
 
 
 const addProfileText = 'Lägg till ny profil';
@@ -24,7 +24,7 @@ const WeaponTypes: { id: UsedAttribute, name: string }[] = [
     { id: '2h', name: 'Tvåhand' }
 ]
 
-const Races: { [key in Race]: string } = {
+const Races: { [key in RaceType]: string } = {
     human: 'Människa',
     elf: 'Alv',
     dwarf: 'Dvärg',
@@ -38,8 +38,8 @@ const Header: Component<{
     profileId: string,
     setProfileId: ((prev: string) => void),
     profileList: { [key: string]: string }
-    race: Race,
-    setRace: ((prev: Race) => void),
+    race: RaceType,
+    setRace: ((prev: RaceType) => void),
     usedAttributes: UsedAttribute[],
     setUsedAttributes: ((prev: UsedAttribute[]) => void)
 }> = (props) => {
@@ -66,7 +66,7 @@ const Header: Component<{
                 </Selector>
                 <Selector text={Races[props.race]} size={80}>
                     <Index each={Object.keys(Races)}>
-                        {race => <HeaderButton text={Races[race() as Race]} action={() => props.setRace(race() as Race)} />}
+                        {race => <HeaderButton text={Races[race() as RaceType]} action={() => props.setRace(race() as RaceType)} />}
                     </Index>
                 </Selector>
                 <Collapsable collapsedText='Alternativ'>

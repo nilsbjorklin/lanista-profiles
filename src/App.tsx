@@ -4,13 +4,13 @@ import Header from './Header';
 import Content from './Content';
 import ProfilesSource from './data/profiles.json';
 import compareObjects from './compareObjects';
-import { Profile, Profiles, Race, UsedAttribute } from './data/Types'
+import { Profile, Profiles, RaceType, UsedAttribute } from './data/Types'
 
 const App: Component = () => {
     const [profiles, setProfiles] = createSignal<Profiles>((ProfilesSource as Profiles));
     const profileId: () => string = createMemo(() => profiles().active);
     const profileList: () => { [key: string]: string } = createMemo(() => getProfileList(), {}, { equals: (prev, next) => compareObjects(prev, next) });
-    const race: () => Race = createMemo(() => getActiveProfile().race);
+    const race: () => RaceType = createMemo(() => getActiveProfile().race);
     const usedAttributes: () => UsedAttribute[] = createMemo(() => getActiveProfile().usedAttributes, [], { equals: (prev, next) => prev.equals(next) });
     const attributes = createMemo(() => getActiveProfile().attributes, {}, { equals: (prev, next) => compareObjects(prev, next) });
     const strength = createMemo(() => getActiveProfile().attributes.strength, [], { equals: (prev, next) => (prev && next) ? prev.equals(next) : false });
@@ -33,7 +33,7 @@ const App: Component = () => {
         })
     }
 
-    function setRace(race: Race): void {
+    function setRace(race: RaceType): void {
         setProfiles((prev) => {
             prev.profiles[prev.active].race = race
             return structuredClone(prev);
