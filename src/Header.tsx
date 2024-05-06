@@ -35,12 +35,19 @@ const Races: { [key in RaceType]: string } = {
 
 const Header: Component<{
     profileId: string,
-    setProfileId: ((prev: string) => void),
     profileList: { [key: string]: string }
     race: RaceType,
     setRace: ((prev: RaceType) => void),
     usedAttributes: UsedAttribute[],
-    setUsedAttributes: ((prev: UsedAttribute[]) => void)
+    setUsedAttributes: ((prev: UsedAttribute[]) => void),
+    switchProfile: ((prev: string) => void),
+    addProfile: ((prev: string) => void),
+    renameProfile: ((prev: string) => void),
+    cloneProfile: ((prev: string) => void),
+    deleteProfile: (() => void),
+    autoSelectRace: (() => void),
+    autoFill: (() => void),
+    clearForm: (() => void)
 }> = (props) => {
 
     function toggleWeapon(weapon: UsedAttribute) {
@@ -60,7 +67,7 @@ const Header: Component<{
                     text={props.profileList[props.profileId]}
                     size={Object.keys(props.profileList).map(id => props.profileList[id]).reduce((a, b) => a.length > b.length ? a : b).length * 10}>
                     <Index each={Object.keys(props.profileList)}>
-                        {profileId => <HeaderButton text={props.profileList[profileId()]} action={() => props.setProfileId(profileId())} />}
+                        {profileId => <HeaderButton text={props.profileList[profileId()]} action={() => props.switchProfile(profileId())} />}
                     </Index>
                 </Selector>
                 <Selector text={Races[props.race]} size={80}>
@@ -69,13 +76,13 @@ const Header: Component<{
                     </Index>
                 </Selector>
                 <Collapsable collapsedText='Alternativ'>
-                    <HeaderButton text={addProfileText} />
-                    <HeaderButton text={renameProfileText} />
-                    <HeaderButton text={cloneProfileText} />
-                    <HeaderButton text={deleteProfileText} />
-                    <HeaderButton text={autoSelectRaceText} />
-                    <HeaderButton text={autoFillText} />
-                    <HeaderButton text={clearFormText} />
+                    <HeaderButton text={addProfileText} action={() => props.addProfile('new name')} />
+                    <HeaderButton text={renameProfileText} action={() => props.renameProfile('re-name')} />
+                    <HeaderButton text={cloneProfileText} action={() => props.cloneProfile('clone name')} />
+                    <HeaderButton text={deleteProfileText} action={props.deleteProfile} />
+                    <HeaderButton text={autoSelectRaceText} action={props.autoSelectRace} />
+                    <HeaderButton text={autoFillText} action={props.autoFill} />
+                    <HeaderButton text={clearFormText} action={props.clearForm} />
                 </Collapsable>
                 <div class='flex w-full sm:w-auto sm:inline-block'>
                     <Collapsable collapsedText='Vapentyp'>
@@ -120,7 +127,7 @@ const Button: Component<{ text?: string, action?: () => void, selected?: boolean
 const HeaderButton: Component<{ text?: string | undefined, action?: (() => void) | undefined }> = (props) => {
     return <a
         class='select-none inline-block px-3 py-2 rounded-md border-2 border-transparent hover:border-light'
-        onClick={props.action ?? (()=> {})}>
+        onClick={props.action ?? (() => { })}>
         {props.text}
     </a>
 };
@@ -128,7 +135,7 @@ const HeaderButton: Component<{ text?: string | undefined, action?: (() => void)
 const SelectedButton: Component<{ text?: string | undefined, action?: (() => void) | undefined }> = (props) => {
     return <a
         class='select-none inline-block px-3 py-2 rounded-md border-2 border-dark bg-light hover:border-light hover:text-light hover:bg-dark text-dark'
-        onClick={props.action ?? (()=> {})}>
+        onClick={props.action ?? (() => { })}>
         {props.text}
     </a>
 };

@@ -71,45 +71,41 @@ const Content: Component<{
                 </Row>
             </div>
             <div class='grid grid-flow-row auto-cols-fr overflow-y-scroll scrollbar-none'>
-                <Switch fallback={<div>NOT SET</div>}>
-                    <Match when={Object.keys(props.attributes).length !== 0}>
-                        <Index each={Array(45)}>
-                            {(_item, index) => ([
-                                <Switch fallback={<div hidden />}>
-                                    <Match when={!useLayout()?.desktop()}>
-                                        <Row>
-                                            <div class='text-center p-3 border-t font-bold'>{`Gradning till Grad ${index + 1}:`}</div>
-                                        </Row>
-                                    </Match>
-                                </Switch>,
+                <Index each={Array(45)}>
+                    {(_item, index) => ([
+                        <Switch fallback={<div hidden />}>
+                            <Match when={!useLayout()?.desktop()}>
                                 <Row>
-                                    {useLayout()?.desktop() && <div class={`p-3 text-center bg-light text-dark font-bold ${index === 0 ? 'rounded-bl-md' : 'rounded-l-md'}`}>{(index === 0 ? 150 : 20) - 15}</div>}
-                                    <Index each={usedStats()}>
-                                        {stat =>
-                                            <input class={`input-no-button p-3 text-center bg-light text-dark border-dark border-l last:${index === 0 ? 'rounded-br-md' : 'rounded-r-md'}`}
-                                                type='number'
-                                                value={(props?.attributes?.[stat()]?.[index] ?? 0).toString()}
-                                                onChange={e => props.setAttribute(stat(), index, Number(e.target.value))} />
-                                        }
-                                    </Index>
-                                </Row>,
-                                <Switch fallback={<div hidden />}>
-                                    <Match when={!useLayout()?.desktop()}>
-                                        <Row>
-                                            <div class='text-center p-3 border-b font-bold'>{`Egenskaper vid Grad ${index + 1}:`}</div>
-                                        </Row>
-                                    </Match>
-                                </Switch>,
-                                <Row>
-                                    {useLayout()?.desktop() && <div class='p-3 text-center bg-dark text-light font-bold'>{`Grad ${index + 1}`}</div>}
-                                    <Index each={usedStats()}>
-                                        {stat => <div class='p-3 text-center bg-dark text-light border-light border-l'>{calculateAttributesWithModifiers(stat(), props?.attributesTotal?.[stat()]?.[index])}</div>}
-                                    </Index>
+                                    <div class='text-center p-3 border-t font-bold'>{`Gradning till Grad ${index + 1}:`}</div>
                                 </Row>
-                            ])}
-                        </Index>
-                    </Match>
-                </Switch>
+                            </Match>
+                        </Switch>,
+                        <Row>
+                            {useLayout()?.desktop() && <div class={`p-3 text-center bg-light text-dark font-bold ${index === 0 ? 'rounded-bl-md' : 'rounded-l-md'}`}>{(index === 0 ? 150 : 20) - 15}</div>}
+                            <Index each={usedStats()}>
+                                {stat =>
+                                    <input class={`input-no-button p-3 text-center bg-light text-dark border-dark border-l last:${index === 0 ? 'rounded-br-md' : 'rounded-r-md'}`}
+                                        type='number'
+                                        value={(props?.attributes?.[stat()]?.[index] ?? 0).toString()}
+                                        onChange={e => props.setAttribute(stat(), index, Number(e.target.value))} />
+                                }
+                            </Index>
+                        </Row>,
+                        <Switch fallback={<div hidden />}>
+                            <Match when={!useLayout()?.desktop()}>
+                                <Row>
+                                    <div class='text-center p-3 border-b font-bold'>{`Egenskaper vid Grad ${index + 1}:`}</div>
+                                </Row>
+                            </Match>
+                        </Switch>,
+                        <Row>
+                            {useLayout()?.desktop() && <div class='p-3 text-center bg-dark text-light font-bold'>{`Grad ${index + 1}`}</div>}
+                            <Index each={usedStats()}>
+                                {stat => <div class='p-3 text-center bg-dark text-light border-light border-l'>{calculateAttributesWithModifiers(stat(), props?.attributesTotal?.[stat()]?.[index])}</div>}
+                            </Index>
+                        </Row>
+                    ])}
+                </Index>
             </div>
         </div>
     )
