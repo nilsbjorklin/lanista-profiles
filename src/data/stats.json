@@ -1,0 +1,74 @@
+{
+    "health": {
+        "xl": "Bashälsa",
+        "lg": "Bashälsa",
+        "md": "Hälsa",
+        "sm": "HP"
+    },
+    "strength": {
+        "xl": "Styrka",
+        "lg": "Styrka",
+        "md": "Styrka",
+        "sm": "SB"
+    },
+    "endurance": {
+        "xl": "Uthållighet",
+        "lg": "Uthållighet",
+        "md": "UTH",
+        "sm": "UTH"
+    },
+    "initiative": {
+        "xl": "Initiativ",
+        "lg": "Initiativ",
+        "md": "Initiativ",
+        "sm": "INI"
+    },
+    "dodge": {
+        "xl": "Undvika Anfall",
+        "lg": "Undvikning",
+        "md": "UA",
+        "sm": "UA"
+    },
+    "axes": {
+        "xl": "Yxor",
+        "lg": "Yxor",
+        "md": "Yxor",
+        "sm": "VF"
+    },
+    "swords": {
+        "xl": "Svärd",
+        "lg": "Svärd",
+        "md": "Svärd",
+        "sm": "VF"
+    },
+    "maces": {
+        "xl": "Hammare",
+        "lg": "Hammare",
+        "md": "VF",
+        "sm": "VF"
+    },
+    "staves": {
+        "xl": "Stavar",
+        "lg": "Stavar",
+        "md": "Stav",
+        "sm": "VF"
+    },
+    "shield": {
+        "xl": "Sköldar",
+        "lg": "Sköldar",
+        "md": "Sköld",
+        "sm": "SF"
+    },
+    "spears": {
+        "xl": "Stick",
+        "lg": "Stick",
+        "md": "Stick",
+        "sm": "VF"
+    },
+    "chain": {
+        "xl": "Kätting",
+        "lg": "Kätting",
+        "md": "VF",
+        "sm": "VF"
+    }
+}

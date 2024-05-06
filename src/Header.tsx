@@ -1,6 +1,7 @@
-import { For, createSignal, Switch, Match, type Component } from 'solid-js';
+import { Index, createSignal, Switch, Match, type Component, createEffect } from 'solid-js';
 import { useLayout } from './LayoutProvider';
 import Modal from './Modal'
+import { Race, UsedAttribute } from './data/Types'
 
 
 const addProfileText = 'Lägg till ny profil';
@@ -12,50 +13,61 @@ const autoSelectRaceText = 'Välj ras och Fyll i värden';
 const autoFillText = 'Fyll i värden';
 const clearFormText = 'Rensa';
 
-type WeaponType = {
-    id: string,
-    name: string
-};
-const WeaponTypes = [
-    { id: "axes", name: "Yxor" },
-    { id: "swords", name: "Svärd" },
-    { id: "maces", name: "Hammare" },
-    { id: "staves", name: "Stavar" },
-    { id: "shield", name: "Sköldar" },
-    { id: "spears", name: "Stick" },
-    { id: "chain", name: "Kätting" },
-    { id: "2h", name: "Tvåhand" }
+const WeaponTypes: { id: UsedAttribute, name: string }[] = [
+    { id: 'axes', name: 'Yxor' },
+    { id: 'swords', name: 'Svärd' },
+    { id: 'maces', name: 'Hammare' },
+    { id: 'staves', name: 'Stavar' },
+    { id: 'shield', name: 'Sköldar' },
+    { id: 'spears', name: 'Stick' },
+    { id: 'chain', name: 'Kätting' },
+    { id: '2h', name: 'Tvåhand' }
 ]
 
-const Header: Component<{ usedAttributes: string[], setUsedAttributes: ((prev: any) => any[]) }> = (props) => {
-    const [profile, setProfile] = createSignal<string>("Profile 1");
-    const [race, setRace] = createSignal<string>("Troll");
+const Races: { [key in Race]: string } = {
+    human: 'Människa',
+    elf: 'Alv',
+    dwarf: 'Dvärg',
+    orc: 'Ork',
+    troll: 'Troll',
+    goblin: 'Goblin',
+    undead: 'Odöd'
+}
 
-    function toggleWeapon(weapon: string) {
-        props.setUsedAttributes((prev: string[]) => {
-            if (prev.includes(weapon)) {
-                console.log(prev.splice(prev.indexOf(weapon), 1));
-            } else {
-                prev.push(weapon)
-            }
-            return [...prev]
-        })
-        props.usedAttributes
+const Header: Component<{
+    profileId: string,
+    setProfileId: ((prev: string) => void),
+    profileList: { [key: string]: string }
+    race: Race,
+    setRace: ((prev: Race) => void),
+    usedAttributes: UsedAttribute[],
+    setUsedAttributes: ((prev: UsedAttribute[]) => void)
+}> = (props) => {
+
+    function toggleWeapon(weapon: UsedAttribute) {
+        let newArr = props.usedAttributes.slice();
+        if (newArr.includes(weapon)) {
+            newArr.splice(props.usedAttributes.indexOf(weapon), 1)
+        } else {
+            newArr.push(weapon)
+        }
+        props.setUsedAttributes(newArr)
     }
 
     return (
-        <div class='pb-2'>
-            <Modal />
-            <div id='test' class='flex flex-wrap sm:justify-between'>
-                <Selector text={profile()} size={(['Profile 1', 'Profile 2', 'Long profile name'].reduce((a, b) => a.length > b.length ? a : b).length) * 10}>
-                    <For each={['Profile 1', 'Profile 2', 'Long profile name']}>
-                        {item => <HeaderButton text={item} action={() => setProfile(item)} />}
-                    </For>
+        <div class={useLayout()?.textSize()}>
+            <div class='flex flex-row flex-wrap sm:justify-between'>
+                <Selector
+                    text={props.profileList[props.profileId]}
+                    size={Object.keys(props.profileList).map(id => props.profileList[id]).reduce((a, b) => a.length > b.length ? a : b).length * 10}>
+                    <Index each={Object.keys(props.profileList)}>
+                        {profileId => <HeaderButton text={props.profileList[profileId()]} action={() => props.setProfileId(profileId())} />}
+                    </Index>
                 </Selector>
-                <Selector text={race()} size={80}>
-                    <For each={['Troll', 'Alv', 'Människa']}>
-                        {item => <HeaderButton text={item} action={() => setRace(item)} />}
-                    </For>
+                <Selector text={Races[props.race]} size={80}>
+                    <Index each={Object.keys(Races)}>
+                        {race => <HeaderButton text={Races[race() as Race]} action={() => props.setRace(race() as Race)} />}
+                    </Index>
                 </Selector>
                 <Collapsable collapsedText='Alternativ'>
                     <HeaderButton text={addProfileText} />
@@ -68,12 +80,12 @@ const Header: Component<{ usedAttributes: string[], setUsedAttributes: ((prev: a
                 </Collapsable>
                 <div class='flex w-full sm:w-auto sm:inline-block'>
                     <Collapsable collapsedText='Vapentyp'>
-                        <For each={WeaponTypes}>
+                        <Index each={WeaponTypes}>
                             {weapon => <Button
-                                selected={props.usedAttributes.includes(weapon.id)}
-                                text={weapon.name}
-                                action={() => toggleWeapon(weapon.id)} />}
-                        </For>
+                                selected={props.usedAttributes.includes(weapon().id)}
+                                text={weapon().name}
+                                action={() => toggleWeapon(weapon().id)} />}
+                        </Index>
                     </Collapsable>
                 </div>
             </div>
@@ -126,7 +138,7 @@ const Selector: Component<{ children: any, text: string, size: number }> = (prop
     return (
         <div class='relative inline-block'>
             <Button text={props.text} />
-            <div style={`min-width: ${props.size}px`} class='hidden shadow shadow-light p-1 absolute display-on-previous-hover bg-dark hover:block sm:w-[100vw]'>
+            <div style={`min-width: ${props.size}px`} class='hidden shadow shadow-light p-1 sm:left-0 sm:right-0 absolute sm:fixed display-on-previous-hover bg-dark hover:block'>
                 {props.children}
             </div>
         </div>
