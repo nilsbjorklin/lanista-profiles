@@ -1,6 +1,5 @@
-import { Index, createSignal, Switch, Match, type Component, createEffect } from 'solid-js';
+import { Index, Switch, Match, type Component } from 'solid-js';
 import { useLayout } from './LayoutProvider';
-import Modal from './Modal'
 import { RaceType, UsedAttribute } from './data/Types'
 
 
@@ -118,18 +117,18 @@ const Button: Component<{ text?: string, action?: () => void, selected?: boolean
     )
 }
 
-const HeaderButton: Component<{ class?: string, text?: string, action?: () => void }> = (props) => {
+const HeaderButton: Component<{ text?: string | undefined, action?: (() => void) | undefined }> = (props) => {
     return <a
         class='select-none inline-block px-3 py-2 rounded-md border-2 border-transparent hover:border-light'
-        onClick={props.action}>
+        onClick={props.action ?? (()=> {})}>
         {props.text}
     </a>
 };
 
-const SelectedButton: Component<{ text?: string, action?: () => void }> = (props) => {
+const SelectedButton: Component<{ text?: string | undefined, action?: (() => void) | undefined }> = (props) => {
     return <a
         class='select-none inline-block px-3 py-2 rounded-md border-2 border-dark bg-light hover:border-light hover:text-light hover:bg-dark text-dark'
-        onClick={props.action}>
+        onClick={props.action ?? (()=> {})}>
         {props.text}
     </a>
 };

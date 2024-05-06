@@ -28,6 +28,14 @@
         @apply block;
     }
 
+    .input-no-button::-webkit-inner-spin-button,
+    .input-no-button::-webkit-outer-spin-button,
+    .input-no-button::-webkit-inner-spin-button,
+    .input-no-button::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
     .scrollbar-none {
         -ms-overflow-style: none;
         scrollbar-width: none;

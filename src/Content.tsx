@@ -1,4 +1,4 @@
-import { Index, createEffect, createSignal, Switch, Match, type Component, createMemo } from 'solid-js';
+import { Index, Switch, Match, type Component, createMemo } from 'solid-js';
 import { useLayout } from './LayoutProvider';
 import StatLabelData from './data/statLabelData.json';
 import RaceData from './data/raceData.json';
@@ -11,7 +11,9 @@ const baseStats: Stat[] = ['health', 'strength', 'endurance', 'initiative', 'dod
 const Content: Component<{
     race: RaceType,
     usedAttributes: UsedAttribute[],
-    attributes: Attributes
+    attributes: Attributes,
+    setAttribute: (stat: Stat, index: number, value: number) => void,
+    attributesTotal: Attributes
 }> = (props) => {
     type Races = {
         [key in RaceType]: {
@@ -48,6 +50,10 @@ const Content: Component<{
         return baseStats.concat(props.usedAttributes.filter(attr => attr !== '2h') as Stat[]);
     }
 
+    function calculateAttributesWithModifiers(stat: Stat, attribute: number | undefined) {
+        return ((attribute ?? 0) * (modifiers()[stat] ?? 1)).toFixed(1);
+    }
+
     return (
         <div class='flex flex-col overflow-hidden' >
             <div class='flex flex-col w-full rounded-t-md border-2 border-light mt-1'>
@@ -79,7 +85,12 @@ const Content: Component<{
                                 <Row>
                                     {useLayout()?.desktop() && <div class={`p-3 text-center bg-light text-dark font-bold ${index === 0 ? 'rounded-bl-md' : 'rounded-l-md'}`}>{(index === 0 ? 150 : 20) - 15}</div>}
                                     <Index each={usedStats()}>
-                                        {stat => <div class={`p-3 text-center bg-light text-dark border-dark border-l last:${index === 0 ? 'rounded-br-md' : 'rounded-r-md'}`}>{props?.attributes?.[stat()]?.[index] ?? 0}</div>}
+                                        {stat =>
+                                            <input class={`input-no-button p-3 text-center bg-light text-dark border-dark border-l last:${index === 0 ? 'rounded-br-md' : 'rounded-r-md'}`}
+                                                type='number'
+                                                value={(props?.attributes?.[stat()]?.[index] ?? 0).toString()}
+                                                onChange={e => props.setAttribute(stat(), index, Number(e.target.value))} />
+                                        }
                                     </Index>
                                 </Row>,
                                 <Switch fallback={<div hidden />}>
@@ -92,7 +103,7 @@ const Content: Component<{
                                 <Row>
                                     {useLayout()?.desktop() && <div class='p-3 text-center bg-dark text-light font-bold'>{`Grad ${index + 1}`}</div>}
                                     <Index each={usedStats()}>
-                                        {stat => <div class='p-3 text-center bg-dark text-light border-light border-l'>{props?.attributes?.[stat()]?.[index] ?? 0}</div>}
+                                        {stat => <div class='p-3 text-center bg-dark text-light border-light border-l'>{calculateAttributesWithModifiers(stat(), props?.attributesTotal?.[stat()]?.[index])}</div>}
                                     </Index>
                                 </Row>
                             ])}

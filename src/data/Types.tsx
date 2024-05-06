@@ -25,11 +25,9 @@ export interface Equipment {
     armor?: Armor;
     accessories?: Accessories;
 }
-
 export type Weapon = {
     [key in WeaponType]?: any
 }
-
 export interface Armor {
     head?: any;
     shoulders?: any;
