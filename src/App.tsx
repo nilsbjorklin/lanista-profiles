@@ -1,9 +1,5 @@
-import { createMemo, type Component } from 'solid-js';
+import { type Component } from 'solid-js';
 import { LayoutProvider } from './LayoutProvider';
-
-import compareObjects from './compareObjects';
-import { RaceType, Stat, UsedAttribute } from './data/Types';
-import RaceData from './data/raceData.json';
 
 import AttributesCalculator from './AttributesCalculator';
 import ProfileHandler from './ProfileHandler';
@@ -18,57 +14,13 @@ import TargetValues from './TargetValues';
 import Content from './content/Content';
 import ContentData from './content/ContentData';
 import ContentHeader from './content/ContentHeader';
-
-const baseStats: Stat[] = ['health', 'strength', 'endurance', 'initiative', 'dodge'];
-
-type Races = {
-    [key in RaceType]: {
-        name: string;
-        stats: {
-            [key in Stat]: number
-        }
-    }
-}
-type Modifier = {
-    [key in Stat]?: number
-}
+import StatsAndModifiers from './StatsAndModifiers';
 
 const App: Component = () => {
     const { setProfiles, profileId, profileList, getActiveProfile, profileActions } = ProfileHandler();
     const { attributes, setAttribute, attributesTotal, attributeActions } = AttributesCalculator(getActiveProfile, setProfiles);
     const { target, setTarget } = TargetValues(getActiveProfile, setProfiles);
-
-    const race: () => RaceType = createMemo(() => getActiveProfile().race);
-    const usedAttributes: () => UsedAttribute[] = createMemo(() => getActiveProfile().usedAttributes, [], { equals: (prev, next) => prev.equals(next) });
-
-    const usedStats: () => Stat[] = createMemo(() => getUsedStats(), {}, { equals: (prev, next) => prev.equals(next) });
-    const modifiers: () => Modifier = createMemo(() => getModifiers(), {}, { equals: (prev, next) => compareObjects(prev, next) });
-
-    function getModifiers(): Modifier {
-        let result: Modifier = {};
-        usedStats().forEach(stat => {
-            result[stat] = (RaceData as Races)[race()].stats[stat];
-        })
-        return result;
-    }
-
-    function getUsedStats(): Stat[] {
-        return baseStats.concat(usedAttributes().filter(attr => attr !== '2h') as Stat[]);
-    }
-
-    function setRace(race: RaceType): void {
-        setProfiles((prev) => {
-            prev.profiles[prev.active].race = race
-            return structuredClone(prev);
-        })
-    }
-
-    function setUsedAttributes(usedAttributes: UsedAttribute[]): void {
-        setProfiles((prev) => {
-            prev.profiles[prev.active].usedAttributes = usedAttributes
-            return structuredClone(prev);
-        })
-    }
+    const { race, setRace, usedAttributes, setUsedAttributes, usedStats, modifiers } = StatsAndModifiers(getActiveProfile, setProfiles);
 
     const Container: Component<{ children: any[] }> = (props) => {
         return (

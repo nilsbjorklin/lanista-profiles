@@ -22,10 +22,5 @@ export default function TargetValues(getActiveProfile: () => Profile, setProfile
         })
     }
 
-    createEffect(() => {
-        console.log('target()');
-        console.log(target());
-    })
-
     return { target, setTarget };
 }
