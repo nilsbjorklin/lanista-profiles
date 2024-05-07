@@ -16,6 +16,12 @@ const ContentData: Component<{
         return ((attribute ?? 0) * (props.modifiers()[stat] ?? 1)).toFixed(1);
     }
 
+    function pointsLeft(index: number) {
+        let totalPoints = (index === 0 ? 150 : 20);
+        props.usedStats().forEach(stat => totalPoints -= props.attributes[stat]?.[index] ?? 0)
+        return totalPoints
+    }
+
     return (
         <div class='grid grid-flow-row auto-cols-fr overflow-y-scroll scrollbar-none'>
             <Index each={Array(45)}>
@@ -28,7 +34,7 @@ const ContentData: Component<{
                         </Match>
                     </Switch>,
                     <Row>
-                        {useLayout()?.desktop() && <div class={`p-3 text-center bg-light text-dark font-bold ${index === 0 ? 'rounded-bl-md' : 'rounded-l-md'}`}>{(index === 0 ? 150 : 20) - 15}</div>}
+                        {useLayout()?.desktop() && <div class={`p-3 text-center bg-light text-dark font-bold ${index === 0 ? 'rounded-bl-md' : 'rounded-l-md'}`}>{pointsLeft(index)}</div>}
                         <Index each={props.usedStats()}>
                             {stat =>
                                 <input class={`input-no-button p-3 text-center bg-light text-dark border-dark border-l last:${index === 0 ? 'rounded-br-md' : 'rounded-r-md'}`}
