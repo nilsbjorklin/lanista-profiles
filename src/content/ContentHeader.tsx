@@ -1,8 +1,8 @@
 import { Index, type Component } from 'solid-js';
 import { useLayout } from '../LayoutProvider';
+import { Stat } from '../data/Types';
 import StatLabelData from '../data/statLabelData.json';
-import { Stat } from '../data/Types'
-import { Row } from './Components'
+import { Row } from './Components';
 
 const baseStats: Stat[] = ['health', 'strength', 'endurance', 'initiative', 'dodge'];
 
@@ -27,7 +27,6 @@ const ContentHeader: Component<{
             </div>
         )
     }
-
 
     return (
         <div class='flex flex-col w-full rounded-t-md border-2 border-light mt-1'>

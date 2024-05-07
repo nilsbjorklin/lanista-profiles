@@ -1,7 +1,7 @@
-import { createSignal, createMemo } from 'solid-js';
-import ProfilesSource from './data/profiles.json';
+import { createMemo, createSignal } from 'solid-js';
 import compareObjects from './compareObjects';
 import { Profiles } from './data/Types';
+import ProfilesSource from './data/profiles.json';
 import { uniqueId } from './supportFunctions';
 
 export default function ProfileHandler() {
@@ -15,7 +15,8 @@ export default function ProfileHandler() {
 
     function getProfileList(): { [key: string]: string } {
         let result: { [key: string]: string } = {};
-        Object.keys(profiles().profiles).forEach(id => result[id] = profiles().profiles[id].name);
+        Object.keys(profiles().profiles)
+            .forEach(id => result[id] = profiles().profiles[id].name);
         return result;
     }
 

@@ -1,5 +1,5 @@
-import { createSignal, createMemo, createEffect } from 'solid-js';
-import { Stat, Attributes, Profile } from './data/Types'
+import { createMemo, createSignal } from 'solid-js';
+import { Attributes, Profile, Stat } from './data/Types';
 
 export default function AttributesCalculator(getActiveProfile: () => Profile, setProfiles: (value: (prev: any) => any) => void) {
     const attributes = createMemo(() => getActiveProfile().attributes, {}, { equals: (prev, next) => compareAttributes(prev, next) });
@@ -69,7 +69,7 @@ export default function AttributesCalculator(getActiveProfile: () => Profile, se
 
             (profiles.profiles[profiles.active].attributes[stat] as number[])[index] = value;
 
-            return structuredClone(profiles);
+            return profiles;
         })
     }
 
@@ -78,7 +78,7 @@ export default function AttributesCalculator(getActiveProfile: () => Profile, se
     }
 
     function autoFill() {
-        console.log('autoFillText');
+        console.log('autoFill');
     }
 
     function clearForm() {
