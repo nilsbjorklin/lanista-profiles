@@ -1,10 +1,14 @@
-import { createMemo, createEffect, type Component } from 'solid-js';
+import { createMemo, type Component } from 'solid-js';
 import { LayoutProvider } from './LayoutProvider';
-import Header from './Header';
-import Content from './Content';
+import Header from './header/Header';
+import Content from './content/Content';
 import { RaceType, UsedAttribute } from './data/Types'
 import AttributesCalculator from './AttributesCalculator';
 import ProfileHandler from './ProfileHandler';
+import ProfileSelector from './header/ProfileSelector';
+import RaceSelector from './header/RaceSelector';
+import Options from './header/Options';
+import Weapons from './header/Weapons';
 
 const App: Component = () => {
     const { setProfiles, profileId, profileList, getActiveProfile, profileActions } = ProfileHandler();
@@ -25,25 +29,38 @@ const App: Component = () => {
             return structuredClone(prev);
         })
     }
-    
+
+    const Container: Component<{ children: any[] }> = (props) => {
+        return (
+            <div class='flex flex-col bg-dark text-light sm:w-screen md:w-[600px] lg:w-[80vw] w-[1120px]'>
+                {props.children}
+            </div>
+        );
+    }
+
     return (
         <LayoutProvider>
             <Container>
-                <Header
-                    profileId={profileId()}
-                    profileList={profileList()}
-                    race={race()}
-                    setRace={setRace}
-                    usedAttributes={usedAttributes()}
-                    setUsedAttributes={setUsedAttributes}
-                    switchProfile={profileActions.switchProfile}
-                    addProfile={profileActions.addProfile}
-                    renameProfile={profileActions.renameProfile}
-                    cloneProfile={profileActions.cloneProfile}
-                    deleteProfile={profileActions.deleteProfile}
-                    autoSelectRace={attributeActions.autoSelectRace}
-                    autoFill={attributeActions.autoFill}
-                    clearForm={attributeActions.clearForm} />
+                <Header>
+                    <ProfileSelector
+                        profileId={profileId()}
+                        profileList={profileList()}
+                        switchProfile={profileActions.switchProfile} />
+                    <RaceSelector
+                        race={race()}
+                        setRace={setRace} />
+                    <Options
+                        addProfile={profileActions.addProfile}
+                        renameProfile={profileActions.renameProfile}
+                        cloneProfile={profileActions.cloneProfile}
+                        deleteProfile={profileActions.deleteProfile}
+                        autoSelectRace={attributeActions.autoSelectRace}
+                        autoFill={attributeActions.autoFill}
+                        clearForm={attributeActions.clearForm} />
+                    <Weapons
+                        usedAttributes={usedAttributes()}
+                        setUsedAttributes={setUsedAttributes} />
+                </Header>
                 <Content
                     race={race()}
                     usedAttributes={usedAttributes()}
@@ -55,14 +72,5 @@ const App: Component = () => {
         </LayoutProvider>
     );
 };
-
-
-const Container: Component<{ children: any[] }> = (props) => {
-    return (
-        <div class='flex flex-col bg-dark text-light sm:w-screen md:w-[600px] lg:w-[80vw] w-[1120px]'>
-            {props.children}
-        </div>
-    );
-}
 
 export default App;

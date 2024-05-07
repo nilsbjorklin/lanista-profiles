@@ -117,5 +117,22 @@
             "spears": 1.05,
             "chain": 1.05
         }
+    },
+    "salamanther": {
+        "name": "Salamanther",
+        "stats": {
+            "health": 1.25,
+            "strength": 0.9,
+            "endurance": 1,
+            "initiative": 1.2,
+            "dodge": 1.1,
+            "axes": 1,
+            "swords": 1,
+            "maces": 1.1,
+            "staves": 1.1,
+            "shield": 0.9,
+            "spears": 1.1,
+            "chain": 0.9
+        }
     }
 }
