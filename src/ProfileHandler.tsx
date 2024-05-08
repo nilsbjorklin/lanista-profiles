@@ -48,20 +48,21 @@ export default class ProfileHandler {
     }
 
     renameProfile = (name: string) => {
-        this.activeProfile[1]((prev) => {
-            let profile: Profile = structuredClone(prev)
-            profile.name = name;
-            return profile;
-        })
+        this.setProfile((prev) => {
+            prev.name = name;
+            return prev;
+        });
     }
 
     cloneProfile = (name: string) => {
         const newId = uniqueId();
         this.setProfile((prev) => {
             prev.name = name;
+            prev.id = newId;
             this.profiles.set(newId, prev)
             return prev;
         });
+        
     }
 
     deleteProfile = () => {
@@ -72,10 +73,10 @@ export default class ProfileHandler {
     }
 
     setProfile = (value: (prev: Profile) => Profile): void => {
-        let currentProfile = this.getProfile();
         let newProfile = value(structuredClone(this.getProfile()));
-        if (!compareObjects(currentProfile, newProfile)) {
+        if (!compareObjects(this.getProfile(), newProfile)) {
             this.activeProfile[1](newProfile);
+            this.profiles.set(newProfile.id, newProfile);
         }
     }
 

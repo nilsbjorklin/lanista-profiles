@@ -13,14 +13,15 @@ const ContentData: Component<{
     attributesTotal: Attributes,
     target: { manual: Target, equipment: Target, total: Target },
     setTarget: (level: number, stat: Stat, value: number) => void,
-    equipment: Equipment
+    equipment: Equipment,
+    twoHanded: boolean
 }> = (props) => {
 
     return (
-        <div class='grid grid-flow-row auto-cols-fr overflow-y-scroll scrollbar-none text-sm'>
+        <div class='grid grid-flow-row auto-cols-fr overflow-y-scroll scrollbar-none sm:text-sm'>
             <Index each={Array(45)}>
                 {(_item, index) => ([
-                    <Row  class='text-center font-bold pt-4 pb-1'>
+                    <Row class='text-center font-bold pt-4 pb-1'>
                         <div>Grad {index + 1}</div>
                     </Row>,
                     <AttributeRow
@@ -40,7 +41,8 @@ const ContentData: Component<{
                         targetEquipment={props.target.manual[index + 1]}
                         targetTotal={props.target.total[index + 1]}
                         setTarget={(stat: Stat, value: number) => props.setTarget(index + 1, stat, value)}
-                        equipment={props.equipment[index + 1]} />
+                        equipment={props.equipment[index + 1]}
+                        twoHanded={props.twoHanded} />
                 ])}
             </Index>
         </div>

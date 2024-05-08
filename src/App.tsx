@@ -24,7 +24,7 @@ const App: Component = () => {
     const profiles = new ProfileHandler(ProfilesSource as Profile[]);
     const { attributes, setAttribute, attributesTotal, attributeActions } = AttributesCalculator(profiles.getProfile, profiles.setProfile);
     const { target, setTarget, equipment } = TargetAndEquipment(profiles.getProfile, profiles.setProfile);
-    const { race, setRace, usedAttributes, setUsedAttributes, usedStats, modifiers } = StatsAndModifiers(profiles.getProfile, profiles.setProfile);
+    const { race, setRace, usedAttributes, setUsedAttributes, usedStats, modifiers, twoHanded } = StatsAndModifiers(profiles.getProfile, profiles.setProfile);
 
     const Container: Component<{ children: any[] }> = (props) => {
         return (
@@ -70,7 +70,8 @@ const App: Component = () => {
                         attributesTotal={attributesTotal()}
                         target={{ manual: target.manualTarget(), equipment: target.equipmentTarget(), total: target.totalTarget() }}
                         setTarget={setTarget}
-                        equipment={equipment()} />
+                        equipment={equipment()}
+                        twoHanded={twoHanded()} />
                 </Content>
             </Container>
         </LayoutProvider>

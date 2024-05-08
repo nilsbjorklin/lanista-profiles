@@ -52,5 +52,9 @@ export default function StatsAndModifiers(getActiveProfile: () => Profile, setPr
         })
     }
 
-    return { race, setRace, usedAttributes, setUsedAttributes, usedStats, modifiers }
+    function twoHanded(): boolean {
+        return usedAttributes().includes('2h');
+    }
+
+    return { race, setRace, usedAttributes, setUsedAttributes, usedStats, modifiers, twoHanded }
 }
