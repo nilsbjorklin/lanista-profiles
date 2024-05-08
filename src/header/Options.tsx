@@ -17,7 +17,8 @@ const Options: Component<{
     deleteProfile: (() => void),
     autoSelectRace: (() => void),
     autoFill: (() => void),
-    clearForm: (() => void)
+    clearForm: (() => void),
+    testFunction: (() => void)
 }> = (props) => {
     return (
         <Collapsable collapsedText='Alternativ'>
@@ -28,6 +29,7 @@ const Options: Component<{
             <HeaderButton text={autoSelectRaceText} action={props.autoSelectRace} />
             <HeaderButton text={autoFillText} action={props.autoFill} />
             <HeaderButton text={clearFormText} action={props.clearForm} />
+            <HeaderButton text='TEST' action={props.testFunction} />
         </Collapsable>
     )
 }

@@ -1,7 +1,8 @@
 import { createMemo, createSignal } from 'solid-js';
 import { Attributes, Profile, Stat } from './data/Types';
 
-export default function AttributesCalculator(getActiveProfile: () => Profile, setProfiles: (value: (prev: any) => any) => void) {
+export default function AttributesCalculator(getActiveProfile: () => Profile, setProfile: (value: (prev: Profile) => Profile) => void) {
+
     const attributes = createMemo(() => getActiveProfile().attributes, {}, { equals: (prev, next) => compareAttributes(prev, next) });
     const [attributesTotal, setAttributesTotal] = createSignal<Attributes>(setInitialAttributesTotal());
 
@@ -58,18 +59,17 @@ export default function AttributesCalculator(getActiveProfile: () => Profile, se
     }
 
     function setAttribute(stat: Stat, index: number, value: number): void {
-        setProfiles((prev) => {
-            let profiles = structuredClone(prev);
-            profiles.profiles[profiles.active].attributes[stat] = profiles.profiles[profiles.active].attributes[stat] ?? Array(index).fill(0);
+        setProfile((prev) => {
+            prev.attributes[stat] = prev.attributes[stat] ?? Array(index).fill(0);
 
-            if ((profiles.profiles[profiles.active].attributes[stat] as number[]).length <= index) {
-                let length = (profiles.profiles[profiles.active].attributes[stat] as number[]).length;
-                profiles.profiles[profiles.active].attributes[stat] = (profiles.profiles[profiles.active].attributes[stat] as number[]).concat(Array(index - length).fill(0))
+            if ((prev.attributes[stat] as number[]).length <= index) {
+                let length = (prev.attributes[stat] as number[]).length;
+                prev.attributes[stat] = (prev.attributes[stat] as number[]).concat(Array(index - length).fill(0))
             }
 
-            (profiles.profiles[profiles.active].attributes[stat] as number[])[index] = value;
+            (prev.attributes[stat] as number[])[index] = value;
 
-            return profiles;
+            return prev;
         })
     }
 
@@ -82,9 +82,9 @@ export default function AttributesCalculator(getActiveProfile: () => Profile, se
     }
 
     function clearForm() {
-        setProfiles((prev) => {
-            prev.profiles[prev.active].attributes = {}
-            return structuredClone(prev);
+        setProfile((prev) => {
+            prev.attributes = {}
+            return prev;
         })
     }
 

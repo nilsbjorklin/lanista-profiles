@@ -18,7 +18,7 @@ type Modifier = {
     [key in Stat]?: number
 }
 
-export default function StatsAndModifiers(getActiveProfile: () => Profile, setProfiles: (value: (prev: any) => any) => void) {
+export default function StatsAndModifiers(getActiveProfile: () => Profile, setProfile: (value: (prev: Profile) => Profile) => void) {
     const race: () => RaceType = createMemo(() => getActiveProfile().race);
 
     const usedAttributes: () => UsedAttribute[] = createMemo(() => getActiveProfile().usedAttributes, [], { equals: (prev, next) => prev.equals(next) });
@@ -39,16 +39,16 @@ export default function StatsAndModifiers(getActiveProfile: () => Profile, setPr
     }
 
     function setRace(race: RaceType): void {
-        setProfiles((prev) => {
-            prev.profiles[prev.active].race = race
-            return structuredClone(prev);
+        setProfile((prev) => {
+            prev.race = race
+            return prev;
         })
     }
 
     function setUsedAttributes(usedAttributes: UsedAttribute[]): void {
-        setProfiles((prev) => {
-            prev.profiles[prev.active].usedAttributes = usedAttributes
-            return structuredClone(prev);
+        setProfile((prev) => {
+            prev.usedAttributes = usedAttributes
+            return prev;
         })
     }
 

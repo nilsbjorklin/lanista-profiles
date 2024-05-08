@@ -1,15 +1,28 @@
 import { Index, type Component } from 'solid-js';
 import { useLayout } from '../LayoutProvider';
-import { Stat } from '../data/Types';
+import { RaceType, Stat } from '../data/Types';
 import StatLabelData from '../data/statLabelData.json';
-import { Row } from './Components';
+import Row from './Row';
 
 const baseStats: Stat[] = ['health', 'strength', 'endurance', 'initiative', 'dodge'];
+
+const Races: { [key in RaceType]: string } = {
+    human: 'Människa',
+    elf: 'Alv',
+    dwarf: 'Dvärg',
+    orc: 'Ork',
+    troll: 'Troll',
+    goblin: 'Goblin',
+    undead: 'Odöd',
+    salamanther: 'Salamanther'
+}
 
 const ContentHeader: Component<{
     usedStats: () => Stat[],
     modifiers: () => { [key in Stat]?: number }
+    race: RaceType,
 }> = (props) => {
+    const labelStyle = 'col-span-2 p-3 text-center font-bold';
 
     type StatLabels = {
         [key in Stat]: {
@@ -22,22 +35,22 @@ const ContentHeader: Component<{
 
     const ContentHeaderCell: Component<{ value: string }> = (props) => {
         return (
-            <div class='p-3 text-center font-bold border-l first:border-dark border-light whitespace-nowrap overflow-hidden'>
+            <div class='p-3 text-center font-bold border-l whitespace-nowrap overflow-hidden'>
                 {props.value}
             </div>
         )
     }
 
     return (
-        <div class='flex flex-col w-full rounded-t-md border-2 border-light mt-1'>
+        <div class='flex flex-col w-full rounded-md border mt-1'>
             <Row>
-                {useLayout()?.desktop() && <ContentHeaderCell value={'Egenskaper'} />}
+                {useLayout()?.desktop() && <div class={labelStyle}>Egenskaper</div>}
                 <Index each={props.usedStats()}>
                     {stat => <ContentHeaderCell value={(StatLabelData as StatLabels)[stat()][useLayout()?.size() ?? 'sm']} />}
                 </Index>
             </Row>
-            <Row>
-                {useLayout()?.desktop() && <ContentHeaderCell value={'Bonus'} />}
+            <Row class='border-t'>
+                {useLayout()?.desktop() && <div class={labelStyle}>Bonus för {Races[props.race]}</div>}
                 <Index each={props.usedStats()}>
                     {stat => <ContentHeaderCell value={Math.round((props.modifiers()[stat()] ?? 1) * 100) + '%'} />}
                 </Index>

@@ -1,6 +1,10 @@
 export default function compareObjects(obj1: { [key: string]: any }, obj2: { [key: string]: any }): boolean {
+    if(!obj1 || !obj2){
+        return false;
+    }
     let obj1Keys = Object.keys(obj1);
     let obj2Keys = Object.keys(obj2);
+    
     if (!obj1Keys.equals(obj2Keys)) {
         return false;
     }

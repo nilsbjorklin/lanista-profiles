@@ -1,80 +1,98 @@
-import { createMemo, createSignal } from 'solid-js';
-import compareObjects from './compareObjects';
-import { Profiles } from './data/Types';
-import ProfilesSource from './data/profiles.json';
+import { Accessor, Setter, createSignal } from 'solid-js';
+import { Profile } from './data/Types';
 import { uniqueId } from './supportFunctions';
+import compareObjects from './compareObjects';
 
-export default function ProfileHandler() {
-    const [profiles, setProfiles] = createSignal<Profiles>((ProfilesSource as Profiles));
-    const profileId: () => string = createMemo(() => profiles().active);
-    const profileList: () => { [key: string]: string } = createMemo(() => getProfileList(), {}, { equals: (prev, next) => compareObjects(prev, next) });
+export type ProfileList = {
+    selected: string,
+    profiles: {
+        [key: string]: string
+    };
+}
+export default class ProfileHandler {
+    private profiles: Map<string, Profile> = new Map();
+    private activeProfile: [Accessor<Profile>, Setter<Profile>];
 
-    function getActiveProfile() {
-        return profiles().profiles[profiles().active]
+    public constructor(profiles: Profile[]) {
+        profiles.forEach(profile => this.profiles.set(profile.id, profile));
+        this.activeProfile = createSignal(profiles[0]);
     }
 
-    function getProfileList(): { [key: string]: string } {
-        let result: { [key: string]: string } = {};
-        Object.keys(profiles().profiles)
-            .forEach(id => result[id] = profiles().profiles[id].name);
+    getProfile = (): Profile => {
+        if (!this)
+            throw new Error("")
+        return this.activeProfile[0]();
+    }
+
+    switchProfile = (profileId: string): void => {
+        if (!this)
+            throw new Error("")
+        let profile = this.profiles.get(profileId);
+        if (profile) {
+            this.activeProfile[1](profile);
+        }
+    }
+
+    addProfile = (name: string) => {
+        const newId = uniqueId();
+        this.profiles.set(newId, {
+            id: newId,
+            name,
+            race: 'human',
+            usedAttributes: [],
+            attributes: {},
+            equipment: {},
+            target: {}
+        });
+        this.switchProfile(newId);
+    }
+
+    renameProfile = (name: string) => {
+        this.activeProfile[1]((prev) => {
+            let profile: Profile = structuredClone(prev)
+            profile.name = name;
+            return profile;
+        })
+    }
+
+    cloneProfile = (name: string) => {
+        const newId = uniqueId();
+        this.setProfile((prev) => {
+            prev.name = name;
+            this.profiles.set(newId, prev)
+            return prev;
+        });
+    }
+
+    deleteProfile = () => {
+        this.setProfile((prev) => {
+            this.profiles.delete(prev.id);
+            return this.profiles.entries().next().value[1]
+        });
+    }
+
+    setProfile = (value: (prev: Profile) => Profile): void => {
+        console.log('setProfiles');
+        let currentProfile = this.getProfile();
+        let newProfile = value(structuredClone(this.getProfile()));
+        if (compareObjects(currentProfile, newProfile)) {
+            console.log('Profiles are the same');
+        } else {
+            this.activeProfile[1](newProfile);
+        }
+    }
+
+    profileList = (): ProfileList => {
+        if (!this)
+            throw new Error("")
+        let result: ProfileList = {
+            selected: this.getProfile().name,
+            profiles: {}
+        };
+        this.profiles.forEach((value: Profile, key: string) => {
+            if (value.id !== this.getProfile().id)
+                result.profiles[key] = value.name
+        });
         return result;
     }
-
-    function switchProfile(profileId: string): void {
-        setProfiles((prev) => {
-            prev.active = profileId
-            return structuredClone(prev);
-        })
-    }
-
-    function addProfile(name: string) {
-        const newId = uniqueId();
-        setProfiles((prev) => {
-            prev.profiles[newId] = {
-                name,
-                race: 'human',
-                usedAttributes: [],
-                attributes: {},
-                equipment: {},
-                target: {}
-            }
-            prev.active = newId
-            return structuredClone(prev);
-        })
-    }
-
-    function renameProfile(name: string) {
-        setProfiles((prev) => {
-            prev.profiles[prev.active].name = name;
-            return structuredClone(prev);
-        })
-    }
-
-    function cloneProfile(name: string) {
-        const newId = uniqueId();
-        setProfiles((prev) => {
-            let profile = structuredClone(prev.profiles[prev.active])
-            profile.name = name;
-            prev.profiles[newId] = profile;
-            prev.active = newId;
-            return structuredClone(prev);
-        })
-    }
-
-    function deleteProfile() {
-        setProfiles((prev) => {
-            let result: Profiles = {
-                active: '',
-                profiles: {}
-            };
-            Object.keys(prev.profiles)
-                .filter((profileId) => profileId !== prev.active)
-                .forEach(profileId => result.profiles[profileId] = prev.profiles[profileId]);
-            result.active = Object.keys(result.profiles)[0];
-            return result;
-        })
-    }
-
-    return { setProfiles, profileId, profileList, getActiveProfile, profileActions: { switchProfile, addProfile, renameProfile, cloneProfile, deleteProfile } }
-
 }

@@ -1,7 +1,6 @@
-import { Index, Match, Switch, type Component } from 'solid-js';
-import { useLayout } from '../LayoutProvider';
+import { Index, type Component } from 'solid-js';
 import { Attributes, Stat } from '../data/Types';
-import { Row } from './Components';
+import Row from './Row';
 
 const AttributeRow: Component<{
     index: number,
@@ -17,18 +16,11 @@ const AttributeRow: Component<{
     }
 
     return ([
-        <Switch fallback={<div hidden />}>
-            <Match when={!useLayout()?.desktop()}>
-                <Row>
-                    <div class='text-center p-3 border-t font-bold'>{`Gradning till Grad ${props.index + 1}:`}</div>
-                </Row>
-            </Match>
-        </Switch>,
-        <Row>
-            {useLayout()?.desktop() && <div class={`p-3 text-center bg-light text-dark font-bold ${props.index === 0 ? 'rounded-bl-md' : 'rounded-l-md'}`}>{pointsLeft(props.index)}</div>}
+        <Row class='rounded-t sm:rounded bg-light text-dark'>
+           <div class={'col-span-2 p-3 text-center font-bold'}>Poäng kvar: {pointsLeft(props.index)}</div>
             <Index each={props.usedStats()}>
                 {stat =>
-                    <input class={`input-no-button p-3 text-center bg-light text-dark border-dark border-l last:${props.index === 0 ? 'rounded-br-md' : 'rounded-r-md'}`}
+                    <input class='input-no-button p-3 text-center bg-none bg-transparent border-l first:border-l-none sm:border-t'
                         type='number'
                         value={(props?.attributes?.[stat()]?.[props.index] ?? 0).toString()}
                         onInput={e => props.setAttribute(stat(), props.index, Number(e.target.value))} />

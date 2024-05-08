@@ -1,7 +1,6 @@
-import { Index, Match, Switch, type Component } from 'solid-js';
-import { useLayout } from '../LayoutProvider';
+import { Index, type Component } from 'solid-js';
 import { Attributes, Stat } from '../data/Types';
-import { Row } from './Components';
+import Row from './Row';
 
 const AttributeResultRow: Component<{
     index: number,
@@ -15,17 +14,14 @@ const AttributeResultRow: Component<{
     }
 
     return ([
-        <Switch fallback={<div hidden />}>
-            <Match when={!useLayout()?.desktop()}>
-                <Row>
-                    <div class='text-center p-3 border-b font-bold'>{`Egenskaper vid Grad ${props.index + 1}:`}</div>
-                </Row>
-            </Match>
-        </Switch>,
-        <Row>
-            {useLayout()?.desktop() && <div class='p-3 text-center bg-dark text-light font-bold'>{`Grad ${props.index + 1}`}</div>}
+        <Row class='rounded-b border-x border-r sm:border-none mb-2'>
+            <div class='col-span-2 p-3 text-center bg-dark text-light font-bold border-b sm:border-none'>Med bonus</div>
             <Index each={props.usedStats()}>
-                {stat => <div class='p-3 text-center bg-dark text-light border-light border-l'>{calculateAttributesWithModifiers(stat(), props?.attributesTotal?.[stat()]?.[props.index])}</div>}
+                {stat => (
+                    <div class='p-3 text-center bg-dark text-light border-light border-l sm:first:border-l-0  border-b sm:border-y'>
+                        {calculateAttributesWithModifiers(stat(), props?.attributesTotal?.[stat()]?.[props.index])}
+                    </div>
+                )}
             </Index>
         </Row>
     ])
