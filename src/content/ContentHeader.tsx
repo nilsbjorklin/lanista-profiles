@@ -4,8 +4,6 @@ import { RaceType, Stat } from '../data/Types';
 import StatLabelData from '../data/statLabelData.json';
 import Row from './Row';
 
-const baseStats: Stat[] = ['health', 'strength', 'endurance', 'initiative', 'dodge'];
-
 const Races: { [key in RaceType]: string } = {
     human: 'Människa',
     elf: 'Alv',

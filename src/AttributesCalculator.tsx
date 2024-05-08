@@ -82,10 +82,12 @@ export default function AttributesCalculator(getActiveProfile: () => Profile, se
     }
 
     function clearForm() {
-        setProfile((prev) => {
-            prev.attributes = {}
-            return prev;
-        })
+        if (window.confirm('Är du säker att du vill ta bort alla utladga poäng?')) {
+            setProfile((prev) => {
+                prev.attributes = {}
+                return prev;
+            })
+        }
     }
 
     return { attributes, setAttribute, attributesTotal, attributeActions: { autoSelectRace, autoFill, clearForm } }

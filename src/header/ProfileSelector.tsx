@@ -1,18 +1,16 @@
 import { Index, type Component } from 'solid-js';
 import { HeaderButton, Selector } from './Components'
-import { ProfileList } from '../ProfileHandler';
+import { useProfile } from '../ProfileProvider';
 
-const ProfileSelector: Component<{
-    profileList: ProfileList
-    switchProfile: ((prev: string) => void),
-}> = (props) => {
+const ProfileSelector: Component<{}> = () => {
+    let switchProfile = useProfile()?.switchProfile;
 
     return (
         <Selector
-            text={props.profileList.selected}
-            size={Object.keys(props.profileList.profiles).map(id => props.profileList.profiles[id]).reduce((a, b) => a.length > b.length ? a : b).length * 10}>
-            <Index each={Object.keys(props.profileList.profiles)}>
-                {profileId => <HeaderButton text={props.profileList.profiles[profileId()]} action={() => props.switchProfile(profileId())} />}
+            text={useProfile()?.profileList()?.selected.name ?? ''}
+            size={(useProfile()?.profileList()?.profiles ?? []).map(profile => profile.name).reduce((a, b) => a.length > b.length ? a : b).length * 10}>
+            <Index each={useProfile()?.profileList()?.profiles ?? []}>
+                {profile => <HeaderButton text={profile().name} action={() => switchProfile?.(profile().id)} />}
             </Index>
         </Selector>
     )
