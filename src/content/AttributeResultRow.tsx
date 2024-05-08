@@ -14,7 +14,7 @@ const AttributeResultRow: Component<{
     }
 
     return ([
-        <Row class='rounded-b border-x border-r sm:border-none mb-2'>
+        <Row class='border-x border-r sm:border-none'>
             <div class='col-span-2 p-3 text-center bg-dark text-light font-bold border-b sm:border-none'>Med bonus</div>
             <Index each={props.usedStats()}>
                 {stat => (

@@ -72,12 +72,9 @@ export default class ProfileHandler {
     }
 
     setProfile = (value: (prev: Profile) => Profile): void => {
-        console.log('setProfiles');
         let currentProfile = this.getProfile();
         let newProfile = value(structuredClone(this.getProfile()));
-        if (compareObjects(currentProfile, newProfile)) {
-            console.log('Profiles are the same');
-        } else {
+        if (!compareObjects(currentProfile, newProfile)) {
             this.activeProfile[1](newProfile);
         }
     }

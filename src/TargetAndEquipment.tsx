@@ -28,10 +28,6 @@ export default function TargetAndEquipment(getActiveProfile: () => Profile, setP
         });
         return result;
     }
-    createEffect(()=> {
-        console.log('equipmentTarget()');
-        console.log(equipmentTarget());
-    })
 
     function getRequirementForCategory(weapons: Weapons, armorList: Armor, accessories: Accessory) {
         let result: { [key in Stat]?: number } = {};

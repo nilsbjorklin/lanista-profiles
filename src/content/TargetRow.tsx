@@ -15,16 +15,16 @@ const TargetRow: Component<{
     const labelStyle = 'col-span-2 p-3 text-center bg-blue text-light font-bold border-b';
     const bottomLabel = `${labelStyle} rounded-bl-md border-none`;
     const topLabel = `${labelStyle} rounded-tl-md`;
-    const inputStyle = `input-no-button p-3 text-center bg-blue text-light border-l`;
+    const inputStyle = `input-no-button p-3 text-center bg-blue text-light border-l sm:first:border-l-0 sm:border-b`;
     const topInputStyle = `${inputStyle} border-b`;
 
     return (
         <Switch>
             <Match when={props.targetManual || props.targetEquipment}>
-                <div class='border rounded'>
+                <div class='border-x border-b rounded-b sm:border-none'>
                     <Row>
                         {useLayout()?.desktop() && <div class={topLabel}>Kravtyp</div>}
-                        <div class={`col-span-${props.usedStats().length} p-3 text-center bg-blue text-light font-bold border-l border-b`}>Krav för Grad {props.level}</div>
+                        <div class={`col-span-${props.usedStats().length} p-3 text-center bg-blue text-light font-bold border-l border-b sm:border-l-0`}>Krav för Grad {props.level}</div>
                     </Row>
                     <Row>
                         <div class={props.targetEquipment ? labelStyle : bottomLabel}>Egna</div>

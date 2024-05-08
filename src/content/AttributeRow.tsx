@@ -17,10 +17,10 @@ const AttributeRow: Component<{
 
     return ([
         <Row class='rounded-t sm:rounded bg-light text-dark'>
-           <div class={'col-span-2 p-3 text-center font-bold'}>Poäng kvar: {pointsLeft(props.index)}</div>
+            <div class={'col-span-2 p-3 text-center font-bold'}>Poäng kvar: {pointsLeft(props.index)}</div>
             <Index each={props.usedStats()}>
                 {stat =>
-                    <input class='input-no-button p-3 text-center bg-none bg-transparent border-l first:border-l-none sm:border-t'
+                    <input class='input-no-button p-3 text-center bg-none bg-transparent border-l first:border-l-0 sm:border-t'
                         type='number'
                         value={(props?.attributes?.[stat()]?.[props.index] ?? 0).toString()}
                         onInput={e => props.setAttribute(stat(), props.index, Number(e.target.value))} />
