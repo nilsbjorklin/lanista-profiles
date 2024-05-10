@@ -12,9 +12,7 @@ const autoSelectRaceText = 'Välj ras och Fyll i värden';
 const autoFillText = 'Fyll i värden';
 const clearFormText = 'Rensa';
 
-const Options: Component<{
-    testFunction: (() => void)
-}> = (props) => {
+const Options: Component<{}> = () => {
     const addProfile = useProfile()?.addProfile;
     const renameProfile = useProfile()?.renameProfile;
     const cloneProfile = useProfile()?.cloneProfile;
@@ -22,6 +20,7 @@ const Options: Component<{
     const autoSelectRace = useFields()?.attributes.autoSelectRace;
     const autoFill = useFields()?.attributes.autoFill;
     const clearForm = useFields()?.attributes.clearForm;
+    const test = useFields()?.test;
     return (
         <Collapsable collapsedText='Alternativ'>
             <HeaderButton text={addProfileText} action={() => addProfile?.('new name')} />
@@ -31,7 +30,7 @@ const Options: Component<{
             <HeaderButton text={autoSelectRaceText} action={autoSelectRace} />
             <HeaderButton text={autoFillText} action={autoFill} />
             <HeaderButton text={clearFormText} action={clearForm} />
-            <HeaderButton text='TEST' action={props.testFunction} />
+            <HeaderButton text='TEST' action={test} />
         </Collapsable>
     )
 }

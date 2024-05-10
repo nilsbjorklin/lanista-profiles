@@ -20,8 +20,7 @@ const Container: Component = () => {
             <Header>
                 <ProfileSelector />
                 <RaceSelector />
-                <Options
-                    testFunction={test} />
+                <Options/>
                 <Weapons />
             </Header>
             <Content>

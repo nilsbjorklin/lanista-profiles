@@ -14,21 +14,10 @@ const WeaponTypes: { id: UsedAttribute, name: string }[] = [
     { id: '2h', name: 'Tvåhand' }
 ]
 
-const Weapons: Component<{
-}> = (props) => {
+const Weapons: Component<{}> = () => {
 
     const usedAttributes = useFields()?.usedAttributes as () => UsedAttribute[];
-    const setUsedAttributes = useFields()?.setUsedAttributes as (prev: UsedAttribute[]) => void;
-
-    function toggleWeapon(weapon: UsedAttribute) {
-        let newArr = usedAttributes().slice();
-        if (newArr.includes(weapon)) {
-            newArr.splice(usedAttributes().indexOf(weapon), 1)
-        } else {
-            newArr.push(weapon)
-        }
-        setUsedAttributes(newArr)
-    }
+    const toggleWeapon = useFields()?.toggleWeapon as (prev: UsedAttribute) => void;
 
     return (
         <div class='flex w-full sm:w-auto sm:inline-block'>

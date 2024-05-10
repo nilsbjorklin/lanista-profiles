@@ -16,6 +16,7 @@ const FieldsContext = createContext<{
     usedStats: () => Stat[],
     modifiers: () => Modifier,
     getModifiers: (race?: RaceType) => Modifier,
+    toggleWeapon: (weapon: UsedAttribute) => void,
     twoHanded: () => boolean,
     attributes: {
         values: () => Attributes,
@@ -62,6 +63,17 @@ export function FieldsProvider(props: { children: any }) {
             return prev;
         })
     }
+
+    function toggleWeapon(weapon: UsedAttribute) {
+        let newArr = usedAttributes().slice();
+        if (newArr.includes(weapon)) {
+            newArr.splice(usedAttributes().indexOf(weapon), 1)
+        } else {
+            newArr.push(weapon)
+        }
+        setUsedAttributes(newArr)
+    }
+
     const getUsedStats = (): Stat[] => baseStats.concat(usedAttributes()?.filter(attr => attr !== '2h') as Stat[])
     const usedStats: () => Stat[] = createMemo(() => getUsedStats(), {}, { equals: (prev, next) => prev.equals(next) });
     const twoHanded = (): boolean => usedAttributes()?.includes('2h') ?? false
@@ -90,6 +102,7 @@ export function FieldsProvider(props: { children: any }) {
             usedAttributes,
             setUsedAttributes,
             usedStats,
+            toggleWeapon,
             twoHanded,
             modifiers,
             getModifiers,

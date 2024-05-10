@@ -3,7 +3,7 @@ import { RaceNames, RaceType } from '../data/Types'
 import { HeaderButton, Selector } from './Components'
 import { useFields } from '../contexts/FieldsProvider';
 
-const RaceSelector: Component<{}> = (props) => {
+const RaceSelector: Component<{}> = () => {
     const race = useFields()?.race as () => RaceType;
     const setRace = useFields()?.setRace as (race: RaceType) => void;
 
