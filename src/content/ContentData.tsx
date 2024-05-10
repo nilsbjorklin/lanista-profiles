@@ -39,6 +39,8 @@ const ContentData: Component<{
                         usedStats={props.usedStats}
                         targetManual={props.target.manual[index + 1]}
                         targetEquipment={props.target.equipment[index + 1]}
+                        modifiers={props.modifiers}
+                        attributesTotal={props.attributesTotal}
                         setTarget={(stat: Stat, value: number) => props.setTarget(index + 1, stat, value)}
                         equipment={props.equipment[index + 1]}
                         twoHanded={props.twoHanded} />

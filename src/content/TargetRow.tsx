@@ -1,6 +1,6 @@
 import { Index, Match, Switch, type Component } from 'solid-js';
 import { useLayout } from '../LayoutProvider';
-import { EquipmentForLevel, Stat, TargetForLevel } from '../data/Types';
+import { Attributes, EquipmentForLevel, Stat, TargetForLevel } from '../data/Types';
 import Row from './Row';
 
 const TargetRow: Component<{
@@ -8,6 +8,8 @@ const TargetRow: Component<{
     usedStats: () => Stat[],
     targetManual: TargetForLevel | undefined,
     targetEquipment: TargetForLevel | undefined,
+    modifiers: () => { [key in Stat]?: number },
+    attributesTotal: Attributes,
     setTarget: (stat: Stat, value: number) => void,
     equipment: EquipmentForLevel | undefined,
     twoHanded: boolean
@@ -22,6 +24,9 @@ const TargetRow: Component<{
     const headerStyle6 = `${headerStyle} col-span-6`;
     const headerStyle7 = `${headerStyle} col-span-7`;
 
+    function attribute(stat: Stat): number {
+        return ((props.attributesTotal[stat as Stat]?.[props.level - 1] ?? 0) * (props.modifiers()[stat] ?? 1));
+    }
 
     function getTextForHeader(equipment: EquipmentForLevel | undefined, twoHanded: boolean) {
         let mainhand = equipment?.weapon?.mainhand?.name;
@@ -33,6 +38,29 @@ const TargetRow: Component<{
             return [<p class='w-1/2'>{mainhand ?? 'Ej vald'}</p>, <p class='w-1/2'>{offhand ?? 'Ej vald'}</p>]
         }
         return <p class='w-full'>Välj utrustning</p>;
+    }
+    //calculateAttributesWithModifiers(stat(), props?.attributesTotal?.[stat()]?.[props.level -1])
+
+    function getTargetStyle(isMiddleElement: boolean, stat: Stat, value: number) {
+        let style = isMiddleElement ? topInputStyle : inputStyle;
+        return attribute(stat) < value ? style.replace('bg-blue', 'bg-red') : style;
+    }
+
+    const ManualValue: Component<{ stat: Stat, last: boolean, value: number, action: (e: any) => void }> = (props) => {
+        return (
+            <input class={getTargetStyle(props.last, props.stat, props.value)}
+                type='number'
+                value={props.value}
+                onInput={props.action} />
+        )
+    }
+
+    const EquipmentValue: Component<{ stat: Stat, value: number }> = (props) => {
+        return (
+            <div class={getTargetStyle(false, props.stat, props.value)}>
+                {props.value}
+            </div>
+        )
     }
 
     return (
@@ -50,22 +78,22 @@ const TargetRow: Component<{
                         <div class={props.targetEquipment ? labelStyle : bottomLabel}>Egna</div>
                         <Index each={props.usedStats()}>
                             {stat =>
-                                <input class={props.targetEquipment ? topInputStyle : inputStyle}
-                                    type='number'
-                                    value={((props.targetManual as TargetForLevel)?.[stat()] ?? 0).toString()}
-                                    onInput={e => props.setTarget(stat(), Number(e.target.value))} />
+                                <ManualValue
+                                    stat={stat()}
+                                    last={Boolean(props.targetEquipment)} value={((props.targetManual as TargetForLevel)?.[stat()] ?? 0)}
+                                    action={e => props.setTarget(stat(), Number(e.target.value))} />
                             }
                         </Index>
                     </Row>
                     <Switch>
                         <Match when={props.targetEquipment}>
                             <Row>
-                                <div class={labelStyle}>Utrustning</div>
+                                <div class={bottomLabel}>Utrustning</div>
                                 <Index each={props.usedStats()}>
                                     {stat =>
-                                        <div class={inputStyle}>
-                                            {(props.targetEquipment as TargetForLevel)[stat() as Stat] ?? 0}
-                                        </div>
+                                        <EquipmentValue
+                                            stat={stat()}
+                                            value={(props.targetEquipment as TargetForLevel)[stat() as Stat] ?? 0} />
                                     }
                                 </Index>
                             </Row>
@@ -74,7 +102,6 @@ const TargetRow: Component<{
                 </div>
             </Match>
         </Switch>
-
     )
 }
 

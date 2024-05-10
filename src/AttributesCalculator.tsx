@@ -1,44 +1,14 @@
-import { createMemo, createSignal } from 'solid-js';
+import { createEffect, createMemo, createSignal } from 'solid-js';
 import { Attributes, Profile, Stat, Target } from './data/Types';
+import compareObjects from './compareObjects';
 
 export default function AttributesCalculator(getActiveProfile: () => Profile, setProfile: (value: (prev: Profile) => Profile) => void, totalTarget: () => Target) {
 
-    const attributes = createMemo(() => getActiveProfile().attributes, {}, { equals: (prev, next) => compareAttributes(prev, next) });
-    const [attributesTotal, setAttributesTotal] = createSignal<Attributes>(setInitialAttributesTotal());
+    const attributes = createMemo(() => getActiveProfile().attributes, {}, { equals: (prev, next) => compareObjects(prev, next) });
+    const [attributesTotal, setAttributesTotal] = createSignal<Attributes>(calculateAttributesTotal(attributes()));
 
-    function compareAttributes(prev: Attributes, next: Attributes): boolean {
-        let prevKeys = Object.keys(prev) as Stat[];
-        let nextKeys = Object.keys(next) as Stat[];
-
-        if (!prevKeys.equals(nextKeys)) {
-            prevKeys
-                .filter(stat => !nextKeys.includes(stat))
-                .forEach(stat => updateAttributesTotal(stat, []));
-            nextKeys
-                .filter(stat => !prevKeys.includes(stat))
-                .forEach(stat => updateAttributesTotal(stat, next[stat] as number[]));
-            return false;
-        }
-        let result = true;
-
-        prevKeys.forEach(stat => {
-            let prevStat = prev[stat] as number[];
-            let nextStat = next[stat] as number[];
-            if (!prevStat.equals(nextStat)) {
-                updateAttributesTotal(stat, nextStat);
-                result = false;
-            }
-        })
-        return result;
-    }
-
-    function updateAttributesTotal(stat: Stat, value: number[]) {
-        setAttributesTotal((prev) => {
-            prev[stat] = getAttributesTotal(value);
-            return structuredClone(prev);
-        })
-    }
-
+    createEffect(() => setAttributesTotal(calculateAttributesTotal(attributes())));
+    
     function getAttributesTotal(arr: number[]) {
         let result: number[] = Array(45);
         let total: number = 0;
@@ -50,10 +20,10 @@ export default function AttributesCalculator(getActiveProfile: () => Profile, se
         return result;
     }
 
-    function setInitialAttributesTotal() {
+    function calculateAttributesTotal(attr: Attributes) {
         let result: Attributes = {}
-        Object.keys(attributes()).forEach(stat => {
-            result[stat as Stat] = getAttributesTotal(attributes()[stat as Stat] ?? []);
+        Object.keys(attr).forEach(stat => {
+            result[stat as Stat] = getAttributesTotal(attr[stat as Stat] ?? []);
         })
         return result;
     }
