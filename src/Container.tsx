@@ -1,4 +1,4 @@
-import { createEffect, type Component } from 'solid-js';
+import { type Component } from 'solid-js';
 
 import AttributesCalculator from './AttributesCalculator';
 
@@ -12,11 +12,11 @@ import ProfileSelector from './header/ProfileSelector';
 import RaceSelector from './header/RaceSelector';
 import Weapons from './header/Weapons';
 
+import { useProfile } from './ProfileProvider';
 import Content from './content/Content';
 import ContentData from './content/ContentData';
 import ContentHeader from './content/ContentHeader';
-import { useProfile } from './ProfileProvider';
-import { Attributes, Profile, Stat, Target, TargetForLevel } from './data/Types';
+import { Attributes, Profile, Stat, TargetForLevel } from './data/Types';
 
 const Container: Component = () => {
     let getProfile = useProfile()?.getProfile as () => Profile;
@@ -24,148 +24,6 @@ const Container: Component = () => {
     const { target, setTarget, equipment } = TargetAndEquipment(getProfile, setProfile);
     const { attributes, setAttribute, setAllAttributes, attributesTotal, attributeActions } = AttributesCalculator(getProfile, setProfile, target.totalTarget);
     const { race, setRace, usedAttributes, setUsedAttributes, usedStats, modifiers, twoHanded } = StatsAndModifiers(getProfile, setProfile);
-
-    function autoFill2() {
-        let pointsNeeded: Target = {};
-        usedStats().forEach(stat => {
-            Object.keys(target.totalTarget()).forEach(level => {
-                let value = target.totalTarget()[level][stat as Stat] ?? 0;
-                if (!pointsNeeded[level]) {
-                    pointsNeeded[level] = {};
-                }
-                let pointsNeededForStat = Math.ceil(value / (modifiers()[stat as Stat] as number));
-                pointsNeeded[level][stat as Stat] = pointsNeededForStat;
-            })
-        });
-
-        let totalPointsFromLast: Target = {};
-        let averagePointsFromLast: Target = {};
-        let lastLevel = 0;
-        usedStats().forEach(stat => {
-            Object.keys(pointsNeeded).forEach(level => {
-                if (!averagePointsFromLast[level]) {
-                    averagePointsFromLast[level] = {};
-                    totalPointsFromLast[level] = {};
-                }
-                let pointsNeededForStat = 0;
-                if (Number(level) === 1) {
-                    pointsNeededForStat = pointsNeeded[level][stat as Stat] ?? 0
-                    lastLevel = 0;
-                } else {
-                    let previousValue = (Number(level) !== 1 ? pointsNeeded[lastLevel][stat as Stat] : 0) as number;
-                    pointsNeededForStat = Math.max((pointsNeeded[level][stat as Stat] ?? 0) - previousValue, 0);
-                }
-                totalPointsFromLast[level][stat as Stat] = pointsNeededForStat;
-                averagePointsFromLast[level][stat as Stat] = Math.ceil(pointsNeededForStat / (Number(level) - lastLevel));
-
-                lastLevel = Number(level);
-            })
-        });
-
-        let calibrated = calibrateTarget(structuredClone(averagePointsFromLast), validate(averagePointsFromLast))
-        let startingLevel = Object.keys(calibrated)
-            .map(level => Number(level))
-            .sort((a, b) => a - b)
-            .reverse()[0];
-        let pointsPerLevel = calibrated[startingLevel];
-        let pointsTotal = calibrated[startingLevel];
-        let attributes: Attributes = {}
-        for (let level = startingLevel; level > 0; level--) {
-            if (calibrated[level]) {
-                pointsPerLevel = calibrated[level];
-                pointsTotal = totalPointsFromLast[startingLevel];
-            }
-            let pointsSpentForStat = 0;
-            usedStats().forEach(stat => {
-                if ((pointsPerLevel[stat] && pointsPerLevel[stat] !== 0) || attributes[stat]) {
-                    if (!attributes[stat]) {
-                        attributes[stat] = [];
-                    }
-                    pointsSpentForStat += pointsPerLevel[stat] as number;
-                    console.log(pointsSpentForStat);
-                    console.log(pointsPerLevel[stat]);
-                    console.log((pointsNeeded[level][stat as Stat] as number));
-
-
-                    if (pointsSpentForStat >= (pointsNeeded[level][stat as Stat] as number)) {
-
-                    } else {
-                        attributes[stat]?.push(pointsPerLevel[stat] as number)
-                    }
-                }
-            })
-        }
-        Object.keys(attributes).forEach(stat => {
-            attributes[stat as Stat]?.reverse();
-        })
-        setAllAttributes(attributes);
-
-    }
-
-    function validate(validateTarget: Target): { [key: string]: number } {
-        let pointsLeftForLevel: { [key: string]: number } = {}
-        Object.keys(validateTarget).forEach(level => {
-            let totalForLevel = 0;
-            usedStats().forEach(stat => {
-                totalForLevel += validateTarget[level][stat] as number;
-            });
-            let max = 150;
-            if (level !== "1")
-                max = 20;
-            pointsLeftForLevel[level] = max - totalForLevel;
-        })
-        return pointsLeftForLevel;
-    }
-
-    function calibrateTarget(pointsNeededBetweenLevels: Target, pointsLeftForLevel: { [key: string]: number }): Target {
-        let result: Target = {};
-        let rolloverStat: Stat | undefined;
-        let rolloverValue: number;
-        let rolledOver = false;
-        Object.keys(pointsNeededBetweenLevels)
-            .map(level => Number(level))
-            .sort((a, b) => a - b)
-            .reverse().forEach(level => {
-                if (rolloverStat) {
-                    console.log('level: ' + level);
-
-                    console.log(pointsNeededBetweenLevels[level][rolloverStat]);
-                    console.log(pointsLeftForLevel[level]);
-                    console.log(`Rolling over stat ${rolloverStat} of value ${rolloverValue}`);
-
-                    pointsNeededBetweenLevels[level][rolloverStat] += rolloverValue;
-                    pointsLeftForLevel[level] -= rolloverValue;
-                    rolledOver = true;
-                }
-                if (pointsLeftForLevel[level] > 0) {
-                    if (rolledOver) {
-                        console.log('level: ' + level);
-                        console.log(pointsNeededBetweenLevels[level][rolloverStat as Stat]);
-                        console.log(pointsLeftForLevel[level]);
-                        rolloverStat = undefined;
-                        rolloverValue = 0;
-                        rolledOver = false;
-                    }
-                    result[level] = pointsNeededBetweenLevels[level];
-                } else {
-                    let statName = '';
-                    let statValue = 0;
-                    Object.keys(pointsNeededBetweenLevels[level]).forEach(stat => {
-                        let value = pointsNeededBetweenLevels[level][stat as Stat] as number;
-                        if (value > statValue) {
-                            statValue = value;
-                            statName = stat;
-                        }
-                    })
-                    rolloverStat = statName as Stat;
-                    rolloverValue = pointsLeftForLevel[level] * -1;
-                    pointsNeededBetweenLevels[level][rolloverStat] -= rolloverValue;
-                    result[level] = pointsNeededBetweenLevels[level];
-
-                }
-            })
-        return result;
-    }
 
     function autoFill() {
         let result: Attributes = {};
