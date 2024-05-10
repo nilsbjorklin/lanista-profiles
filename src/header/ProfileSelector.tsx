@@ -1,6 +1,6 @@
 import { Index, type Component } from 'solid-js';
 import { HeaderButton, Selector } from './Components'
-import { useProfile } from '../ProfileProvider';
+import { useProfile } from '../contexts/ProfileProvider';
 
 const ProfileSelector: Component<{}> = () => {
     let switchProfile = useProfile()?.switchProfile;

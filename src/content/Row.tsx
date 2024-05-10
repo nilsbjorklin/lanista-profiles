@@ -1,5 +1,5 @@
 import { Match, Switch, type Component } from 'solid-js';
-import { useLayout } from '../LayoutProvider';
+import { useLayout } from '../contexts/LayoutProvider';
 
 useLayout()?.desktop();
 

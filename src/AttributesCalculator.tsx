@@ -1,67 +1,67 @@
-import { createEffect, createMemo, createSignal } from 'solid-js';
-import { Attributes, Profile, Stat, Target } from './data/Types';
-import compareObjects from './compareObjects';
+import { useFields } from "./contexts/FieldsProvider";
+import { Attributes, RaceType, Races, Stat, Target, TargetForLevel } from "./data/Types";
+import RaceData from './data/raceData.json';
 
-export default function AttributesCalculator(getActiveProfile: () => Profile, setProfile: (value: (prev: Profile) => Profile) => void, totalTarget: () => Target) {
 
-    const attributes = createMemo(() => getActiveProfile().attributes, {}, { equals: (prev, next) => compareObjects(prev, next) });
-    const [attributesTotal, setAttributesTotal] = createSignal<Attributes>(calculateAttributesTotal(attributes()));
+export default function AttributesCalculator(target: () => Target) {
+    const setAllAttributes = useFields()?.setAllAttributes;
+    const race = useFields()?.race as () => RaceType;
+    const usedStats = useFields()?.usedStats as () => Stat[]
 
-    createEffect(() => setAttributesTotal(calculateAttributesTotal(attributes())));
-    
-    function getAttributesTotal(arr: number[]) {
-        let result: number[] = Array(45);
-        let total: number = 0;
-        for (let index = 0; index < result.length; index++) {
-            let value = arr[index] ?? 0;
-            result[index] = value + total;
-            total += value;
-        }
-        return result;
-    }
+    function autoFill() {
+        let result: Attributes = {};
 
-    function calculateAttributesTotal(attr: Attributes) {
-        let result: Attributes = {}
-        Object.keys(attr).forEach(stat => {
-            result[stat as Stat] = getAttributesTotal(attr[stat as Stat] ?? []);
-        })
-        return result;
-    }
+        Object.keys(target())
+            .map(level => Number(level))
+            .sort((a, b) => a - b)
+            .reverse()
+            .forEach((_, index, levels) => {
+                let maxLevel = levels[index];
+                let minLevel = levels[index + 1] ?? 0;
+                let resultForSpan = calculateForSpan(maxLevel, minLevel, target()[maxLevel], target()[minLevel]);
 
-    function setAttribute(stat: Stat, index: number, value: number): void {
-        setProfile((prev) => {
-            prev.attributes[stat] = prev.attributes[stat] ?? Array(index).fill(0);
+                usedStats().forEach(stat => {
+                    if (!result[stat])
+                        result[stat] = Array(levels[index]).fill(0);
 
-            if ((prev.attributes[stat] as number[]).length <= index) {
-                let length = (prev.attributes[stat] as number[]).length;
-                prev.attributes[stat] = (prev.attributes[stat] as number[]).concat(Array(index - length).fill(0))
-            }
-
-            (prev.attributes[stat] as number[])[index] = value;
-
-            return prev;
-        })
-    }
-
-    function setAllAttributes(newAttributes: Attributes): void {
-        setProfile((prev) => {
-            prev.attributes = newAttributes;
-            return prev;
-        })
-    }
-
-    function autoSelectRace() {
-        console.log('autoSelectRace');
-    }
-
-    function clearForm() {
-        if (window.confirm('Är du säker att du vill ta bort alla utladga poäng?')) {
-            setProfile((prev) => {
-                prev.attributes = {}
-                return prev;
+                    resultForSpan[stat]?.forEach((value, index) => (result[stat] as number[])[(maxLevel - (1 + index))] = value)
+                })
             })
-        }
+        setAllAttributes?.(result);
     }
 
-    return { attributes, setAttribute, setAllAttributes, attributesTotal, attributeActions: { autoSelectRace, clearForm } }
+    function calculateForSpan(maxLevel: number, minLevel: number, maxLevelStats: TargetForLevel, minLevelStats: TargetForLevel) {
+        let result: Attributes = {};
+        usedStats().forEach(stat => {
+            let targetValue = applyModifier(maxLevelStats[stat], stat, race());
+            let startValue = applyModifier((minLevelStats ?? {})[stat], stat, race());
+            if (targetValue !== 0 && targetValue !== startValue)
+                result[stat] = calculateStatForSpan(targetValue - startValue, maxLevel - minLevel);
+
+        })
+        return result;
+    }
+
+    function applyModifier(value: number | undefined, stat: Stat, race: RaceType): number {
+        if (value)
+            return Math.ceil(value / ((RaceData as Races)[race].stats[stat] as number))
+        else
+            return 0;
+    }
+
+    function calculateStatForSpan(pointsNeeded: number, levels: number): number[] {
+        let arr: number[] = Array(levels).fill(0);
+        let totalPoints = 0;
+        while (pointsNeeded > totalPoints) {
+            for (let i = 0; i < levels; i++) {
+                if (pointsNeeded > totalPoints) {
+                    arr[i]++;
+                    totalPoints++;
+                }
+            }
+        }
+        return arr;
+    }
+
+    return { autoFill }
 }

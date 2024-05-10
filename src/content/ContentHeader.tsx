@@ -1,8 +1,9 @@
 import { Index, type Component } from 'solid-js';
-import { useLayout } from '../LayoutProvider';
+import { useLayout } from '../contexts/LayoutProvider';
 import { RaceType, Stat } from '../data/Types';
 import StatLabelData from '../data/statLabelData.json';
 import Row from './Row';
+import { useFields } from '../contexts/FieldsProvider';
 
 const Races: { [key in RaceType]: string } = {
     human: 'Människa',
@@ -15,11 +16,11 @@ const Races: { [key in RaceType]: string } = {
     salamanther: 'Salamanther'
 }
 
-const ContentHeader: Component<{
-    usedStats: () => Stat[],
-    modifiers: () => { [key in Stat]?: number }
-    race: RaceType,
-}> = (props) => {
+const ContentHeader: Component<{}> = (props) => {
+    const usedStats = useFields()?.usedStats as () => Stat[];
+    const modifiers = useFields()?.modifiers as () => { [key in Stat]?: number };
+    const race = useFields()?.race as () => RaceType;
+
     const labelStyle = 'col-span-2 p-3 text-center font-bold';
 
     type StatLabels = {
@@ -43,14 +44,14 @@ const ContentHeader: Component<{
         <div class='flex flex-col w-full rounded-md border mt-1'>
             <Row>
                 {useLayout()?.desktop() && <div class={labelStyle}>Egenskaper</div>}
-                <Index each={props.usedStats()}>
+                <Index each={usedStats()}>
                     {stat => <ContentHeaderCell value={(StatLabelData as StatLabels)[stat()][useLayout()?.size() ?? 'sm']} />}
                 </Index>
             </Row>
             <Row class='border-t'>
-                {useLayout()?.desktop() && <div class={labelStyle}>Bonus för {Races[props.race]}</div>}
-                <Index each={props.usedStats()}>
-                    {stat => <ContentHeaderCell value={Math.round((props.modifiers()[stat()] ?? 1) * 100) + '%'} />}
+                {useLayout()?.desktop() && <div class={labelStyle}>Bonus för {Races[race()]}</div>}
+                <Index each={usedStats()}>
+                    {stat => <ContentHeaderCell value={Math.round((modifiers()[stat()] ?? 1) * 100) + '%'} />}
                 </Index>
             </Row>
         </div>

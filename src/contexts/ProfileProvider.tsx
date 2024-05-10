@@ -1,7 +1,6 @@
 import { createContext, createEffect, createSignal, useContext } from "solid-js";
-import { Profile } from "./data/Types";
-import { uniqueId } from "./supportFunctions";
-import compareObjects from "./compareObjects";
+import { Profile } from "../data/Types";
+import compareObjects from "../compareObjects";
 
 export type ProfileIdentifier = {
     id: string,
@@ -44,6 +43,10 @@ export function ProfileProvider(props: { children: any }) {
         setActiveProfile(getProfile());
         localStorage.setItem(ProfileListKey, JSON.stringify(profileList()))
     })
+
+    const uniqueId = () => {
+        return Date.now().toString(36) + Math.random().toString(36).slice(2);
+    };
 
     function getProfileList(): ProfileList {
         let storageProfileList = localStorage.getItem(ProfileListKey);
@@ -125,7 +128,6 @@ export function ProfileProvider(props: { children: any }) {
     }
 
     const cloneProfile = (name: string) => {
-        console.log('cloneProfile: ' + name);
         const newId = uniqueId();
         setProfileList((prev) => {
             let newSelected = {
@@ -153,35 +155,14 @@ export function ProfileProvider(props: { children: any }) {
     }
 
     const deleteProfile = () => {
-        console.log('deleteProfile');
         setProfileList((prev) => {
             if (prev.profiles.length !== 0) {
                 localStorage.removeItem(prev.selected.id);
                 return { selected: prev.profiles[0], profiles: prev.profiles.length !== 1 ? prev.profiles.slice(1) : [] };
             }
-            //window.confirm('Cannot delete the only profile! Create new profile before deleting.')
             throw new Error("Cannot delete the only profile!");
         })
     }
-
-
-    createContext(() => {
-        console.log('createContext()');
-        console.log('profileList()');
-        console.log(profileList());
-
-        if (profileList()) {
-            let storageProfile = localStorage.getItem(profileList().selected.id);
-            if (storageProfile) {
-                let profileJson = JSON.parse(storageProfile) as Profile;
-                setActiveProfile(profileJson);
-            } else {
-                throw new Error('Active profile not found in storage');
-            }
-        } else {
-            throw new Error('ProfileList not found');
-        }
-    })
 
     return (
         <ProfileContext.Provider value={{

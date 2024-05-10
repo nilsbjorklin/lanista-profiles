@@ -1,6 +1,6 @@
 import { type Component } from 'solid-js';
 import { HeaderButton, Collapsable } from './Components'
-import { useProfile } from '../ProfileProvider';
+import { useProfile } from '../contexts/ProfileProvider';
 
 const addProfileText = 'Lägg till ny profil';
 const renameProfileText = 'Byt namn på profil';

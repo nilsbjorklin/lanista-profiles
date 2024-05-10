@@ -1,19 +1,20 @@
 import { Index, Match, Switch, type Component } from 'solid-js';
-import { useLayout } from '../LayoutProvider';
+import { useFields } from '../contexts/FieldsProvider';
+import { useLayout } from '../contexts/LayoutProvider';
 import { Attributes, EquipmentForLevel, Stat, TargetForLevel } from '../data/Types';
 import Row from './Row';
 
 const TargetRow: Component<{
     level: number,
-    usedStats: () => Stat[],
     targetManual: TargetForLevel | undefined,
     targetEquipment: TargetForLevel | undefined,
-    modifiers: () => { [key in Stat]?: number },
-    attributesTotal: Attributes,
-    setTarget: (stat: Stat, value: number) => void,
-    equipment: EquipmentForLevel | undefined,
-    twoHanded: boolean
+    attributesTotal: Attributes
 }> = (props) => {
+    const usedStats = useFields()?.usedStats as () => Stat[];
+    const modifiers = useFields()?.modifiers as () => { [key in Stat]?: number };
+    const twoHanded = useFields()?.twoHanded as () => boolean;
+    const setTarget = useFields()?.setTarget as (level: number, stat: Stat, value: number) => void;
+    const equipment = useFields()?.equipment()?.[props.level];
     const labelStyle = 'col-span-2 p-3 text-center bg-blue text-light font-bold border-b';
     const bottomLabel = `${labelStyle} rounded-bl-md border-none`;
     const topLabel = `${labelStyle} rounded-tl-md`;
@@ -25,7 +26,7 @@ const TargetRow: Component<{
     const headerStyle7 = `${headerStyle} col-span-7`;
 
     function attribute(stat: Stat): number {
-        return ((props.attributesTotal[stat as Stat]?.[props.level - 1] ?? 0) * (props.modifiers()[stat] ?? 1));
+        return ((props.attributesTotal[stat as Stat]?.[props.level - 1] ?? 0) * (modifiers()[stat] ?? 1));
     }
 
     function getTextForHeader(equipment: EquipmentForLevel | undefined, twoHanded: boolean) {
@@ -70,18 +71,18 @@ const TargetRow: Component<{
                     <Row>
                         {useLayout()?.desktop() && <div class={topLabel}>Kravtyp</div>}
                         <a
-                            class={props.usedStats().length === 7 ? headerStyle7 : (props.usedStats().length === 6 ? headerStyle6 : headerStyle5)}>
-                            {getTextForHeader(props.equipment, props.twoHanded)}
+                            class={usedStats().length === 7 ? headerStyle7 : (usedStats().length === 6 ? headerStyle6 : headerStyle5)}>
+                            {getTextForHeader(equipment, twoHanded())}
                         </a>
                     </Row>
                     <Row>
                         <div class={props.targetEquipment ? labelStyle : bottomLabel}>Egna</div>
-                        <Index each={props.usedStats()}>
+                        <Index each={usedStats()}>
                             {stat =>
                                 <ManualValue
                                     stat={stat()}
                                     last={Boolean(props.targetEquipment)} value={((props.targetManual as TargetForLevel)?.[stat()] ?? 0)}
-                                    action={e => props.setTarget(stat(), Number(e.target.value))} />
+                                    action={e => setTarget(props.level, stat(), Number(e.target.value))} />
                             }
                         </Index>
                     </Row>
@@ -89,7 +90,7 @@ const TargetRow: Component<{
                         <Match when={props.targetEquipment}>
                             <Row>
                                 <div class={bottomLabel}>Utrustning</div>
-                                <Index each={props.usedStats()}>
+                                <Index each={usedStats()}>
                                     {stat =>
                                         <EquipmentValue
                                             stat={stat()}

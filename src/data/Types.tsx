@@ -61,3 +61,27 @@ export type Armor = {
 export type Accessory = {
     [key in AccessoryType]?: EquipmentType
 }
+
+export type Races = {
+    [key in RaceType]: {
+        name: string;
+        stats: {
+            [key in Stat]: number
+        }
+    }
+}
+
+export const RaceNames: { [key in RaceType]: string } = {
+    human: 'Människa',
+    elf: 'Alv',
+    dwarf: 'Dvärg',
+    orc: 'Ork',
+    troll: 'Troll',
+    goblin: 'Goblin',
+    undead: 'Odöd',
+    salamanther: 'Salamanther'
+}
+
+export type Modifier = {
+    [key in Stat]?: number
+}

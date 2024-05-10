@@ -1,6 +1,7 @@
 import { Index, type Component } from 'solid-js';
 import { UsedAttribute } from '../data/Types'
 import { Button, Collapsable } from './Components'
+import { useFields } from '../contexts/FieldsProvider';
 
 const WeaponTypes: { id: UsedAttribute, name: string }[] = [
     { id: 'axes', name: 'Yxor' },
@@ -14,18 +15,19 @@ const WeaponTypes: { id: UsedAttribute, name: string }[] = [
 ]
 
 const Weapons: Component<{
-    usedAttributes: UsedAttribute[],
-    setUsedAttributes: ((prev: UsedAttribute[]) => void)
 }> = (props) => {
 
+    const usedAttributes = useFields()?.usedAttributes as () => UsedAttribute[];
+    const setUsedAttributes = useFields()?.setUsedAttributes as (prev: UsedAttribute[]) => void;
+
     function toggleWeapon(weapon: UsedAttribute) {
-        let newArr = props.usedAttributes.slice();
+        let newArr = usedAttributes().slice();
         if (newArr.includes(weapon)) {
-            newArr.splice(props.usedAttributes.indexOf(weapon), 1)
+            newArr.splice(usedAttributes().indexOf(weapon), 1)
         } else {
             newArr.push(weapon)
         }
-        props.setUsedAttributes(newArr)
+        setUsedAttributes(newArr)
     }
 
     return (
@@ -33,7 +35,7 @@ const Weapons: Component<{
             <Collapsable collapsedText='Vapentyp'>
                 <Index each={WeaponTypes}>
                     {weapon => <Button
-                        selected={props.usedAttributes.includes(weapon().id)}
+                        selected={usedAttributes().includes(weapon().id)}
                         text={weapon().name}
                         action={() => toggleWeapon(weapon().id)} />}
                 </Index>

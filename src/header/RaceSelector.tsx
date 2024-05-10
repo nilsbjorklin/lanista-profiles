@@ -1,27 +1,16 @@
 import { Index, type Component } from 'solid-js';
-import { RaceType } from '../data/Types'
+import { RaceNames, RaceType } from '../data/Types'
 import { HeaderButton, Selector } from './Components'
+import { useFields } from '../contexts/FieldsProvider';
 
-const Races: { [key in RaceType]: string } = {
-    human: 'Människa',
-    elf: 'Alv',
-    dwarf: 'Dvärg',
-    orc: 'Ork',
-    troll: 'Troll',
-    goblin: 'Goblin',
-    undead: 'Odöd',
-    salamanther: 'Salamanther'
-}
-
-const RaceSelector: Component<{
-    race: RaceType,
-    setRace: ((prev: RaceType) => void)
-}> = (props) => {
+const RaceSelector: Component<{}> = (props) => {
+    const race = useFields()?.race as () => RaceType;
+    const setRace = useFields()?.setRace as (race: RaceType) => void;
 
     return (
-        <Selector text={Races[props.race]} size={80}>
-            <Index each={Object.keys(Races)}>
-                {race => <HeaderButton text={Races[race() as RaceType]} action={() => props.setRace(race() as RaceType)} />}
+        <Selector text={RaceNames[race()]} size={80}>
+            <Index each={Object.keys(RaceNames)}>
+                {race => <HeaderButton text={RaceNames[race() as RaceType]} action={() => setRace(race() as RaceType)} />}
             </Index>
         </Selector>
     )

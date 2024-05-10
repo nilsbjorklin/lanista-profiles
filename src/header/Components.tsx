@@ -1,5 +1,5 @@
 import { Switch, Match, JSXElement } from 'solid-js';
-import { useLayout } from '../LayoutProvider';
+import { useLayout } from '../contexts/LayoutProvider';
 
 export function Button(props: { text?: string, action?: () => void, selected?: boolean }) {
     return (

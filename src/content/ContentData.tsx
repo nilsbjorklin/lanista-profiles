@@ -1,20 +1,13 @@
 import { Index, type Component } from 'solid-js';
-import { Attributes, Equipment, Stat, Target } from '../data/Types';
+import { Attributes, Target } from '../data/Types';
 import AttributeResultRow from './AttributeResultRow';
 import AttributeRow from './AttributeRow';
-import TargetRow from './TargetRow';
 import Row from './Row';
+import TargetRow from './TargetRow';
 
 const ContentData: Component<{
-    usedStats: () => Stat[],
-    modifiers: () => { [key in Stat]?: number },
-    attributes: Attributes,
-    setAttribute: (stat: Stat, index: number, value: number) => void,
     attributesTotal: Attributes,
-    target: { manual: Target, equipment: Target, total: Target },
-    setTarget: (level: number, stat: Stat, value: number) => void,
-    equipment: Equipment,
-    twoHanded: boolean
+    target: { manual: Target, equipment: Target, total: Target }
 }> = (props) => {
 
     return (
@@ -24,26 +17,15 @@ const ContentData: Component<{
                     <Row class='text-center font-bold pt-4 pb-1'>
                         <div>Grad {index + 1}</div>
                     </Row>,
-                    <AttributeRow
-                        index={index}
-                        usedStats={props.usedStats}
-                        attributes={props.attributes}
-                        setAttribute={props.setAttribute} />,
+                    <AttributeRow index={index} />,
                     <AttributeResultRow
                         index={index}
-                        usedStats={props.usedStats}
-                        modifiers={props.modifiers}
                         attributesTotal={props.attributesTotal} />,
                     <TargetRow
                         level={index + 1}
-                        usedStats={props.usedStats}
                         targetManual={props.target.manual[index + 1]}
                         targetEquipment={props.target.equipment[index + 1]}
-                        modifiers={props.modifiers}
-                        attributesTotal={props.attributesTotal}
-                        setTarget={(stat: Stat, value: number) => props.setTarget(index + 1, stat, value)}
-                        equipment={props.equipment[index + 1]}
-                        twoHanded={props.twoHanded} />
+                        attributesTotal={props.attributesTotal}/>
                 ])}
             </Index>
         </div>

@@ -1,25 +1,19 @@
-import { createEffect, createMemo, createSignal } from 'solid-js';
+import { createMemo } from 'solid-js';
 import compareObjects from './compareObjects';
-import { Equipment, Profile, Stat, Target, Weapons, Armor, ArmorType, Accessory, WeaponType, AccessoryType } from './data/Types';
+import { useProfile } from './contexts/ProfileProvider';
+import { Accessory, AccessoryType, Armor, ArmorType, Profile, Stat, Target, WeaponType, Weapons } from './data/Types';
 
-export default function TargetAndEquipment(getActiveProfile: () => Profile, setProfile: (value: (prev: Profile) => Profile) => void) {
-    const [level, setLevel] = createSignal<number>(1);
-    const manualTarget = createMemo(() => getActiveProfile().target, {}, { equals: (prev, next) => compareByLevel(prev, next, level()) });
-    const equipmentTarget = createMemo(() => getEquipmentTarget(), {}, { equals: (prev, next) => compareByLevel(prev, next, level()) });
-    const totalTarget = createMemo(() => getTotalTarget(), {}, { equals: (prev, next) => compareByLevel(prev, next, level()) });
-    const equipment = createMemo(() => getActiveProfile().equipment, {}, { equals: (prev, next) => compareByLevel(prev, next, level()) });
+export default function TargetAndEquipment() {
+    const getProfile = useProfile()?.getProfile as () => Profile;
 
-    function compareByLevel(prev: Target | Equipment, next: Target | Equipment, level: number | undefined): boolean {
-        if (level) {
-            return compareObjects(prev[level], next[level]);
-        }
-        return false;
-    }
+    const manualTarget = createMemo(() => getProfile().target, {}, { equals: (prev, next) => compareObjects(prev, next) });
+    const equipmentTarget = createMemo(() => getEquipmentTarget(), {}, { equals: (prev, next) => compareObjects(prev, next) });
+    const totalTarget = createMemo(() => getTotalTarget(), {}, { equals: (prev, next) => compareObjects(prev, next) });
 
     function getEquipmentTarget(): Target {
         let result: Target = {};
-        Object.keys(getActiveProfile().equipment).forEach(level => {
-            let eqp = getActiveProfile().equipment[level];
+        Object.keys(getProfile().equipment).forEach(level => {
+            let eqp = getProfile().equipment[level];
             result[level] = getRequirementForCategory(
                 eqp.weapon ?? {},
                 eqp.armor ?? {},
@@ -76,7 +70,7 @@ export default function TargetAndEquipment(getActiveProfile: () => Profile, setP
         return result;
     }
 
-    function getTotalTarget(): Target {
+    function getTotalTarget(): Target {       
         let result: Target = {};
         Object.keys(manualTarget()).forEach(level => {
             let targetForLevel = manualTarget()[level];
@@ -109,14 +103,5 @@ export default function TargetAndEquipment(getActiveProfile: () => Profile, setP
         return result;
     }
 
-
-    function setTarget(level: number, stat: Stat, value: number): void {
-        setLevel(level);
-        setProfile((prev) => {
-            prev.target[level][stat] = value;
-            return prev;
-        })
-    }
-
-    return { target: { manualTarget, equipmentTarget, totalTarget }, setTarget, equipment };
+    return { target: { manualTarget, equipmentTarget, totalTarget } };
 }

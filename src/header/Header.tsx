@@ -1,5 +1,5 @@
 import { type Component } from 'solid-js';
-import { useLayout } from '../LayoutProvider';
+import { useLayout } from '../contexts/LayoutProvider';
 
 const Header: Component<{ children: any }> = (props) => {
     return (
