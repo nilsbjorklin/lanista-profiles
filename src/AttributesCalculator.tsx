@@ -4,9 +4,14 @@ import RaceData from './data/raceData.json';
 
 
 export default function AttributesCalculator(target: () => Target) {
-    const setAllAttributes = useFields()?.setAllAttributes;
+    const setAllAttributes = useFields()?.setAttributes;
     const race = useFields()?.race as () => RaceType;
     const usedStats = useFields()?.usedStats as () => Stat[]
+
+
+    function autoSelectRace() {
+        console.log('autoSelectRace');
+    }
 
     function autoFill() {
         let result: Attributes = {};
@@ -27,7 +32,9 @@ export default function AttributesCalculator(target: () => Target) {
                     resultForSpan[stat]?.forEach((value, index) => (result[stat] as number[])[(maxLevel - (1 + index))] = value)
                 })
             })
-        setAllAttributes?.(result);
+        setAllAttributes?.((prev) => {
+            return result;
+        })
     }
 
     function calculateForSpan(maxLevel: number, minLevel: number, maxLevelStats: TargetForLevel, minLevelStats: TargetForLevel) {
@@ -63,5 +70,5 @@ export default function AttributesCalculator(target: () => Target) {
         return arr;
     }
 
-    return { autoFill }
+    return { autoFill, autoSelectRace }
 }

@@ -1,12 +1,11 @@
 import { Index, type Component } from 'solid-js';
-import { Attributes, Target } from '../data/Types';
+import { Target } from '../data/Types';
 import AttributeResultRow from './AttributeResultRow';
 import AttributeRow from './AttributeRow';
 import Row from './Row';
 import TargetRow from './TargetRow';
 
 const ContentData: Component<{
-    attributesTotal: Attributes,
     target: { manual: Target, equipment: Target, total: Target }
 }> = (props) => {
 
@@ -19,13 +18,11 @@ const ContentData: Component<{
                     </Row>,
                     <AttributeRow index={index} />,
                     <AttributeResultRow
-                        index={index}
-                        attributesTotal={props.attributesTotal} />,
+                        index={index} />,
                     <TargetRow
                         level={index + 1}
                         targetManual={props.target.manual[index + 1]}
-                        targetEquipment={props.target.equipment[index + 1]}
-                        attributesTotal={props.attributesTotal}/>
+                        targetEquipment={props.target.equipment[index + 1]} />
                 ])}
             </Index>
         </div>

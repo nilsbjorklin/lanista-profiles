@@ -10,14 +10,13 @@ const FieldsContext = createContext<{
     race: () => RaceType,
     setRace: (race: RaceType) => void,
     usedAttributes: () => UsedAttribute[],
-    setUsedAttributes: (race: UsedAttribute[]) => void,
+    setUsedAttributes: (usedAttributes: UsedAttribute[]) => void,
     usedStats: () => Stat[],
-    modifiers: (race?: RaceType) => Modifier,
+    modifiers: () => Modifier,
     getModifiers: (race?: RaceType) => Modifier,
     twoHanded: () => boolean,
     attributes: () => Attributes,
-    setAttribute: (stat: Stat, index: number, value: number) => void,
-    setAllAttributes: (newAttributes: Attributes) => void,
+    setAttributes: (value: (prev: Attributes) => Attributes) => void,
     target: () => Target;
     setTarget: (level: number, stat: Stat, value: number) => void,
     equipment: () => Equipment,
@@ -28,7 +27,7 @@ export function useFields() {
     return useContext(FieldsContext);
 }
 
-export function FieldsProvider(props: { children: any, getProfile: () => Profile, setProfile: (value: (prev: Profile) => Profile) => void }) {
+export function FieldsProvider(props: { children: any }) {
     const getProfile = useProfile()?.getProfile as () => Profile;
     const setProfile = useProfile()?.setProfile as (value: (prev: Profile) => Profile) => void;
     //race
@@ -65,30 +64,19 @@ export function FieldsProvider(props: { children: any, getProfile: () => Profile
     //attributes
     const attributes = createMemo(() => getProfile()?.attributes ?? {}, {});
 
-    const setAttribute = (stat: Stat, index: number, value: number): void => {
-        setProfile((prev) => {
-            prev.attributes[stat] = prev.attributes[stat] ?? Array(index).fill(0);
-
-            if ((prev.attributes[stat] as number[]).length <= index) {
-                let length = (prev.attributes[stat] as number[]).length;
-                prev.attributes[stat] = (prev.attributes[stat] as number[]).concat(Array(index - length).fill(0))
-            }
-
-            (prev.attributes[stat] as number[])[index] = value;
-
-            return prev;
-        })
+    function setAttributes(value: (prev: Attributes) => Attributes): void {
+        let next = value(structuredClone(attributes()));
+        if (!compareObjects(attributes(), next)) {
+            setProfile((prev) => {
+                prev.attributes = next;
+                return prev;
+            })
+        }
     }
 
-    const setAllAttributes = (newAttributes: Attributes): void => {
-        setProfile((prev) => {
-            prev.attributes = newAttributes;
-            return prev;
-        })
-    }
     //target
     const target = createMemo(() => getProfile()?.target ?? {}, {});
-    const setTarget = (level: number, stat: Stat, value: number): void => {        
+    const setTarget = (level: number, stat: Stat, value: number): void => {
         setProfile((prev) => {
             prev.target[level][stat] = value;
             return prev;
@@ -111,8 +99,7 @@ export function FieldsProvider(props: { children: any, getProfile: () => Profile
             modifiers,
             getModifiers,
             attributes,
-            setAttribute,
-            setAllAttributes,
+            setAttributes,
             target,
             setTarget,
             equipment,

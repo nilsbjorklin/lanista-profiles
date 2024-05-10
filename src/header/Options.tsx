@@ -1,6 +1,7 @@
 import { type Component } from 'solid-js';
 import { HeaderButton, Collapsable } from './Components'
 import { useProfile } from '../contexts/ProfileProvider';
+import { useFields } from '../contexts/FieldsProvider';
 
 const addProfileText = 'Lägg till ny profil';
 const renameProfileText = 'Byt namn på profil';
@@ -14,9 +15,9 @@ const clearFormText = 'Rensa';
 const Options: Component<{
     autoSelectRace: (() => void),
     autoFill: (() => void),
-    clearForm: (() => void),
     testFunction: (() => void)
 }> = (props) => {
+    const clearForm = useFields()?.clearForm;
     let addProfile = useProfile()?.addProfile;
     let renameProfile = useProfile()?.renameProfile;
     let cloneProfile = useProfile()?.cloneProfile;
@@ -29,7 +30,7 @@ const Options: Component<{
             <HeaderButton text={deleteProfileText} action={deleteProfile} />
             <HeaderButton text={autoSelectRaceText} action={props.autoSelectRace} />
             <HeaderButton text={autoFillText} action={props.autoFill} />
-            <HeaderButton text={clearFormText} action={props.clearForm} />
+            <HeaderButton text={clearFormText} action={clearForm} />
             <HeaderButton text='TEST' action={props.testFunction} />
         </Collapsable>
     )

@@ -3,18 +3,19 @@ import { useFields } from '../contexts/FieldsProvider';
 import { useLayout } from '../contexts/LayoutProvider';
 import { Attributes, EquipmentForLevel, Stat, TargetForLevel } from '../data/Types';
 import Row from './Row';
+import { useAttributes } from '../contexts/AttributesProvider';
 
 const TargetRow: Component<{
     level: number,
     targetManual: TargetForLevel | undefined,
     targetEquipment: TargetForLevel | undefined,
-    attributesTotal: Attributes
 }> = (props) => {
     const usedStats = useFields()?.usedStats as () => Stat[];
     const modifiers = useFields()?.modifiers as () => { [key in Stat]?: number };
     const twoHanded = useFields()?.twoHanded as () => boolean;
     const setTarget = useFields()?.setTarget as (level: number, stat: Stat, value: number) => void;
     const equipment = useFields()?.equipment()?.[props.level];
+    const attributesTotal = useAttributes()?.attributesTotal as () => Attributes;
     const labelStyle = 'col-span-2 p-3 text-center bg-blue text-light font-bold border-b';
     const bottomLabel = `${labelStyle} rounded-bl-md border-none`;
     const topLabel = `${labelStyle} rounded-tl-md`;
@@ -26,7 +27,7 @@ const TargetRow: Component<{
     const headerStyle7 = `${headerStyle} col-span-7`;
 
     function attribute(stat: Stat): number {
-        return ((props.attributesTotal[stat as Stat]?.[props.level - 1] ?? 0) * (modifiers()[stat] ?? 1));
+        return ((attributesTotal()[stat]?.[props.level - 1] ?? 0) * (modifiers()[stat] ?? 1));
     }
 
     function getTextForHeader(equipment: EquipmentForLevel | undefined, twoHanded: boolean) {

@@ -3,7 +3,7 @@ import compareObjects from './compareObjects';
 import { useProfile } from './contexts/ProfileProvider';
 import { Accessory, AccessoryType, Armor, ArmorType, Profile, Stat, Target, WeaponType, Weapons } from './data/Types';
 
-export default function TargetAndEquipment() {
+export default function CalculateTarget() {
     const getProfile = useProfile()?.getProfile as () => Profile;
 
     const manualTarget = createMemo(() => getProfile().target, {}, { equals: (prev, next) => compareObjects(prev, next) });
