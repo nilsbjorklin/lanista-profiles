@@ -77,7 +77,36 @@ export default function TargetAndEquipment(getActiveProfile: () => Profile, setP
     }
 
     function getTotalTarget(): Target {
-        return { "1": { "health": 0 } }
+        let result: Target = {};
+        Object.keys(manualTarget()).forEach(level => {
+            let targetForLevel = manualTarget()[level];
+            Object.keys(targetForLevel).forEach(stat => {
+                let value = targetForLevel[stat as Stat];
+                if (value) {
+                    if (!result[level]) {
+                        result[level] = {};
+                    }
+                    result[level][stat as Stat] = value;
+                }
+            })
+        })
+        Object.keys(equipmentTarget()).forEach(level => {
+            let targetForLevel = equipmentTarget()[level];
+            Object.keys(targetForLevel).forEach(stat => {
+                let value = targetForLevel[stat as Stat];
+                if (value) {
+                    if (!result[level]) {
+                        result[level] = {};
+                    }
+                    let prevValue = result[level][stat as Stat];
+                    if (prevValue)
+                        result[level][stat as Stat] = Math.max(value, prevValue);
+                    else
+                        result[level][stat as Stat] = value;
+                }
+            })
+        })
+        return result;
     }
 
 

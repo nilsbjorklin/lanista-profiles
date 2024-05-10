@@ -1,7 +1,7 @@
 import { createMemo, createSignal } from 'solid-js';
-import { Attributes, Profile, Stat } from './data/Types';
+import { Attributes, Profile, Stat, Target } from './data/Types';
 
-export default function AttributesCalculator(getActiveProfile: () => Profile, setProfile: (value: (prev: Profile) => Profile) => void) {
+export default function AttributesCalculator(getActiveProfile: () => Profile, setProfile: (value: (prev: Profile) => Profile) => void, totalTarget: () => Target) {
 
     const attributes = createMemo(() => getActiveProfile().attributes, {}, { equals: (prev, next) => compareAttributes(prev, next) });
     const [attributesTotal, setAttributesTotal] = createSignal<Attributes>(setInitialAttributesTotal());
@@ -34,27 +34,27 @@ export default function AttributesCalculator(getActiveProfile: () => Profile, se
 
     function updateAttributesTotal(stat: Stat, value: number[]) {
         setAttributesTotal((prev) => {
-            prev[stat] = getAttributesTotal(stat, value);
+            prev[stat] = getAttributesTotal(value);
             return structuredClone(prev);
         })
     }
 
-    function getAttributesTotal(stat: Stat, value: number[]) {
-        let result: number[] = Array(value.length);
+    function getAttributesTotal(arr: number[]) {
+        let result: number[] = Array(45);
         let total: number = 0;
-        value.forEach((value, index) => {
+        for (let index = 0; index < result.length; index++) {
+            let value = arr[index] ?? 0;
             result[index] = value + total;
             total += value;
-        })
+        }
         return result;
     }
 
     function setInitialAttributesTotal() {
         let result: Attributes = {}
         Object.keys(attributes()).forEach(stat => {
-            result[stat as Stat] = getAttributesTotal(stat as Stat, attributes()[stat as Stat] ?? []);
+            result[stat as Stat] = getAttributesTotal(attributes()[stat as Stat] ?? []);
         })
-
         return result;
     }
 
@@ -73,12 +73,15 @@ export default function AttributesCalculator(getActiveProfile: () => Profile, se
         })
     }
 
-    function autoSelectRace() {
-        console.log('autoSelectRace');
+    function setAllAttributes(newAttributes: Attributes): void {
+        setProfile((prev) => {
+            prev.attributes = newAttributes;
+            return prev;
+        })
     }
 
-    function autoFill() {
-        console.log('autoFill');
+    function autoSelectRace() {
+        console.log('autoSelectRace');
     }
 
     function clearForm() {
@@ -90,5 +93,5 @@ export default function AttributesCalculator(getActiveProfile: () => Profile, se
         }
     }
 
-    return { attributes, setAttribute, attributesTotal, attributeActions: { autoSelectRace, autoFill, clearForm } }
+    return { attributes, setAttribute, setAllAttributes, attributesTotal, attributeActions: { autoSelectRace, clearForm } }
 }

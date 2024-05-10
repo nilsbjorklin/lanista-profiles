@@ -8,7 +8,6 @@ const TargetRow: Component<{
     usedStats: () => Stat[],
     targetManual: TargetForLevel | undefined,
     targetEquipment: TargetForLevel | undefined,
-    targetTotal: TargetForLevel | undefined,
     setTarget: (stat: Stat, value: number) => void,
     equipment: EquipmentForLevel | undefined,
     twoHanded: boolean
