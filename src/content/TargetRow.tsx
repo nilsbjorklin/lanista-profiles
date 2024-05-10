@@ -1,21 +1,19 @@
 import { Index, Match, Switch, type Component } from 'solid-js';
 import { useFields } from '../contexts/FieldsProvider';
 import { useLayout } from '../contexts/LayoutProvider';
-import { Attributes, EquipmentForLevel, Stat, TargetForLevel } from '../data/Types';
+import { Attributes, EquipmentForLevel, Stat, Target, TargetForLevel } from '../data/Types';
 import Row from './Row';
-import { useAttributes } from '../contexts/AttributesProvider';
 
-const TargetRow: Component<{
-    level: number,
-    targetManual: TargetForLevel | undefined,
-    targetEquipment: TargetForLevel | undefined,
-}> = (props) => {
+const TargetRow: Component<{ level: number }> = (props) => {
     const usedStats = useFields()?.usedStats as () => Stat[];
     const modifiers = useFields()?.modifiers as () => { [key in Stat]?: number };
     const twoHanded = useFields()?.twoHanded as () => boolean;
-    const setTarget = useFields()?.setTarget as (level: number, stat: Stat, value: number) => void;
+    const setTarget = useFields()?.target.set as (level: number, stat: Stat, value: number) => void;
     const equipment = useFields()?.equipment()?.[props.level];
-    const attributesTotal = useAttributes()?.attributesTotal as () => Attributes;
+    const attributesTotal = useFields()?.attributes.total as () => Attributes;
+    const target = useFields()?.target.values as () => Target;
+    const targetEquipment = useFields()?.target.equipment as () => Target;
+
     const labelStyle = 'col-span-2 p-3 text-center bg-blue text-light font-bold border-b';
     const bottomLabel = `${labelStyle} rounded-bl-md border-none`;
     const topLabel = `${labelStyle} rounded-tl-md`;
@@ -41,7 +39,6 @@ const TargetRow: Component<{
         }
         return <p class='w-full'>Välj utrustning</p>;
     }
-    //calculateAttributesWithModifiers(stat(), props?.attributesTotal?.[stat()]?.[props.level -1])
 
     function getTargetStyle(isMiddleElement: boolean, stat: Stat, value: number) {
         let style = isMiddleElement ? topInputStyle : inputStyle;
@@ -67,7 +64,7 @@ const TargetRow: Component<{
 
     return (
         <Switch>
-            <Match when={props.targetManual || props.targetEquipment}>
+            <Match when={target()[props.level] || targetEquipment()[props.level]}>
                 <div class='border-x border-b rounded-b sm:border-none'>
                     <Row>
                         {useLayout()?.desktop() && <div class={topLabel}>Kravtyp</div>}
@@ -77,25 +74,25 @@ const TargetRow: Component<{
                         </a>
                     </Row>
                     <Row>
-                        <div class={props.targetEquipment ? labelStyle : bottomLabel}>Egna</div>
+                        <div class={targetEquipment()[props.level] ? labelStyle : bottomLabel}>Egna</div>
                         <Index each={usedStats()}>
                             {stat =>
                                 <ManualValue
                                     stat={stat()}
-                                    last={Boolean(props.targetEquipment)} value={((props.targetManual as TargetForLevel)?.[stat()] ?? 0)}
+                                    last={Boolean(targetEquipment()[props.level])} value={((target()[props.level] as TargetForLevel)?.[stat()] ?? 0)}
                                     action={e => setTarget(props.level, stat(), Number(e.target.value))} />
                             }
                         </Index>
                     </Row>
                     <Switch>
-                        <Match when={props.targetEquipment}>
+                        <Match when={targetEquipment()[props.level]}>
                             <Row>
                                 <div class={bottomLabel}>Utrustning</div>
                                 <Index each={usedStats()}>
                                     {stat =>
                                         <EquipmentValue
                                             stat={stat()}
-                                            value={(props.targetEquipment as TargetForLevel)[stat() as Stat] ?? 0} />
+                                            value={targetEquipment()[props.level][stat()] ?? 0} />
                                     }
                                 </Index>
                             </Row>

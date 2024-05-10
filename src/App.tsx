@@ -5,7 +5,6 @@ import { ProfileProvider } from './contexts/ProfileProvider';
 
 import Container from './Container';
 import { FieldsProvider } from './contexts/FieldsProvider';
-import { AttributesProvider } from './contexts/AttributesProvider';
 
 const App: Component = () => {
 
@@ -13,9 +12,7 @@ const App: Component = () => {
         <LayoutProvider>
             <ProfileProvider>
                 <FieldsProvider >
-                    <AttributesProvider>
                         <Container />
-                    </AttributesProvider>
                 </FieldsProvider>
             </ProfileProvider>
         </LayoutProvider>

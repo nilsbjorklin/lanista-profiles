@@ -2,14 +2,13 @@ import { Index, type Component } from 'solid-js';
 import { Attributes, Stat } from '../data/Types';
 import Row from './Row';
 import { useFields } from '../contexts/FieldsProvider';
-import { useAttributes } from '../contexts/AttributesProvider';
 
 const AttributeRow: Component<{
     index: number
 }> = (props) => {
     const usedStats = useFields()?.usedStats as () => Stat[];
-    const attributes = useFields()?.attributes as () => Attributes;
-    const setAttribute = useAttributes()?.setAttribute;
+    const attributes = useFields()?.attributes.values as () => Attributes;
+    const setAttribute = useFields()?.attributes.setAttribute as (stat: Stat, index: number, value: number) => void;
 
     function pointsLeft(index: number) {
         let totalPoints = (index === 0 ? 150 : 20);

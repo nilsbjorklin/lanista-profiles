@@ -1,14 +1,20 @@
 import { createMemo } from 'solid-js';
-import compareObjects from './compareObjects';
-import { useProfile } from './contexts/ProfileProvider';
-import { Accessory, AccessoryType, Armor, ArmorType, Profile, Stat, Target, WeaponType, Weapons } from './data/Types';
+import compareObjects from '../compareObjects';
+import { Accessory, AccessoryType, Armor, ArmorType, Profile, Stat, Target, WeaponType, Weapons } from '../data/Types';
 
-export default function CalculateTarget() {
-    const getProfile = useProfile()?.getProfile as () => Profile;
+export default function TargetCalculator(getProfile: () => Profile, setProfile: (value: (prev: Profile) => Profile) => void) {
 
-    const manualTarget = createMemo(() => getProfile().target, {}, { equals: (prev, next) => compareObjects(prev, next) });
+    const target = createMemo(() => getProfile()?.target ?? {}, {}, { equals: (prev, next) => compareObjects(prev, next) });
     const equipmentTarget = createMemo(() => getEquipmentTarget(), {}, { equals: (prev, next) => compareObjects(prev, next) });
     const totalTarget = createMemo(() => getTotalTarget(), {}, { equals: (prev, next) => compareObjects(prev, next) });
+
+
+    const setTarget = (level: number, stat: Stat, value: number): void => {
+        setProfile((prev) => {
+            prev.target[level][stat] = value;
+            return prev;
+        })
+    }
 
     function getEquipmentTarget(): Target {
         let result: Target = {};
@@ -70,10 +76,10 @@ export default function CalculateTarget() {
         return result;
     }
 
-    function getTotalTarget(): Target {       
+    function getTotalTarget(): Target {
         let result: Target = {};
-        Object.keys(manualTarget()).forEach(level => {
-            let targetForLevel = manualTarget()[level];
+        Object.keys(target()).forEach(level => {
+            let targetForLevel = target()[level];
             Object.keys(targetForLevel).forEach(stat => {
                 let value = targetForLevel[stat as Stat];
                 if (value) {
@@ -103,5 +109,5 @@ export default function CalculateTarget() {
         return result;
     }
 
-    return { target: { manualTarget, equipmentTarget, totalTarget } };
+    return { values:target, set:setTarget, equipment: equipmentTarget, total: totalTarget };
 }

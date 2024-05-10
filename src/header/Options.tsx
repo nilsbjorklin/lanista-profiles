@@ -13,23 +13,23 @@ const autoFillText = 'Fyll i värden';
 const clearFormText = 'Rensa';
 
 const Options: Component<{
-    autoSelectRace: (() => void),
-    autoFill: (() => void),
     testFunction: (() => void)
 }> = (props) => {
-    const clearForm = useFields()?.clearForm;
-    let addProfile = useProfile()?.addProfile;
-    let renameProfile = useProfile()?.renameProfile;
-    let cloneProfile = useProfile()?.cloneProfile;
-    let deleteProfile = useProfile()?.deleteProfile;
+    const addProfile = useProfile()?.addProfile;
+    const renameProfile = useProfile()?.renameProfile;
+    const cloneProfile = useProfile()?.cloneProfile;
+    const deleteProfile = useProfile()?.deleteProfile;
+    const autoSelectRace = useFields()?.attributes.autoSelectRace;
+    const autoFill = useFields()?.attributes.autoFill;
+    const clearForm = useFields()?.attributes.clearForm;
     return (
         <Collapsable collapsedText='Alternativ'>
             <HeaderButton text={addProfileText} action={() => addProfile?.('new name')} />
             <HeaderButton text={renameProfileText} action={() => renameProfile?.('re-name')} />
             <HeaderButton text={cloneProfileText} action={() => cloneProfile?.('clone name')} />
             <HeaderButton text={deleteProfileText} action={deleteProfile} />
-            <HeaderButton text={autoSelectRaceText} action={props.autoSelectRace} />
-            <HeaderButton text={autoFillText} action={props.autoFill} />
+            <HeaderButton text={autoSelectRaceText} action={autoSelectRace} />
+            <HeaderButton text={autoFillText} action={autoFill} />
             <HeaderButton text={clearFormText} action={clearForm} />
             <HeaderButton text='TEST' action={props.testFunction} />
         </Collapsable>

@@ -6,7 +6,6 @@ import Row from './Row';
 import TargetRow from './TargetRow';
 
 const ContentData: Component<{
-    target: { manual: Target, equipment: Target, total: Target }
 }> = (props) => {
 
     return (
@@ -17,12 +16,8 @@ const ContentData: Component<{
                         <div>Grad {index + 1}</div>
                     </Row>,
                     <AttributeRow index={index} />,
-                    <AttributeResultRow
-                        index={index} />,
-                    <TargetRow
-                        level={index + 1}
-                        targetManual={props.target.manual[index + 1]}
-                        targetEquipment={props.target.equipment[index + 1]} />
+                    <AttributeResultRow index={index} />,
+                    <TargetRow level={index + 1} />
                 ])}
             </Index>
         </div>
