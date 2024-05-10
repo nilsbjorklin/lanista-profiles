@@ -35,15 +35,12 @@ const Container: Component = () => {
                 let maxLevel = levels[index];
                 let minLevel = levels[index + 1] ?? 0;
                 let resultForSpan = calculateForSpan(maxLevel, minLevel, target.totalTarget()[maxLevel], target.totalTarget()[minLevel]);
-                console.log(resultForSpan);
 
                 Object.keys(resultForSpan).forEach(stat => {
-                    if (!result[stat as Stat]) {
+                    if (!result[stat as Stat])
                         result[stat as Stat] = Array(levels[index]).fill(0);
-                    }
-                    resultForSpan[stat as Stat]?.forEach((value, index) => {
-                        (result[stat as Stat] as number[])[(maxLevel - (1 + index))] = value;
-                    })
+
+                    resultForSpan[stat as Stat]?.forEach((value, index) => (result[stat as Stat] as number[])[(maxLevel - (1 + index))] = value)
                 })
             })
         setAllAttributes(result);

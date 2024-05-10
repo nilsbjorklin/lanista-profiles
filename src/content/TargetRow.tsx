@@ -52,7 +52,7 @@ const TargetRow: Component<{
                             {stat =>
                                 <input class={props.targetEquipment ? topInputStyle : inputStyle}
                                     type='number'
-                                    value={((props.targetManual as TargetForLevel)[stat()] ?? 0).toString()}
+                                    value={((props.targetManual as TargetForLevel)?.[stat()] ?? 0).toString()}
                                     onInput={e => props.setTarget(stat(), Number(e.target.value))} />
                             }
                         </Index>
