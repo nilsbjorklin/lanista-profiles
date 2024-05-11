@@ -1,7 +1,7 @@
-import { Index, type Component } from 'solid-js';
-import { UsedAttribute } from '../data/Types'
-import { Button, Collapsable } from './Components'
+import { type Component } from 'solid-js';
 import { useFields } from '../contexts/FieldsProvider';
+import { UsedAttribute } from '../data/Types';
+import { ChildButton, Collapsable } from './Components';
 
 const WeaponTypes: { id: UsedAttribute, name: string }[] = [
     { id: 'axes', name: 'Yxor' },
@@ -19,17 +19,10 @@ const Weapons: Component<{}> = () => {
     const usedAttributes = useFields()?.usedAttributes as () => UsedAttribute[];
     const toggleWeapon = useFields()?.toggleWeapon as (prev: UsedAttribute) => void;
 
+    let children: ChildButton[] = WeaponTypes.map(weapon => { return { selected: usedAttributes().includes(weapon.id), text: weapon.name, action: () => toggleWeapon(weapon.id) } })
+
     return (
-        <div class='flex w-full sm:w-auto sm:inline-block'>
-            <Collapsable collapsedText='Vapentyp'>
-                <Index each={WeaponTypes}>
-                    {weapon => <Button
-                        selected={usedAttributes().includes(weapon().id)}
-                        text={weapon().name}
-                        action={() => toggleWeapon(weapon().id)} />}
-                </Index>
-            </Collapsable>
-        </div>
+        <Collapsable collapsedText='Vapentyp' children={children} />
     )
 }
 

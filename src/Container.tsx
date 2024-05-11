@@ -10,17 +10,16 @@ import Content from './content/Content';
 import ContentData from './content/ContentData';
 import ContentHeader from './content/ContentHeader';
 
-import { useFields } from './contexts/FieldsProvider';
 
 const Container: Component = () => {
-    const test = useFields()?.test as () => void;
 
     return (
-        <div class='flex flex-col bg-dark text-light sm:w-screen md:w-[600px] lg:w-[80vw] w-[1120px]'>
+        <div class='flex flex-col bg-dark text-light sm:w-screen md:w-[600px] lg:w-[80vw] w-[1120px] sm:text-sm'>
             <Header>
                 <ProfileSelector />
                 <RaceSelector />
-                <Options/>
+                <Options />
+                <div class='w-full sm:hidden' />
                 <Weapons />
             </Header>
             <Content>

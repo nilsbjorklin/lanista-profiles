@@ -23,11 +23,6 @@
         @apply justify-center;
     }
 
-    *:hover~.display-on-previous-hover,
-    .display-on-previous-hover>a {
-        @apply block;
-    }
-
     .input-no-button::-webkit-inner-spin-button,
     .input-no-button::-webkit-outer-spin-button,
     .input-no-button::-webkit-inner-spin-button,

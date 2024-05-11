@@ -1,7 +1,7 @@
 import { type Component } from 'solid-js';
-import { HeaderButton, Collapsable } from './Components'
-import { useProfile } from '../contexts/ProfileProvider';
 import { useFields } from '../contexts/FieldsProvider';
+import { useProfile } from '../contexts/ProfileProvider';
+import { Collapsable } from './Components';
 
 const addProfileText = 'Lägg till ny profil';
 const renameProfileText = 'Byt namn på profil';
@@ -21,17 +21,44 @@ const Options: Component<{}> = () => {
     const autoFill = useFields()?.attributes.autoFill;
     const clearForm = useFields()?.attributes.clearForm;
     const test = useFields()?.test;
+
+    const children = [
+        {
+            text: addProfileText,
+            action: () => addProfile?.('very very long new name')
+        },
+        {
+            text: renameProfileText,
+            action: () => renameProfile?.('re-name')
+        },
+        {
+            text: cloneProfileText,
+            action: () => cloneProfile?.('clone name')
+        },
+        {
+            text: deleteProfileText,
+            action: deleteProfile
+        },
+        {
+            text: autoSelectRaceText,
+            action: autoSelectRace
+        },
+        {
+            text: autoFillText,
+            action: autoFill
+        },
+        {
+            text: clearFormText,
+            action: clearForm
+        },
+        {
+            text: 'TEST',
+            action: test
+        }
+    ];
+
     return (
-        <Collapsable collapsedText='Alternativ'>
-            <HeaderButton text={addProfileText} action={() => addProfile?.('new name')} />
-            <HeaderButton text={renameProfileText} action={() => renameProfile?.('re-name')} />
-            <HeaderButton text={cloneProfileText} action={() => cloneProfile?.('clone name')} />
-            <HeaderButton text={deleteProfileText} action={deleteProfile} />
-            <HeaderButton text={autoSelectRaceText} action={autoSelectRace} />
-            <HeaderButton text={autoFillText} action={autoFill} />
-            <HeaderButton text={clearFormText} action={clearForm} />
-            <HeaderButton text='TEST' action={test} />
-        </Collapsable>
+        <Collapsable collapsedText='Alternativ' children={children} />
     )
 }
 

@@ -6,7 +6,7 @@ export function useLayout() {
     return useContext(LayoutContext);
 }
 
-enum Size {
+export enum Size {
     SM = 'sm',
     MD = 'md',
     LG = 'lg',

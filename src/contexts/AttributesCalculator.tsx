@@ -1,6 +1,6 @@
 import { createMemo } from "solid-js";
 import compareObjects from "../compareObjects";
-import { Attributes, Profile, RaceType, Races, Stat, Target, TargetForLevel } from "../data/Types";
+import { Attributes, Profile, RaceNames, RaceType, Races, Stat, Target, TargetForLevel } from "../data/Types";
 import RaceData from '../data/raceData.json';
 
 export default function AttributesCalculator(
@@ -59,12 +59,24 @@ export default function AttributesCalculator(
 
 
     function autoSelectRace() {
-        console.log('autoSelectRace');
+        Object.keys(RaceNames).forEach(race => {
+            console.log(RaceNames[race as RaceType]);
+            console.log(calculateAttributesForRace(race as RaceType));
+        })
     }
 
     function autoFill() {
-        let result: Attributes = {};
+        if (window.confirm('Detta kommer skriva över utlagda poäng som är utlagda just nu, är du säker att du vill fortsätta?')) {
+            setAttributes(() => {
+                return calculateAttributesForRace(race());
+            })
+        }
+    }
 
+    function calculateAttributesForRace(race: RaceType) {
+        console.log('calculateAttributesForRace');
+
+        let result: Attributes = {};
         Object.keys(totalTarget())
             .map(level => Number(level))
             .sort((a, b) => a - b)
@@ -72,7 +84,7 @@ export default function AttributesCalculator(
             .forEach((_, index, levels) => {
                 let maxLevel = levels[index];
                 let minLevel = levels[index + 1] ?? 0;
-                let resultForSpan = calculateForSpan(maxLevel, minLevel, totalTarget()[maxLevel], totalTarget()[minLevel]);
+                let resultForSpan = calculateForSpan(race, maxLevel, minLevel, totalTarget()[maxLevel], totalTarget()[minLevel]);
 
                 usedStats().forEach(stat => {
                     if (!result[stat])
@@ -81,21 +93,34 @@ export default function AttributesCalculator(
                     resultForSpan[stat]?.forEach((value, index) => (result[stat] as number[])[(maxLevel - (1 + index))] = value)
                 })
             })
-        setAttributes((prev) => {
-            return result;
-        })
+        return result;
     }
 
-    function calculateForSpan(maxLevel: number, minLevel: number, maxLevelStats: TargetForLevel, minLevelStats: TargetForLevel) {
-        let result: Attributes = {};
+    function calculateForSpan(race: RaceType, maxLevel: number, minLevel: number, maxLevelStats: TargetForLevel, minLevelStats: TargetForLevel) {
+        let resultForSpan: Attributes = {};
         usedStats().forEach(stat => {
-            let targetValue = applyModifier(maxLevelStats[stat], stat, race());
-            let startValue = applyModifier((minLevelStats ?? {})[stat], stat, race());
-            if (targetValue !== 0 && targetValue !== startValue)
-                result[stat] = calculateStatForSpan(targetValue - startValue, maxLevel - minLevel);
-
+            let targetValue = applyModifier(maxLevelStats[stat], stat, race);
+            let startValue = applyModifier((minLevelStats ?? {})[stat], stat, race);
+            if (targetValue !== 0 && targetValue !== startValue) {
+                resultForSpan[stat] = calculateStatForSpan(targetValue - startValue, maxLevel - minLevel);
+            }
         })
-        return result;
+        resultForSpan.health = calculateHealthForSpan(resultForSpan, maxLevel - minLevel, maxLevel === 1);
+        return resultForSpan;
+    }
+
+    function calculateHealthForSpan(otherAttributes: Attributes, length: number, isFirst: boolean) {
+        let health: number[] = [];
+        for (let i = 0; i < length; i++) {
+            let pointsSet = 0;
+            usedStats().forEach(stat => {
+                let attributeForStat = otherAttributes[stat as Stat] ?? [];
+                pointsSet += attributeForStat[i] ?? 0;
+
+            })
+            health[i] = (isFirst ? 150 : 20) - pointsSet;
+        }
+        return health;
     }
 
     function applyModifier(value: number | undefined, stat: Stat, race: RaceType): number {

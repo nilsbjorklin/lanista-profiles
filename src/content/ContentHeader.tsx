@@ -1,22 +1,11 @@
 import { Index, type Component } from 'solid-js';
 import { useLayout } from '../contexts/LayoutProvider';
-import { RaceType, Stat } from '../data/Types';
+import { RaceNames, RaceType, Stat } from '../data/Types';
 import StatLabelData from '../data/statLabelData.json';
 import Row from './Row';
 import { useFields } from '../contexts/FieldsProvider';
 
-const Races: { [key in RaceType]: string } = {
-    human: 'Människa',
-    elf: 'Alv',
-    dwarf: 'Dvärg',
-    orc: 'Ork',
-    troll: 'Troll',
-    goblin: 'Goblin',
-    undead: 'Odöd',
-    salamanther: 'Salamanther'
-}
-
-const ContentHeader: Component<{}> = (props) => {
+const ContentHeader: Component<{}> = () => {
     const usedStats = useFields()?.usedStats as () => Stat[];
     const modifiers = useFields()?.modifiers as () => { [key in Stat]?: number };
     const race = useFields()?.race as () => RaceType;
@@ -34,14 +23,14 @@ const ContentHeader: Component<{}> = (props) => {
 
     const ContentHeaderCell: Component<{ value: string }> = (props) => {
         return (
-            <div class='p-3 text-center font-bold border-l whitespace-nowrap overflow-hidden'>
+            <div class='p-3 text-center font-bold border-l first:border-l-0 whitespace-nowrap overflow-hidden'>
                 {props.value}
             </div>
         )
     }
 
     return (
-        <div class='flex flex-col w-full rounded-md border mt-1'>
+        <div class='flex flex-col w-full rounded-md sm:rounded-none mt-1 border-4 sm:border-x-0'>
             <Row>
                 {useLayout()?.desktop() && <div class={labelStyle}>Egenskaper</div>}
                 <Index each={usedStats()}>
@@ -49,7 +38,7 @@ const ContentHeader: Component<{}> = (props) => {
                 </Index>
             </Row>
             <Row class='border-t'>
-                {useLayout()?.desktop() && <div class={labelStyle}>Bonus för {Races[race()]}</div>}
+                {useLayout()?.desktop() && <div class={labelStyle}>Bonus för {RaceNames[race()]}</div>}
                 <Index each={usedStats()}>
                     {stat => <ContentHeaderCell value={Math.round((modifiers()[stat()] ?? 1) * 100) + '%'} />}
                 </Index>

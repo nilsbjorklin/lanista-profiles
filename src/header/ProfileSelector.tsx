@@ -1,17 +1,24 @@
-import { Index, type Component } from 'solid-js';
-import { HeaderButton, Selector } from './Components'
+import { createMemo, type Component } from 'solid-js';
 import { useProfile } from '../contexts/ProfileProvider';
+import { ChildButton, Selector } from './Components';
 
 const ProfileSelector: Component<{}> = () => {
     let switchProfile = useProfile()?.switchProfile;
+    const profileList = useProfile()?.profileList();
 
+    const getProfiles = (): ChildButton[] => {
+        let result = useProfile()?.profileList()?.profiles?.map(profile => {
+            return { text: profile.name, action: () => switchProfile?.(profile.id) } 
+        }) ?? [];
+        return result;
+    }
+
+    let children = createMemo(getProfiles);
+    
     return (
         <Selector
-            text={useProfile()?.profileList()?.selected.name ?? ''}
-            size={(useProfile()?.profileList()?.profiles ?? []).map(profile => profile.name).reduce((a, b) => a.length > b.length ? a : b).length * 10}>
-            <Index each={useProfile()?.profileList()?.profiles ?? []}>
-                {profile => <HeaderButton text={profile().name} action={() => switchProfile?.(profile().id)} />}
-            </Index>
+            text={useProfile()?.profileList()?.selected.name ?? ''}>
+            {children()}
         </Selector>
     )
 }

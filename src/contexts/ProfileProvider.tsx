@@ -155,13 +155,15 @@ export function ProfileProvider(props: { children: any }) {
     }
 
     const deleteProfile = () => {
-        setProfileList((prev) => {
-            if (prev.profiles.length !== 0) {
-                localStorage.removeItem(prev.selected.id);
-                return { selected: prev.profiles[0], profiles: prev.profiles.length !== 1 ? prev.profiles.slice(1) : [] };
-            }
-            throw new Error("Cannot delete the only profile!");
-        })
+        if (window.confirm(`Är du säker att du vill ta bort profilen '${activeProfile().name}'?`)) {
+            setProfileList((prev) => {
+                if (prev.profiles.length !== 0) {
+                    localStorage.removeItem(prev.selected.id);
+                    return { selected: prev.profiles[0], profiles: prev.profiles.length !== 1 ? prev.profiles.slice(1) : [] };
+                }
+                throw new Error("Cannot delete the only profile!");
+            })
+        }
     }
 
     return (
