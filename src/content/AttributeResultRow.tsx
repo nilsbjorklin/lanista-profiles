@@ -1,5 +1,4 @@
 import { Index, type Component } from 'solid-js';
-import { Attributes, Stat } from '../data/Types';
 import Row from './Row';
 import { useFields } from '../contexts/FieldsProvider';
 

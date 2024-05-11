@@ -1,6 +1,6 @@
 /* @refresh reload */
 import { render } from 'solid-js/web';
-import './arrayEquals'
+import './arrayEquals';
 
 import './index.css';
 import App from './App';

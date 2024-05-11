@@ -1,6 +1,5 @@
 import { type Component } from 'solid-js';
 import { useFields } from '../contexts/FieldsProvider';
-import { UsedAttribute } from '../data/Types';
 import { ChildButton, Collapsable } from './Components';
 
 const WeaponTypes: { id: UsedAttribute, name: string }[] = [

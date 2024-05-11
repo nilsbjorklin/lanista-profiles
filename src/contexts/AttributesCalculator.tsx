@@ -1,6 +1,6 @@
 import { createMemo } from "solid-js";
 import compareObjects from "../compareObjects";
-import { Attributes, Profile, RaceNames, RaceType, Races, Stat, Target, TargetForLevel } from "../data/Types";
+import { RaceNames } from "../data/Types";
 import RaceData from '../data/raceData.json';
 
 export default function AttributesCalculator(
@@ -8,11 +8,11 @@ export default function AttributesCalculator(
     setProfile: (value: (prev: Profile) => Profile) => void,
     race: () => RaceType,
     usedStats: () => Stat[],
-    totalTarget: () => Target
+    totalTarget: () => Target,
+    getModifiers: (race?: RaceType) => Modifier
 ) {
-
     const attributes = createMemo(() => getProfile()?.attributes ?? {}, {}, { equals: (prev, next) => compareObjects(prev, next) });
-    const attributesTotal = createMemo(() => calculateAttributesTotal(), {}, { equals: (prev, next) => compareObjects(prev, next) });
+    const attributesTotal = createMemo(() => calculateAttributesTotal(attributes()), {}, { equals: (prev, next) => compareObjects(prev, next) });
 
     function setAttributes(value: (prev: Attributes) => Attributes): void {
         let next = value(structuredClone(attributes()));
@@ -39,20 +39,20 @@ export default function AttributesCalculator(
         })
     }
 
-    function calculateAttributesTotal(): Attributes {
+    function calculateAttributesTotal(attributeValues: Attributes): Attributes {
         let result: Attributes = {}
-        if (attributes?.()) {
-            Object.keys(attributes()).forEach(stat => {
+        if (attributeValues) {
+            for (const stat in attributeValues) {
                 let statResult: number[] = Array(45);
                 let total: number = 0;
-                let arr = attributes()[stat as Stat] ?? [];
+                let arr = attributeValues[stat as Stat] ?? [];
                 for (let index = 0; index < statResult.length; index++) {
                     let value = arr[index] ?? 0;
                     statResult[index] = value + total;
                     total += value;
                 }
                 result[stat as Stat] = statResult;
-            })
+            }
         }
         return result;
     }
@@ -61,7 +61,16 @@ export default function AttributesCalculator(
     function autoSelectRace() {
         Object.keys(RaceNames).forEach(race => {
             console.log(RaceNames[race as RaceType]);
-            console.log(calculateAttributesForRace(race as RaceType));
+            let calculatedAttributes = calculateAttributesForRace(race as RaceType);
+            let healthValues: Record<string, String> = {};
+
+            for (const level in totalTarget()) {
+                let totalCalculatedAttributes = calculateAttributesTotal(calculatedAttributes).health?.[Number(level)] as number;
+                let healthModifer = getModifiers(race as RaceType)?.health as number
+                healthValues[level] = (totalCalculatedAttributes * healthModifer).toFixed(1);
+            }
+            console.log(healthValues);
+
         })
     }
 
@@ -73,9 +82,17 @@ export default function AttributesCalculator(
         }
     }
 
-    function calculateAttributesForRace(race: RaceType) {
-        console.log('calculateAttributesForRace');
+    const forEach = <K extends keyof any, V>(values: Record<K, V>, callBack: (key: K, value: V) => void): void => {
+        Object.keys(values).forEach(key => callBack(key as K, values[key as K] as V));
+    }
 
+    const map = <K extends keyof any, V>(values: Record<K, V>, callBack: (key: K, value: V) => V): Record<K, V> => {
+        let result = {} as Record<K, V>;
+        Object.keys(values).map(key => callBack(key as K, values[key as K] as V));
+        return result;
+    }
+
+    function calculateAttributesForRace(race: RaceType) {
         let result: Attributes = {};
         Object.keys(totalTarget())
             .map(level => Number(level))
@@ -98,15 +115,27 @@ export default function AttributesCalculator(
 
     function calculateForSpan(race: RaceType, maxLevel: number, minLevel: number, maxLevelStats: TargetForLevel, minLevelStats: TargetForLevel) {
         let resultForSpan: Attributes = {};
+        let pointsNeeded: TargetForLevel = {};
+        let levels = maxLevel - minLevel;
         usedStats().forEach(stat => {
             let targetValue = applyModifier(maxLevelStats[stat], stat, race);
             let startValue = applyModifier((minLevelStats ?? {})[stat], stat, race);
             if (targetValue !== 0 && targetValue !== startValue) {
-                resultForSpan[stat] = calculateStatForSpan(targetValue - startValue, maxLevel - minLevel);
+                pointsNeeded[stat] = targetValue - startValue;
             }
         })
+        let totalPoints = Object.keys(pointsNeeded).map(stat => pointsNeeded[stat as Stat]).reduce((a, b) => a as number + (b as number), 0) as number;
+        let maxPoints = (levels * 20) + (maxLevel >= 1 && minLevel <= 1 ? 130 : 0);
+        if (maxPoints < totalPoints) {
+            throw new Error('non posible')
+        }
+
         resultForSpan.health = calculateHealthForSpan(resultForSpan, maxLevel - minLevel, maxLevel === 1);
         return resultForSpan;
+    }
+
+    function tryToAdd(attr: Attributes,) {
+
     }
 
     function calculateHealthForSpan(otherAttributes: Attributes, length: number, isFirst: boolean) {
@@ -118,7 +147,13 @@ export default function AttributesCalculator(
                 pointsSet += attributeForStat[i] ?? 0;
 
             })
-            health[i] = (isFirst ? 150 : 20) - pointsSet;
+            let healthValue = (isFirst ? 150 : 20) - pointsSet;
+            if (healthValue < 0) {
+                console.log(healthValue);
+
+                throw new Error("");
+            }
+            health[i] = healthValue;
         }
         return health;
     }

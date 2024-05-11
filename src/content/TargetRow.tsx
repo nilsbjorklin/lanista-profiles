@@ -1,7 +1,6 @@
 import { Index, Match, Switch, type Component } from 'solid-js';
 import { useFields } from '../contexts/FieldsProvider';
 import { useLayout } from '../contexts/LayoutProvider';
-import { Attributes, EquipmentForLevel, Stat, Target, TargetForLevel } from '../data/Types';
 import Row from './Row';
 
 const TargetRow: Component<{ level: number }> = (props) => {

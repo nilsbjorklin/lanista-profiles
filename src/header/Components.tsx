@@ -45,14 +45,6 @@ export function Selector(props: { children: ChildButton[], selectable?: boolean,
 
     const size = createMemo(() => calculateSize());
 
-    console.log(size);
-    
-    createEffect(() => {
-        console.log(props.children);
-        console.log(size());
-        
-    })
-
     const handleClick = (event: MouseEvent) => {
         if (!ref.contains(event.target as Node)) {
             setShow(false);

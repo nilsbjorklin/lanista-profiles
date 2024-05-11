@@ -1,5 +1,4 @@
 import { createContext, createEffect, createSignal, useContext } from "solid-js";
-import { Profile } from "../data/Types";
 import compareObjects from "../compareObjects";
 
 export type ProfileIdentifier = {

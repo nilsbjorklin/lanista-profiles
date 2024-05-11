@@ -1,6 +1,5 @@
 import { createMemo } from 'solid-js';
 import compareObjects from '../compareObjects';
-import { Accessory, AccessoryType, Armor, ArmorType, Profile, Stat, Target, WeaponType, Weapons } from '../data/Types';
 
 export default function TargetCalculator(getProfile: () => Profile, setProfile: (value: (prev: Profile) => Profile) => void) {
 

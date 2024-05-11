@@ -1,6 +1,5 @@
 import { createContext, createMemo, useContext } from "solid-js";
 import compareObjects from "../compareObjects";
-import { Attributes, Equipment, Modifier, Profile, RaceType, Races, Stat, Target, UsedAttribute } from "../data/Types";
 import RaceData from '../data/raceData.json';
 import { useProfile } from "./ProfileProvider";
 import AttributesCalculator from "./AttributesCalculator";
@@ -87,7 +86,7 @@ export function FieldsProvider(props: { children: any }) {
     const modifiers: () => Modifier = createMemo(() => getModifiers(), {}, { equals: (prev, next) => compareObjects(prev, next) });
 
     const target = TargetCalculator(getProfile, setProfile);
-    const attributes = AttributesCalculator(getProfile, setProfile, race, usedStats, target.total);
+    const attributes = AttributesCalculator(getProfile, setProfile, race, usedStats, target.total, getModifiers);
 
     const test = () => {
         console.log(getProfile());

@@ -27,7 +27,6 @@ Array.prototype.equals = function (array: any[]) {
     return true;
 }
 
-// Hide method from for-in loops
 declare global {
     interface Array<T> {
         equals(array: T[]): boolean;

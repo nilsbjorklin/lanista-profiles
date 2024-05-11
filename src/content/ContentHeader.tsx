@@ -1,6 +1,6 @@
 import { Index, type Component } from 'solid-js';
 import { useLayout } from '../contexts/LayoutProvider';
-import { RaceNames, RaceType, Stat } from '../data/Types';
+import { RaceNames } from '../data/Types';
 import StatLabelData from '../data/statLabelData.json';
 import Row from './Row';
 import { useFields } from '../contexts/FieldsProvider';

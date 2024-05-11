@@ -1,6 +1,6 @@
 import { type Component } from 'solid-js';
 import { useFields } from '../contexts/FieldsProvider';
-import { RaceNames, RaceType } from '../data/Types';
+import { RaceNames } from '../data/Types';
 import { ChildButton, Selector } from './Components';
 
 const RaceSelector: Component<{}> = () => {
