@@ -63,11 +63,14 @@ export default function AttributesCalculator(
             console.log(RaceNames[race as RaceType]);
             let calculatedAttributes = calculateAttributesForRace(race as RaceType);
             let healthValues: Record<string, String> = {};
-
-            for (const level in totalTarget()) {
-                let totalCalculatedAttributes = calculateAttributesTotal(calculatedAttributes).health?.[Number(level)] as number;
-                let healthModifer = getModifiers(race as RaceType)?.health as number
-                healthValues[level] = (totalCalculatedAttributes * healthModifer).toFixed(1);
+            if (calculatedAttributes) {
+                for (const level in totalTarget()) {
+                    let totalCalculatedAttributes = calculateAttributesTotal(calculatedAttributes).health?.[Number(level)] as number;
+                    let healthModifer = getModifiers(race as RaceType)?.health as number
+                    healthValues[level] = (totalCalculatedAttributes * healthModifer).toFixed(1);
+                }
+            } else {
+                for (const level in totalTarget()) healthValues[level] = '0';
             }
             console.log(healthValues);
 
@@ -76,24 +79,19 @@ export default function AttributesCalculator(
 
     function autoFill() {
         if (window.confirm('Detta kommer skriva över utlagda poäng som är utlagda just nu, är du säker att du vill fortsätta?')) {
-            setAttributes(() => {
-                return calculateAttributesForRace(race());
-            })
+            let values = calculateAttributesForRace(race());
+            if (values) {
+                setAttributes(() => values);
+            } else {
+                alert(`Det går inte att nå kraven som är valda i profilen med rasen ${RaceNames[race()]}
+Ändra krav eller testa en annan ras.`)
+            }
         }
-    }
-
-    const forEach = <K extends keyof any, V>(values: Record<K, V>, callBack: (key: K, value: V) => void): void => {
-        Object.keys(values).forEach(key => callBack(key as K, values[key as K] as V));
-    }
-
-    const map = <K extends keyof any, V>(values: Record<K, V>, callBack: (key: K, value: V) => V): Record<K, V> => {
-        let result = {} as Record<K, V>;
-        Object.keys(values).map(key => callBack(key as K, values[key as K] as V));
-        return result;
     }
 
     function calculateAttributesForRace(race: RaceType) {
         let result: Attributes = {};
+        let rollOver: TargetForLevel = {};
         Object.keys(totalTarget())
             .map(level => Number(level))
             .sort((a, b) => a - b)
@@ -101,61 +99,110 @@ export default function AttributesCalculator(
             .forEach((_, index, levels) => {
                 let maxLevel = levels[index];
                 let minLevel = levels[index + 1] ?? 0;
-                let resultForSpan = calculateForSpan(race, maxLevel, minLevel, totalTarget()[maxLevel], totalTarget()[minLevel]);
+                let { spanResult, rollOverResult } = calculateForSpan(race, maxLevel, minLevel, totalTarget()[maxLevel], totalTarget()[minLevel], rollOver);
+                rollOver = rollOverResult;
 
                 usedStats().forEach(stat => {
                     if (!result[stat])
                         result[stat] = Array(levels[index]).fill(0);
 
-                    resultForSpan[stat]?.forEach((value, index) => (result[stat] as number[])[(maxLevel - (1 + index))] = value)
+                    spanResult[stat]?.forEach((value, index) => (result[stat] as number[])[(maxLevel - (1 + index))] = value)
                 })
             })
+        if (Object.keys(rollOver).length !== 0)
+            return null;
+
         return result;
     }
 
-    function calculateForSpan(race: RaceType, maxLevel: number, minLevel: number, maxLevelStats: TargetForLevel, minLevelStats: TargetForLevel) {
-        let resultForSpan: Attributes = {};
+    function calculateForSpan(race: RaceType, maxLevel: number, minLevel: number, maxLevelStats: TargetForLevel, minLevelStats: TargetForLevel, rollOver: TargetForLevel) {
         let pointsNeeded: TargetForLevel = {};
         let levels = maxLevel - minLevel;
+
         usedStats().forEach(stat => {
-            let targetValue = applyModifier(maxLevelStats[stat], stat, race);
+            let targetValue = applyModifier(maxLevelStats[stat], stat, race) + (rollOver[stat as Stat] ?? 0);
             let startValue = applyModifier((minLevelStats ?? {})[stat], stat, race);
-            if (targetValue !== 0 && targetValue !== startValue) {
+            if (targetValue !== 0 && targetValue !== startValue && startValue < targetValue) {
                 pointsNeeded[stat] = targetValue - startValue;
             }
         })
+        rollOver = {};
+
         let totalPoints = Object.keys(pointsNeeded).map(stat => pointsNeeded[stat as Stat]).reduce((a, b) => a as number + (b as number), 0) as number;
-        let maxPoints = (levels * 20) + (maxLevel >= 1 && minLevel <= 1 ? 130 : 0);
-        if (maxPoints < totalPoints) {
-            throw new Error('non posible')
+        let maxPoints = (levels * 20) + ((maxLevel >= 1 && minLevel < 1) ? 130 : 0);
+        if (totalPoints > maxPoints)
+            rollOver = calculateRollOver(pointsNeeded, totalPoints, maxPoints);
+
+        let result = placePointsForSpan(pointsNeeded, levels);
+
+        (result.health ?? []).forEach((_, i) => {
+            let sum = Object.keys(result).map(stat => (result[stat as Stat] ?? [])[i]).reduce((a, b) => a + b);
+            (result.health ?? [])[i] = (maxLevel === 1 ? 150 : 20) - sum;
+        })
+        return { spanResult: result, rollOverResult: rollOver };
+    }
+
+    function calculateRollOver(pointsNeeded: TargetForLevel, totalPoints: number, maxPoints: number) {
+        let rollOver: TargetForLevel = {};
+        while (totalPoints > maxPoints) {
+            Object.keys(pointsNeeded).forEach(stat => {
+                if (totalPoints > maxPoints && (pointsNeeded[stat as Stat] as number > 0)) {
+                    pointsNeeded[stat as Stat]--;
+                    totalPoints--;
+                    if (!rollOver) {
+                        rollOver = {};
+                    }
+                    if (!rollOver[stat as Stat]) {
+                        rollOver[stat as Stat] = 0;
+                    }
+                    rollOver[stat as Stat]++;
+                }
+            });
+        }
+        return rollOver;
+    }
+
+    function placePointsForSpan(pointsNeeded: TargetForLevel, levels: number): Attributes {
+        let result: Attributes = { health: Array(levels).fill(0) };
+        let minPoints: TargetForLevel = {}
+        let remainder: TargetForLevel = {}
+
+        Object.keys(pointsNeeded).forEach(stat => {
+            result[stat as Stat] = Array(levels).fill(0);
+            let pointsForStatLevel = Math.floor((pointsNeeded[stat as Stat] as number) / levels);
+            minPoints[stat as Stat] = pointsForStatLevel;
+            remainder[stat as Stat] = (pointsNeeded[stat as Stat] as number) - (pointsForStatLevel * levels);
+        });
+
+        if (levels === 1) {
+            return addPoints(result, 0, pointsNeeded);
         }
 
-        resultForSpan.health = calculateHealthForSpan(resultForSpan, maxLevel - minLevel, maxLevel === 1);
-        return resultForSpan;
+        for (let i = 0; i < levels; i++) {
+            Object.keys(pointsNeeded).forEach(stat => (result[stat as Stat] as number[])[i] = minPoints[stat as Stat] as number);
+        }
+        Object.keys(remainder).forEach(stat => addRemainder(stat as Stat, remainder[stat as Stat] ?? 0, result, levels))
+
+        return result;
     }
 
-    function tryToAdd(attr: Attributes,) {
-
-    }
-
-    function calculateHealthForSpan(otherAttributes: Attributes, length: number, isFirst: boolean) {
-        let health: number[] = [];
-        for (let i = 0; i < length; i++) {
-            let pointsSet = 0;
-            usedStats().forEach(stat => {
-                let attributeForStat = otherAttributes[stat as Stat] ?? [];
-                pointsSet += attributeForStat[i] ?? 0;
-
-            })
-            let healthValue = (isFirst ? 150 : 20) - pointsSet;
-            if (healthValue < 0) {
-                console.log(healthValue);
-
-                throw new Error("");
+    function addRemainder(stat: Stat, remainder: number, result: Attributes, levels: number) {
+        while (remainder !== 0) {
+            for (let i = 0; i < levels; i++) {
+                let pointsPlaced = Object.keys(result).map(stat => (result[stat as Stat] ?? [])[i]).reduce((a, b) => a + b);
+                if (pointsPlaced !== 20 && remainder !== 0) {
+                    (result[stat as Stat] ?? [])[i]++;
+                    remainder--;
+                }
             }
-            health[i] = healthValue;
         }
-        return health;
+    }
+
+    function addPoints(startAttributes: Attributes, index: number, values: TargetForLevel) {
+        Object.keys(values).forEach(stat => {
+            ((startAttributes[stat as Stat] as number[])[index] as number) = values[stat as Stat] as number;
+        })
+        return startAttributes;
     }
 
     function applyModifier(value: number | undefined, stat: Stat, race: RaceType): number {
@@ -163,20 +210,6 @@ export default function AttributesCalculator(
             return Math.ceil(value / ((RaceData as Races)[race].stats[stat] as number))
         else
             return 0;
-    }
-
-    function calculateStatForSpan(pointsNeeded: number, levels: number): number[] {
-        let arr: number[] = Array(levels).fill(0);
-        let totalPoints = 0;
-        while (pointsNeeded > totalPoints) {
-            for (let i = 0; i < levels; i++) {
-                if (pointsNeeded > totalPoints) {
-                    arr[i]++;
-                    totalPoints++;
-                }
-            }
-        }
-        return arr;
     }
 
     const clearForm = () => {
