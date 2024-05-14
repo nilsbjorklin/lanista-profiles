@@ -59,8 +59,8 @@ export default function AttributesCalculator(
 
 
     function autoSelectRace() {
+        let result: { [key in RaceType]?: Record<string, String> } = {};
         Object.keys(RaceNames).forEach(race => {
-            console.log(RaceNames[race as RaceType]);
             let calculatedAttributes = calculateAttributesForRace(race as RaceType);
             let healthValues: Record<string, String> = {};
             if (calculatedAttributes) {
@@ -72,9 +72,9 @@ export default function AttributesCalculator(
             } else {
                 for (const level in totalTarget()) healthValues[level] = '0';
             }
-            console.log(healthValues);
-
+            result[race as RaceType] = healthValues;
         })
+        return result;
     }
 
     function autoFill() {

@@ -1,10 +1,12 @@
-import { Match, Show, Switch, createEffect, createMemo, createSignal, onCleanup, onMount } from 'solid-js';
+import { Match, Show, Switch, createMemo, createSignal, onCleanup, onMount } from 'solid-js';
 import { useLayout } from '../contexts/LayoutProvider';
 
 const buttonStyle = 'select-none inline-block px-3 py-2 rounded-md border-2 border-transparent hover:border-light';
+const dropdown = 'select-none inline-block py-2 pl-3 pr-6 rounded-md border-2 border-transparent hover:border-light';
 
 export function HeaderButton(props: ChildButton) {
     return <a
+        role="button"
         class={buttonStyle}
         onClick={props.action ?? (() => { })}>
         {props.text}
@@ -21,6 +23,7 @@ export function SelectableButton(props: ChildButton) {
     }
 
     return <a
+        role="button"
         class={selected() ? selectedStyle : buttonStyle}
         onClick={toggleSelect}>
         {props.text}
@@ -64,8 +67,10 @@ export function Selector(props: { children: ChildButton[], selectable?: boolean,
     return (
         <div class='relative inline-block sm:overflow-hidden sm:whitespace-nowrap'>
             <a ref={ref!}
-                class={buttonStyle}>
-                {props.text}
+                role="button"
+                class={dropdown}>
+                <span>{props.text}</span>
+                <i class='p-0.5 border-b border-l -rotate-45 absolute top-1/2 -translate-y-1/2 ml-2' />
             </a>
             <Show when={show()}>
                 <div style={`min-width: ${size()}px`} class='shadow shadow-light p-1 sm:left-0 sm:right-0 absolute sm:fixed bg-dark grid grid-cols-1'>
