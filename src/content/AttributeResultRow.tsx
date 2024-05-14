@@ -1,6 +1,8 @@
 import { Index, type Component } from 'solid-js';
 import Row from './Row';
 import { useFields } from '../contexts/FieldsProvider';
+import RowLabel from './RowLabel';
+import RowCell from './RowCell';
 
 const AttributeResultRow: Component<{ index: number }> = (props) => {
     const usedStats = useFields()?.usedStats as () => Stat[];
@@ -14,12 +16,10 @@ const AttributeResultRow: Component<{ index: number }> = (props) => {
 
     return ([
         <Row class='inverted'>
-            <div class='col-span-2 p-3 text-center font-bold'>Med bonus</div>
+            <RowLabel>Med bonus</RowLabel>
             <Index each={usedStats()}>
                 {stat => (
-                    <div class='p-3 text-center border-l sm:first:border-l-0 sm:border-t'>
-                        {calculateAttributesWithModifiers(stat(), attributesTotal()?.[stat()]?.[props.index])}
-                    </div>
+                    <RowCell value={calculateAttributesWithModifiers(stat(), attributesTotal()?.[stat()]?.[props.index])} />
                 )}
             </Index>
         </Row>

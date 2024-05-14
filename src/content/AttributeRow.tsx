@@ -1,6 +1,8 @@
 import { Index, type Component } from 'solid-js';
 import Row from './Row';
 import { useFields } from '../contexts/FieldsProvider';
+import RowLabel from './RowLabel';
+import RowInput from './RowInput';
 
 const AttributeRow: Component<{ index: number }> = (props) => {
     const usedStats = useFields()?.usedStats as () => Stat[];
@@ -13,15 +15,16 @@ const AttributeRow: Component<{ index: number }> = (props) => {
         return totalPoints
     }
 
+
     return ([
         <Row class='border-t'>
-            <div class={'col-span-2 p-3 text-center font-bold'}>Poäng kvar: {pointsLeft(props.index)}</div>
+            <RowLabel>Poäng kvar: {pointsLeft(props.index)}</RowLabel>
             <Index each={usedStats()}>
                 {stat =>
-                    <input class='input-no-button p-3 text-center bg-none bg-transparent border-l sm:first:border-l-0 sm:border-t'
-                        type='number'
-                        value={(attributes()[stat()]?.[props.index] ?? 0).toString()}
-                        onInput={e => setAttribute?.(stat(), props.index, Number(e.target.value))} />
+                    <RowInput
+                        class='normal'
+                        value={(attributes()[stat()]?.[props.index] ?? 0)}
+                        onInput={e => setAttribute?.(stat(), props.index, Number(e?.target?.value))} />
                 }
             </Index>
         </Row>

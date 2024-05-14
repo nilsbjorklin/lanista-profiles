@@ -14,7 +14,8 @@ module.exports = {
             'blue': '#00468B',
             'red' :'#8B0000',
             'transparent': 'rgba(0, 0, 0, 0)',
-            'transparent-half': 'rgba(0,0,0,0.4)'
+            'transparent-half': 'rgba(0,0,0,0.4)',
+            'inherit': 'inherit'
         },
         extend: {}
     },

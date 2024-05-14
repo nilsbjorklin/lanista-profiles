@@ -53,6 +53,18 @@
         @apply justify-center;
     }
 
+    .button {
+        @apply flex p-2 select-none rounded-md border-2 border-transparent hover;
+    }
+
+    .drop-down {
+        @apply shadow shadow-light p-1 sm:left-0 sm:right-0 absolute sm:fixed grid grid-cols-1 z-10 normal;
+    }
+
+    .input-no-button {
+        @apply p-3 text-center bg-none border-l sm:first:border-l-0 sm:border-t
+    }
+
     .input-no-button::-webkit-inner-spin-button,
     .input-no-button::-webkit-outer-spin-button,
     .input-no-button::-webkit-inner-spin-button,

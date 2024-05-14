@@ -1,8 +1,6 @@
 import { Match, Switch, type Component } from 'solid-js';
 import { useLayout } from '../contexts/LayoutProvider';
 
-useLayout()?.desktop();
-
 const Row: Component<{ children: any[] | any, class?: string }> = (props) => {
     return (
         <Switch fallback={<InternalRow class={props.class}>{props.children}</InternalRow>}>
