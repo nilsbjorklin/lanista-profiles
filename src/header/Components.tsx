@@ -1,8 +1,7 @@
 import { Match, Show, Switch, createMemo, createSignal, onCleanup, onMount } from 'solid-js';
 import { useLayout } from '../contexts/LayoutProvider';
 
-const buttonStyle = 'select-none inline-block px-3 py-2 rounded-md border-2 border-transparent hover:border-light';
-const dropdown = 'select-none inline-block py-2 pl-3 pr-6 rounded-md border-2 border-transparent hover:border-light';
+const buttonStyle = 'flex items-center whitespace-nowrap overflow-hidden px-3 py-3 select-none rounded-md border-2 border-transparent hover:border-light';
 
 export function HeaderButton(props: ChildButton) {
     return <a
@@ -38,7 +37,7 @@ export type ChildButton = {
 
 export function Selector(props: { children: ChildButton[], selectable?: boolean, text: string }) {
     const [show, setShow] = createSignal(false)
-    let ref: HTMLAnchorElement;
+    let ref: HTMLDivElement;
 
     const calculateSize = () => {
         const charWidth = 9;
@@ -65,13 +64,15 @@ export function Selector(props: { children: ChildButton[], selectable?: boolean,
     });
 
     return (
-        <div class='relative inline-block sm:overflow-hidden sm:whitespace-nowrap'>
-            <a ref={ref!}
-                role="button"
-                class={dropdown}>
-                <span>{props.text}</span>
-                <i class='p-0.5 border-b border-l -rotate-45 absolute top-1/2 -translate-y-1/2 ml-2' />
-            </a>
+        <div class='relative sm:w-1/4'>
+            <div ref={ref!} class='flex justify-between whitespace-nowrap overflow-hidden p-3 sm:px-2 select-none rounded-md border-2 border-transparent hover:border-light'>
+                <a
+                    role='button'
+                    class='whitespace-nowrap overflow-hidden text-ellipsis'>
+                    <span>{props.text}</span>
+                </a>
+                <i class='sm:ml-1 ml-2 text-[8px] flex items-center'>&#x25BC;</i>
+            </div>
             <Show when={show()}>
                 <div style={`min-width: ${size()}px`} class='shadow shadow-light p-1 sm:left-0 sm:right-0 absolute sm:fixed bg-dark grid grid-cols-1'>
                     {mapChildButtons(props.children, props.selectable)}
