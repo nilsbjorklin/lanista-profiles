@@ -14,7 +14,7 @@ import ContentHeader from './content/ContentHeader';
 const Container: Component = () => {
 
     return (
-        <div class='flex flex-col bg-dark text-light sm:w-screen md:w-[600px] lg:w-[80vw] w-[1120px] sm:text-sm'>
+        <div class='flex flex-col sm:w-screen md:w-[600px] lg:w-[80vw] w-[1120px] sm:text-sm'>
             <Header>
                 <ProfileSelector />
                 <RaceSelector />

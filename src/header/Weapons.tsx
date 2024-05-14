@@ -14,14 +14,13 @@ const WeaponTypes: { id: UsedAttribute, name: string }[] = [
 ]
 
 const Weapons: Component<{}> = () => {
-
     const usedAttributes = useFields()?.usedAttributes as () => UsedAttribute[];
-    const toggleWeapon = useFields()?.toggleWeapon as (prev: UsedAttribute) => void;
+    const toggleWeapon = useFields()?.toggleWeapon as (prev: UsedAttribute) => void;    
 
     let children: ChildButton[] = WeaponTypes.map(weapon => { return { selected: usedAttributes().includes(weapon.id), text: weapon.name, action: () => toggleWeapon(weapon.id) } })
 
     return (
-        <Collapsable collapsedText='Vapentyp' children={children} />
+        <Collapsable collapsedText='Vapentyp' children={children} selectable={true} />
     )
 }
 

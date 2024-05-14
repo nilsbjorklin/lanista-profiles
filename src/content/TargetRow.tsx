@@ -13,11 +13,11 @@ const TargetRow: Component<{ level: number }> = (props) => {
     const target = useFields()?.target.values as () => Target;
     const targetEquipment = useFields()?.target.equipment as () => Target;
 
-    const labelStyle = 'col-span-2 p-3 text-center bg-blue text-light font-bold border-b sm:border-none';
+    const labelStyle = 'col-span-2 p-3 text-center contrast font-bold border-b sm:border-none';
     const bottomLabel = `${labelStyle} border-none`;
-    const inputStyle = `input-no-button p-3 text-center bg-blue text-light border-l sm:first:border-l-0 sm:border-t`;
+    const inputStyle = `input-no-button p-3 text-center contrast border-l sm:first:border-l-0 sm:border-t`;
     const topInputStyle = `${inputStyle} border-b`;
-    const headerStyle = 'py-3 px-10 text-center bg-blue text-light font-bold border-l border-b sm:border-l-0 font-mono flex';
+    const headerStyle = 'py-3 px-10 text-center contrast font-bold border-l border-b sm:border-l-0 font-mono flex';
     const headerStyle5 = `${headerStyle} col-span-5`;
     const headerStyle6 = `${headerStyle} col-span-6`;
     const headerStyle7 = `${headerStyle} col-span-7`;

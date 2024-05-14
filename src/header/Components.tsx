@@ -1,7 +1,7 @@
 import { Match, Show, Switch, createMemo, createSignal, onCleanup, onMount } from 'solid-js';
 import { useLayout } from '../contexts/LayoutProvider';
 
-const buttonStyle = 'flex items-center whitespace-nowrap overflow-hidden px-3 py-3 select-none rounded-md border-2 border-transparent hover:border-light';
+const buttonStyle = 'flex items-center whitespace-nowrap overflow-hidden px-3 py-3 select-none rounded-md border-2 border-transparent hover';
 
 export function HeaderButton(props: ChildButton) {
     return <a
@@ -14,7 +14,7 @@ export function HeaderButton(props: ChildButton) {
 
 export function SelectableButton(props: ChildButton) {
     const [selected, setSelected] = createSignal(props.selected)
-    const selectedStyle = 'select-none inline-block px-3 py-2 rounded-md border-2 border-dark bg-light hover:border-light hover:text-light hover:bg-dark text-dark';
+    const selectedStyle = 'select-none inline-block px-3 py-2 rounded-md border-2 inverted hover';
 
     const toggleSelect = () => {
         setSelected(!selected());
@@ -35,7 +35,7 @@ export type ChildButton = {
     action: (() => void) | undefined
 }
 
-export function Selector(props: { label?: any, children: ChildButton[], selectable?: boolean, text: string }) {
+export function Selector(props: { label?: any, children: ChildButton[], selectable?: boolean | undefined, text: string }) {
     const [show, setShow] = createSignal(false)
     let ref: HTMLDivElement;
 
@@ -65,7 +65,7 @@ export function Selector(props: { label?: any, children: ChildButton[], selectab
 
     return (
         <div class='sm:max-w-[50%]'>
-            <div ref={ref!} class='flex whitespace-nowrap overflow-hidden p-3 sm:px-2 select-none rounded-md border-2 border-transparent hover:border-light'>
+            <div ref={ref!} class='flex whitespace-nowrap overflow-hidden p-3 sm:px-2 select-none rounded-md border-2 border-transparent hover'>
                 {props.label && <div class='font-bold pr-3'>{props.label}</div>}
                 <a
                     role='button'
@@ -75,7 +75,7 @@ export function Selector(props: { label?: any, children: ChildButton[], selectab
                 <i class='sm:ml-1 ml-2 text-[8px] flex items-center'>&#x25BC;</i>
             </div>
             <Show when={show()}>
-                <div style={`min-width: ${size()}px`} class='shadow shadow-light p-1 sm:left-0 sm:right-0 absolute sm:fixed bg-dark grid grid-cols-1 z-10'>
+                <div style={`min-width: ${size()}px`} class='shadow shadow-light p-1 sm:left-0 sm:right-0 absolute sm:fixed grid grid-cols-1 z-10 normal'>
                     {mapChildButtons(props.children, props.selectable)}
                 </div>
             </Show>
@@ -96,7 +96,7 @@ export const Collapsable = (props: { children: ChildButton[], selectable?: boole
     return (
         <Switch fallback={mapChildButtons([...props.children], props.selectable)}>
             <Match when={!useLayout()?.desktop()}>
-                <Selector text={props.collapsedText}>
+                <Selector text={props.collapsedText} selectable={props.selectable}>
                     {props.children}
                 </Selector>
             </Match>

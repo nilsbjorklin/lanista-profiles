@@ -13,7 +13,7 @@ const AttributeResultRow: Component<{ index: number }> = (props) => {
     }
 
     return ([
-        <Row class=' bg-light text-dark border-dark'>
+        <Row class='inverted'>
             <div class='col-span-2 p-3 text-center font-bold'>Med bonus</div>
             <Index each={usedStats()}>
                 {stat => (

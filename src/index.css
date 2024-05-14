@@ -3,13 +3,43 @@
 @tailwind utilities;
 
 @layer base {
+    .normal {
+        @apply bg-dark;
+        @apply text-light;
+        @apply border-light;
+    }
+
+    .inverted {
+        @apply bg-light;
+        @apply text-dark;
+        @apply border-dark;
+    }
+
+    .contrast {
+        @apply bg-blue;
+        @apply text-light;
+        @apply border-light;
+    }
+
+    .warning {
+        @apply bg-red;
+        @apply text-light;
+        @apply border-light;
+    }
+
+    .hover:hover {
+        @apply border-2;
+        @apply bg-dark;
+        @apply text-light;
+        @apply border-light;
+    }
 
     #root,
     body,
     html {
         @apply h-full;
         @apply w-full;
-        @apply bg-dark;
+        @apply normal;
     }
 
     body {

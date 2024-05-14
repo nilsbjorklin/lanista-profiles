@@ -29,7 +29,7 @@ const Modal: Component<{ title: string, action: (name: string) => void }> = (pro
     const ModalButton: Component<{ text: string, action: () => void }> = (props) => {
         return (
             <a
-                class='text-right select-none inline-block px-3 py-1 rounded-md border-2 border-transparent border-light hover:bg-light hover:text-dark'
+                class='text-right select-none inline-block px-3 py-1 rounded-md border-2 border-transparent inverted'
                 onClick={props.action}>
                 {props.text}
             </a>
@@ -38,11 +38,11 @@ const Modal: Component<{ title: string, action: (name: string) => void }> = (pro
 
     return (
         <div id='modal' class={`z-10 pt-16 top-0 left-0 w-full h-full bg-transparent-half flex justify-around ${display()}`} onClick={e => checkIfClickedOutside(e)}>
-            <div ref={ref!} class='bg-dark flex w-fit h-fit rounded-xl border-2 border-light p-4 flex-col gap-6'>
+            <div ref={ref!} class='flex w-fit h-fit rounded-xl border-2 p-4 flex-col gap-6'>
                 <div class='text-center'>{props.title}</div>
                 <hr />
                 <div class='flex justify-between gap-3'>
-                    <input placeholder='Profil namn' class='text-dark' onKeyDown={keyPressed} onChange={(e) => setName(e.target.value)} />
+                    <input placeholder='Profil namn' class='inverted' onKeyDown={keyPressed} onChange={(e) => setName(e.target.value)} />
                     <ModalButton text='Spara' action={saveAndClose} />
                 </div>
                 <hr />
