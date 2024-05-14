@@ -22,7 +22,7 @@ const Options: Component<{}> = () => {
     const clearForm = useFields()?.attributes.clearForm;
     const test = useFields()?.test;
 
-    const children = [
+    const profileOptions = [
         {
             text: addProfileText,
             action: () => addProfile?.('very very long new name')
@@ -38,7 +38,10 @@ const Options: Component<{}> = () => {
         {
             text: deleteProfileText,
             action: deleteProfile
-        },
+        }
+    ];
+
+    const otherOptions = [
         {
             text: autoSelectRaceText,
             action: autoSelectRace
@@ -57,9 +60,10 @@ const Options: Component<{}> = () => {
         }
     ];
 
-    return (
-        <Collapsable collapsedText='Alternativ' children={children} />
-    )
+    return ([
+        <Collapsable collapsedText='Profil alternativ' children={profileOptions} />,
+        <Collapsable collapsedText='Beräkna egenskaper' children={otherOptions} />
+    ])
 }
 
 

@@ -35,7 +35,7 @@ export type ChildButton = {
     action: (() => void) | undefined
 }
 
-export function Selector(props: { children: ChildButton[], selectable?: boolean, text: string }) {
+export function Selector(props: { label?: any, children: ChildButton[], selectable?: boolean, text: string }) {
     const [show, setShow] = createSignal(false)
     let ref: HTMLDivElement;
 
@@ -64,8 +64,9 @@ export function Selector(props: { children: ChildButton[], selectable?: boolean,
     });
 
     return (
-        <div class='relative sm:w-1/4'>
-            <div ref={ref!} class='flex justify-between whitespace-nowrap overflow-hidden p-3 sm:px-2 select-none rounded-md border-2 border-transparent hover:border-light'>
+        <div class='sm:max-w-[50%]'>
+            <div ref={ref!} class='flex whitespace-nowrap overflow-hidden p-3 sm:px-2 select-none rounded-md border-2 border-transparent hover:border-light'>
+                {props.label && <div class='font-bold pr-3'>{props.label}</div>}
                 <a
                     role='button'
                     class='whitespace-nowrap overflow-hidden text-ellipsis'>
@@ -74,7 +75,7 @@ export function Selector(props: { children: ChildButton[], selectable?: boolean,
                 <i class='sm:ml-1 ml-2 text-[8px] flex items-center'>&#x25BC;</i>
             </div>
             <Show when={show()}>
-                <div style={`min-width: ${size()}px`} class='shadow shadow-light p-1 sm:left-0 sm:right-0 absolute sm:fixed bg-dark grid grid-cols-1'>
+                <div style={`min-width: ${size()}px`} class='shadow shadow-light p-1 sm:left-0 sm:right-0 absolute sm:fixed bg-dark grid grid-cols-1 z-10'>
                     {mapChildButtons(props.children, props.selectable)}
                 </div>
             </Show>

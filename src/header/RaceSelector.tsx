@@ -7,10 +7,10 @@ const RaceSelector: Component<{}> = () => {
     const race = useFields()?.race as () => RaceType;
     const setRace = useFields()?.setRace as (race: RaceType) => void;
 
-    let children:ChildButton[] = Object.keys(RaceNames).map(race => {return {text:RaceNames[race as RaceType], action: () => setRace(race as RaceType)}})
+    let children: ChildButton[] = Object.keys(RaceNames).map(race => { return { text: RaceNames[race as RaceType], action: () => setRace(race as RaceType) } })
 
     return (
-        <Selector text={RaceNames[race()]} children={children} />
+        <Selector label='Ras:' text={RaceNames[race()]} children={children} />
     )
 }
 

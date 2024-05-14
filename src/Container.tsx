@@ -18,6 +18,7 @@ const Container: Component = () => {
             <Header>
                 <ProfileSelector />
                 <RaceSelector />
+                <div class='hidden w-full sm:block' />
                 <Options />
                 <div class='w-full sm:hidden' />
                 <Weapons />
