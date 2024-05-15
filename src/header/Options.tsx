@@ -1,7 +1,8 @@
-import { type Component } from 'solid-js';
+import { createSignal, type Component } from 'solid-js';
 import { useFields } from '../contexts/FieldsProvider';
 import { useProfile } from '../contexts/ProfileProvider';
 import { Collapsable } from './Components';
+import NameModal from './NameModal';
 
 const addProfileText = 'Lägg till ny profil';
 const renameProfileText = 'Byt namn på profil';
@@ -13,27 +14,38 @@ const autoFillText = 'Fyll i värden';
 const clearFormText = 'Rensa';
 
 const Options: Component<{}> = () => {
-    const addProfile = useProfile()?.addProfile;
-    const renameProfile = useProfile()?.renameProfile;
-    const cloneProfile = useProfile()?.cloneProfile;
+    const [title, setTitle] = createSignal('');
+    const [display, setDisplay] = createSignal(false);
+    const [action, setAction] = createSignal((name:string) => {});
+
+    const addProfile = useProfile()?.addProfile as (name: string) => void;
+    const renameProfile = useProfile()?.renameProfile as (name: string) => void;
+    const cloneProfile = useProfile()?.cloneProfile as (name: string) => void;
     const deleteProfile = useProfile()?.deleteProfile;
     const autoSelectRace = useFields()?.attributes.autoSelectRace;
     const autoFill = useFields()?.attributes.autoFill;
     const clearForm = useFields()?.attributes.clearForm;
     const test = useFields()?.test;
 
+
+    function openModal(modalTitle: string, modalAction: (name: string) => void) {
+        setTitle(modalTitle);
+        setDisplay(true)
+        setAction(() => modalAction);
+    }
+
     const profileOptions = [
         {
             text: addProfileText,
-            action: () => addProfile?.('very very long new name')
+            action: () => openModal('Lägg till ny profil', addProfile)
         },
         {
             text: renameProfileText,
-            action: () => renameProfile?.('re-name')
+            action: () => openModal('Ändra namn för profil', renameProfile)
         },
         {
             text: cloneProfileText,
-            action: () => cloneProfile?.('clone name')
+            action: () => openModal('Skapa kopia av profil', cloneProfile)
         },
         {
             text: deleteProfileText,
@@ -42,25 +54,14 @@ const Options: Component<{}> = () => {
     ];
 
     const otherOptions = [
-        {
-            text: autoSelectRaceText,
-            action: autoSelectRace
-        },
-        {
-            text: autoFillText,
-            action: autoFill
-        },
-        {
-            text: clearFormText,
-            action: clearForm
-        },
-        {
-            text: 'TEST',
-            action: test
-        }
+        { text: autoSelectRaceText, action: autoSelectRace },
+        { text: autoFillText, action: autoFill },
+        { text: clearFormText, action: clearForm },
+        { text: 'TEST', action: test }
     ];
 
     return ([
+        <NameModal title={title} action={action()} display={display} setDisplay={setDisplay} />,
         <Collapsable collapsedText='Profil alternativ' children={profileOptions} />,
         <Collapsable collapsedText='Beräkna egenskaper' children={otherOptions} />
     ])

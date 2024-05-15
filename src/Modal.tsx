@@ -1,23 +1,11 @@
-import { createSignal, type Component } from 'solid-js';
+import { type Component } from 'solid-js';
+import { Portal } from 'solid-js/web';
 
-const Modal: Component<{ title: string, action: (name: string) => void }> = (props) => {
-    const [name, setName] = createSignal('');
-    const [display, setDisplay] = createSignal('hidden');
+const Modal: Component<{ title: string, children: any, display: () => boolean, setDisplay: (display: boolean) => void }> = (props) => {
     let ref: HTMLDivElement;
 
-    function saveAndClose() {
-        props.action(name());
-        close();
-    }
-
     function close() {
-        setDisplay('hidden')
-    }
-
-    function keyPressed(event: KeyboardEvent) {
-        if (event.key === 'Enter') {
-            saveAndClose();
-        }
+        props.setDisplay(false);
     }
 
     const checkIfClickedOutside = (event: MouseEvent) => {
@@ -26,32 +14,29 @@ const Modal: Component<{ title: string, action: (name: string) => void }> = (pro
         };
     }
 
-    const ModalButton: Component<{ text: string, action: () => void }> = (props) => {
-        return (
-            <a
-                class='text-right select-none inline-block px-3 py-1 rounded-md border-2 border-transparent inverted'
-                onClick={props.action}>
-                {props.text}
-            </a>
-        )
-    }
-
     return (
-        <div id='modal' class={`z-10 pt-16 top-0 left-0 w-full h-full bg-transparent-half flex justify-around ${display()}`} onClick={e => checkIfClickedOutside(e)}>
-            <div ref={ref!} class='flex w-fit h-fit rounded-xl border-2 p-4 flex-col gap-6'>
-                <div class='text-center'>{props.title}</div>
-                <hr />
-                <div class='flex justify-between gap-3'>
-                    <input placeholder='Profil namn' class='inverted' onKeyDown={keyPressed} onChange={(e) => setName(e.target.value)} />
-                    <ModalButton text='Spara' action={saveAndClose} />
-                </div>
-                <hr />
-
-                <div class='text-right'>
-                    <ModalButton text='Stäng' action={close} />
+        <Portal mount={document.getElementById("root") as Node}>
+            <div hidden={!props.display()} id='modal' class='z-20 pt-16 fixed top-0 left-0 w-full h-full bg-transparent-half' onClick={e => checkIfClickedOutside(e)}>
+                <div class='flex justify-around w-full h-full'>
+                    <div ref={ref!} class='flex h-fit w-fit max-w-full border-2 p-3 flex-col gap-3 bg-dark'>
+                        <div class='text-center'>{props.title}</div>
+                        <hr />
+                        <div class='flex justify-between gap-3 py-4'>
+                            {props.children}
+                        </div>
+                        <hr />
+                        <div class='text-right'>
+                            <a
+                                role='button'
+                                class='inline-block button warning'
+                                onClick={close} >
+                                Stäng
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </Portal>
     )
 }
 

@@ -12,7 +12,7 @@ const App: Component = () => {
         <LayoutProvider>
             <ProfileProvider>
                 <FieldsProvider >
-                        <Container />
+                    <Container />
                 </FieldsProvider>
             </ProfileProvider>
         </LayoutProvider>

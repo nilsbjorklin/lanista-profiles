@@ -1,12 +1,12 @@
-import { Index, Match, Switch, type Component } from 'solid-js';
+import { Index, Match, Switch, createSignal, type Component } from 'solid-js';
 import { useFields } from '../contexts/FieldsProvider';
 import { useLayout } from '../contexts/LayoutProvider';
 import Row from './Row';
-import RowLabel from './RowLabel';
 import RowCell from './RowCell';
 import RowInput from './RowInput';
+import RowLabel from './RowLabel';
 
-const TargetRow: Component<{ level: number }> = (props) => {
+const TargetRow: Component<{ level: number, openModal: (level: number, equipment: EquipmentForLevel | undefined) => void }> = (props) => {
     const usedStats = useFields()?.usedStats as () => Stat[];
     const modifiers = useFields()?.modifiers as () => { [key in Stat]?: number };
     const twoHanded = useFields()?.twoHanded as () => boolean;
@@ -16,7 +16,7 @@ const TargetRow: Component<{ level: number }> = (props) => {
     const target = useFields()?.target.values as () => Target;
     const targetEquipment = useFields()?.target.equipment as () => Target;
 
-    const headerStyle = 'select-none py-3 text-center font-bold border-l border-b sm:border-l-0 font-mono flex hover';
+    const headerStyle = 'select-none py-3 text-center font-bold border-l sm:border-l-0 font-mono flex hover';
     const headerStyle5 = `${headerStyle} col-span-5`;
     const headerStyle6 = `${headerStyle} col-span-6`;
     const headerStyle7 = `${headerStyle} col-span-7`;
@@ -38,7 +38,7 @@ const TargetRow: Component<{ level: number }> = (props) => {
     }
 
     function targetIsReached(stat: Stat, value: number) {
-        return attribute(stat) > value;
+        return attribute(stat) >= value;
     }
 
     return (
@@ -46,15 +46,15 @@ const TargetRow: Component<{ level: number }> = (props) => {
             <Match when={target()[props.level] || targetEquipment()[props.level]}>
                 <div>
                     <Row class='contrast'>
-                        {useLayout()?.desktop() && <RowLabel class='border-b'>Kravtyp</RowLabel>}
-                        <a type='button'
+                        {useLayout()?.desktop() && <RowLabel>Kravtyp</RowLabel>}
+                        <a role='button'
                             class={usedStats().length === 7 ? headerStyle7 : (usedStats().length === 6 ? headerStyle6 : headerStyle5)}
-                            onclick={() => console.log(equipment)}>
+                            onclick={() => props.openModal(props.level, equipment)}>
                             {getTextForHeader(equipment, twoHanded())}
                         </a>
                     </Row>
-                    <Row class='contrast'>
-                        <RowLabel class={targetEquipment()[props.level] ? 'border-b' : ''}>Egna</RowLabel>
+                    <Row class='contrast border-t'>
+                        <RowLabel>Egna</RowLabel>
                         <Index each={usedStats()}>
                             {stat =>
                                 <RowInput
@@ -66,11 +66,14 @@ const TargetRow: Component<{ level: number }> = (props) => {
                     </Row>
                     <Switch>
                         <Match when={targetEquipment()[props.level]}>
-                            <Row class='contrast'>
+                            <Row class='contrast border-t'>
                                 <RowLabel>Utrustning</RowLabel>
                                 <Index each={usedStats()}>
                                     {stat =>
-                                        <RowCell value={targetEquipment()[props.level][stat()] ?? 0} class={targetIsReached(stat(), targetEquipment()[props.level][stat()] ?? 0) ? '' : 'warning'} />
+                                        <RowCell
+                                            value={targetEquipment()[props.level][stat()] ?? 0}
+                                            class={targetIsReached(stat(), targetEquipment()[props.level][stat()] ?? 0) ? '' : 'warning'}
+                                        />
                                     }
                                 </Index>
                             </Row>

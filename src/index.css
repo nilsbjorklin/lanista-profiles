@@ -28,8 +28,11 @@
     }
 
     .hover:hover {
-        @apply border-2;
         @apply bg-dark;
+    }
+
+    .button:hover {
+        @apply border-2;
         @apply text-light;
         @apply border-light;
     }
