@@ -59,10 +59,11 @@ export default function AttributesCalculator(
 
 
     function autoSelectRace() {
-        let result: { levels: number[], health: { [key in RaceType]?: Record<string, string> | undefined }, values: { [key in RaceType]?: Attributes } } = { levels: [], health: {}, values: {} };
+        let result: { levels: number[], highestRace: Record<string, RaceType>, health: { [key in RaceType]?: Record<string, number> | undefined }, values: { [key in RaceType]?: Attributes } } = { levels: [], highestRace: {}, health: {}, values: {} };
+        let highestValue: Record<string, number> = {};
         Object.keys(RaceNames).forEach(race => {
             let calculatedAttributes = calculateAttributesForRace(race as RaceType);
-            let healthValues: Record<string, string> | undefined = {};
+            let healthValues: Record<string, number> | undefined = {};
             if (calculatedAttributes) {
                 for (const level in totalTarget()) {
                     if (!result.levels.includes(Number(level))) {
@@ -70,7 +71,16 @@ export default function AttributesCalculator(
                     }
                     let totalCalculatedAttributes = calculateAttributesTotal(calculatedAttributes).health?.[Number(level)] as number;
                     let healthModifer = getModifiers(race as RaceType)?.health as number
-                    healthValues[level] = (totalCalculatedAttributes * healthModifer).toFixed(1);
+                    healthValues[level] = (totalCalculatedAttributes * healthModifer);
+                    if (result.highestRace[level]) {
+                        if (highestValue[level] < healthValues[level]) {
+                            highestValue[level] = healthValues[level];
+                            result.highestRace[level] = race as RaceType;
+                        }
+                    } else {
+                        highestValue[level] = healthValues[level];
+                        result.highestRace[level] = race as RaceType;
+                    }
                 }
             } else {
                 healthValues = undefined;
