@@ -17,9 +17,9 @@ const TargetRow: Component<{ level: number, openModal: (level: number, equipment
     const targetEquipment = useFields()?.target.equipment as () => Target;
 
     const headerStyle = 'select-none py-3 text-center font-bold border-l sm:border-l-0 font-mono flex hover';
-    const headerStyle5 = `${headerStyle} col-span-5`;
-    const headerStyle6 = `${headerStyle} col-span-6`;
-    const headerStyle7 = `${headerStyle} col-span-7`;
+    const headerStyle5 = 'col-span-5';
+    const headerStyle6 = 'col-span-6';
+    const headerStyle7 = 'col-span-7';
 
     function attribute(stat: Stat): number {
         return ((attributesTotal()[stat]?.[props.level - 1] ?? 0) * (modifiers()[stat] ?? 1));
@@ -48,7 +48,8 @@ const TargetRow: Component<{ level: number, openModal: (level: number, equipment
                     <Row class='contrast'>
                         {useLayout()?.desktop() && <RowLabel>Kravtyp</RowLabel>}
                         <a role='button'
-                            class={usedStats().length === 7 ? headerStyle7 : (usedStats().length === 6 ? headerStyle6 : headerStyle5)}
+                            classList={{ 'col-span-5': usedStats().length === 5, 'col-span-6': usedStats().length === 6, 'col-span-7': usedStats().length === 7 }}
+                            class='select-none py-3 text-center font-bold border-l sm:border-l-0 font-mono flex hover'
                             onclick={() => props.openModal(props.level, equipment)}>
                             {getTextForHeader(equipment, twoHanded())}
                         </a>
@@ -70,10 +71,9 @@ const TargetRow: Component<{ level: number, openModal: (level: number, equipment
                                 <RowLabel>Utrustning</RowLabel>
                                 <Index each={usedStats()}>
                                     {stat =>
-                                        <RowCell
-                                            value={targetEquipment()[props.level][stat()] ?? 0}
-                                            class={targetIsReached(stat(), targetEquipment()[props.level][stat()] ?? 0) ? '' : 'warning'}
-                                        />
+                                        <RowCell class={targetIsReached(stat(), targetEquipment()[props.level][stat()] ?? 0) ? '' : 'warning'}>
+                                            {targetEquipment()[props.level][stat()] ?? 0}
+                                        </RowCell>
                                     }
                                 </Index>
                             </Row>

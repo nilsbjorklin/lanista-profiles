@@ -9,7 +9,7 @@ const RowInput: Component<{
     }) => void
 }> = (props) => {
     return (
-        <input class={`input-no-button ${props.class ?? ''}`}
+        <input classList={{'input-no-button': true,  [props.class as string]: Boolean(props.class)}}
             type='number'
             value={props.value}
             onInput={props.onInput} />

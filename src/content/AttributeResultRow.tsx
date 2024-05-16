@@ -19,7 +19,9 @@ const AttributeResultRow: Component<{ index: number }> = (props) => {
             <RowLabel>Med bonus</RowLabel>
             <Index each={usedStats()}>
                 {stat => (
-                    <RowCell value={calculateAttributesWithModifiers(stat(), attributesTotal()?.[stat()]?.[props.index])} />
+                    <RowCell>
+                        {calculateAttributesWithModifiers(stat(), attributesTotal()?.[stat()]?.[props.index])}
+                    </RowCell>
                 )}
             </Index>
         </Row>

@@ -31,6 +31,12 @@
         @apply bg-dark;
     }
 
+    .hover:hover:not(.button) {
+        @apply bg-light;
+        @apply text-dark;
+        @apply border-dark;
+    }
+
     .button:hover {
         @apply border-2;
         @apply text-light;

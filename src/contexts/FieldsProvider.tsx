@@ -22,7 +22,7 @@ const FieldsContext = createContext<{
         set: (value: (prev: Attributes) => Attributes) => void,
         setAttribute: (stat: Stat, index: number, value: number) => void,
         total: () => Attributes,
-        autoSelectRace: () => void,
+        autoSelectRace: () => { levels: number[], health: { [key in RaceType]?: Record<string, string> | undefined }, values: { [key in RaceType]?: Attributes } }
         autoFill: () => void,
         clearForm: () => void
     }

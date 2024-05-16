@@ -1,7 +1,7 @@
 import { type Component } from 'solid-js';
 import { Portal } from 'solid-js/web';
 
-const Modal: Component<{ title: string, children: any, display: () => boolean, setDisplay: (display: boolean) => void }> = (props) => {
+const Modal: Component<{ title: string, bodyClass?: string, children: any, display: () => boolean, setDisplay: (display: boolean) => void }> = (props) => {
     let ref: HTMLDivElement;
 
     function close() {
@@ -21,7 +21,7 @@ const Modal: Component<{ title: string, children: any, display: () => boolean, s
                     <div ref={ref!} class='flex h-fit w-fit max-w-full border-2 p-3 flex-col gap-3 bg-dark'>
                         <div class='text-center'>{props.title}</div>
                         <hr />
-                        <div class='flex justify-between gap-3 py-4'>
+                        <div class={props.bodyClass}>
                             {props.children}
                         </div>
                         <hr />

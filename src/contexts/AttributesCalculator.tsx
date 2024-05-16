@@ -59,21 +59,27 @@ export default function AttributesCalculator(
 
 
     function autoSelectRace() {
-        let result: { [key in RaceType]?: Record<string, String> } = {};
+        let result: { levels: number[], health: { [key in RaceType]?: Record<string, string> | undefined }, values: { [key in RaceType]?: Attributes } } = { levels: [], health: {}, values: {} };
         Object.keys(RaceNames).forEach(race => {
             let calculatedAttributes = calculateAttributesForRace(race as RaceType);
-            let healthValues: Record<string, String> = {};
+            let healthValues: Record<string, string> | undefined = {};
             if (calculatedAttributes) {
                 for (const level in totalTarget()) {
+                    if (!result.levels.includes(Number(level))) {
+                        result.levels.push(Number(level));
+                    }
                     let totalCalculatedAttributes = calculateAttributesTotal(calculatedAttributes).health?.[Number(level)] as number;
                     let healthModifer = getModifiers(race as RaceType)?.health as number
                     healthValues[level] = (totalCalculatedAttributes * healthModifer).toFixed(1);
                 }
             } else {
-                for (const level in totalTarget()) healthValues[level] = '0';
+                healthValues = undefined;
             }
-            result[race as RaceType] = healthValues;
+            result.health[race as RaceType] = healthValues;
+            if (calculatedAttributes)
+                result.values[race as RaceType] = calculatedAttributes;
         })
+        result.levels.sort((a, b) => a - b);
         return result;
     }
 
