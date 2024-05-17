@@ -19,6 +19,7 @@ const ContentData: Component<{}> = () => {
     return (
         <div class='grid grid-flow-row auto-cols-fr overflow-y-scroll scrollbar-none sm:text-sm'>
             <EquipmentModal
+                level={level()}
                 title={`Utrustning för Grad ${level()}`}
                 equipment={equipment}
                 display={display}

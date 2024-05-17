@@ -34,8 +34,7 @@ const FieldsContext = createContext<{
         addTargetForLevel: (level: number) => void,
         removeTargetForLevel: (level: number) => void
     },
-    equipment: () => Equipment,
-    test: () => void
+    equipment: () => Equipment
 }>();
 
 export function useFields() {
@@ -90,10 +89,6 @@ export function FieldsProvider(props: { children: any }) {
     const target = TargetCalculator(getProfile, setProfile);
     const attributes = AttributesCalculator(getProfile, setProfile, race, usedStats, target.total, getModifiers);
 
-    const test = () => {
-        console.log(getProfile());
-    }
-
     //equipment
     const equipment = createMemo(() => getProfile()?.equipment ?? {}, {});
 
@@ -110,8 +105,7 @@ export function FieldsProvider(props: { children: any }) {
             getModifiers,
             attributes,
             target,
-            equipment,
-            test
+            equipment
         }}>
             {props.children}
         </FieldsContext.Provider>

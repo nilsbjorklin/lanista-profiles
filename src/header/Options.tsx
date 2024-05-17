@@ -1,9 +1,9 @@
 import { createSignal, type Component } from 'solid-js';
 import { useFields } from '../contexts/FieldsProvider';
 import { useProfile } from '../contexts/ProfileProvider';
+import AttributeDisplayModal from './AttributeDisplayModal';
 import { Collapsable } from './Components';
 import NameModal from './NameModal';
-import AttributeDisplayModal from './AttributeDisplayModal';
 
 const addProfileText = 'Lägg till ny profil';
 const renameProfileText = 'Byt namn på profil';
@@ -27,7 +27,6 @@ const Options: Component<{}> = () => {
     const deleteProfile = useProfile()?.deleteProfile;
     const autoFill = useFields()?.attributes.autoFill;
     const clearForm = useFields()?.attributes.clearForm;
-    const test = useFields()?.test;
 
     const profileOptions = [
         {
@@ -57,8 +56,7 @@ const Options: Component<{}> = () => {
     const otherOptions = [
         { text: autoSelectRaceText, action: () => setDisplayAutoSelect(true) },
         { text: autoFillText, action: autoFill },
-        { text: clearFormText, action: clearForm },
-        { text: 'TEST', action: test }
+        { text: clearFormText, action: clearForm }
     ];
 
     return ([

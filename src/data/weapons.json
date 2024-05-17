@@ -1,0 +1,3781 @@
+[
+    {
+        "name": "Liten Sten",
+        "type": "Distans",
+        "minDamage": 1,
+        "maxDamage": 1,
+        "wield": "Distans",
+        "enchant": [
+            "Distans",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 45,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Större Träningssvärd",
+        "type": "Svärd",
+        "minDamage": 9,
+        "maxDamage": 11,
+        "wield": "Tvåhand",
+        "breakingPoint": 49,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 55,
+            "skill": 40,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "swords": 5
+            }
+        }
+    },
+    {
+        "name": "Bastardsvärd",
+        "type": "Svärd",
+        "minDamage": 15,
+        "maxDamage": 19,
+        "wield": "Tvåhand",
+        "breakingPoint": 90,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 90,
+            "skill": 75,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "dodge": 10,
+                "swords": 5
+            }
+        }
+    },
+    {
+        "name": "Tvåhandssvärd",
+        "type": "Svärd",
+        "minDamage": 20,
+        "maxDamage": 24,
+        "wield": "Tvåhand",
+        "breakingPoint": 120,
+        "enchant": [
+            "Onyx",
+            "Topas",
+            "Opal",
+            "Smaragd",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 115,
+            "skill": 100,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "dodge": 15
+            },
+            "percentage": {
+                "swords": 5
+            }
+        }
+    },
+    {
+        "name": "Ormsvärd",
+        "type": "Svärd",
+        "minDamage": 24,
+        "maxDamage": 27,
+        "wield": "Tvåhand",
+        "breakingPoint": 130,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Safir",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 20,
+            "maxLevel": 45,
+            "strength": 150,
+            "skill": 115,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 10,
+                "dodge": 10
+            },
+            "percentage": {
+                "swords": 10
+            }
+        }
+    },
+    {
+        "name": "Cain",
+        "type": "Svärd",
+        "minDamage": 27,
+        "maxDamage": 32,
+        "wield": "Tvåhand",
+        "breakingPoint": 175,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Safir",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "strength": 180,
+            "skill": 140,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 10,
+                "dodge": 15
+            },
+            "percentage": {
+                "swords": 15
+            }
+        }
+    },
+    {
+        "name": "Durendal",
+        "type": "Svärd",
+        "minDamage": 32,
+        "maxDamage": 36,
+        "wield": "Tvåhand",
+        "breakingPoint": 242,
+        "enchant": [
+            "Onyx",
+            "Smaragd",
+            "Safir",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 35,
+            "maxLevel": 45,
+            "strength": 230,
+            "skill": 160,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "endurance": 15
+            },
+            "percentage": {
+                "swords": 20
+            }
+        }
+    },
+    {
+        "name": "Uttjänt Kortsvärd",
+        "type": "Svärd",
+        "minDamage": 1,
+        "maxDamage": 2,
+        "wield": "Enhand",
+        "breakingPoint": 26,
+        "enchant": [
+            "Prismatisk",
+            "Topas",
+            "Onyx",
+            "Safir",
+            "Smaragd"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 25,
+            "skill": 35,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Kortsvärd",
+        "type": "Svärd",
+        "minDamage": 2,
+        "maxDamage": 4,
+        "wield": "Enhand",
+        "breakingPoint": 35,
+        "enchant": [
+            "Prismatisk",
+            "Topas",
+            "Onyx",
+            "Safir",
+            "Smaragd"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 25,
+            "skill": 40,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "swords": 2,
+                "health": 2
+            }
+        }
+    },
+    {
+        "name": "Oljeklinga",
+        "type": "Svärd",
+        "minDamage": 5,
+        "maxDamage": 8,
+        "wield": "Enhand",
+        "breakingPoint": 49,
+        "enchant": [
+            "Prismatisk",
+            "Topas",
+            "Onyx",
+            "Safir",
+            "Smaragd"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 50,
+            "skill": 70,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "health": 5
+            }
+        }
+    },
+    {
+        "name": "Långsvärd",
+        "type": "Svärd",
+        "minDamage": 7,
+        "maxDamage": 10,
+        "wield": "Enhand",
+        "breakingPoint": 70,
+        "enchant": [
+            "Prismatisk",
+            "Topas",
+            "Onyx",
+            "Safir",
+            "Smaragd"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 50,
+            "skill": 95,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "swords": 10
+            }
+        }
+    },
+    {
+        "name": "Romeriskt Krigssvärd",
+        "type": "Svärd",
+        "minDamage": 6,
+        "maxDamage": 14,
+        "wield": "Enhand",
+        "breakingPoint": 60,
+        "enchant": [
+            "Prismatisk",
+            "Topas",
+            "Onyx",
+            "Safir",
+            "Smaragd"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 60,
+            "skill": 105,
+            "race": [
+                "Människa"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "swords": 5
+            }
+        }
+    },
+    {
+        "name": "Besudlat Krigssvärd",
+        "type": "Svärd",
+        "minDamage": 6,
+        "maxDamage": 13,
+        "wield": "Enhand",
+        "breakingPoint": 72,
+        "enchant": [
+            "Prismatisk",
+            "Topas",
+            "Onyx",
+            "Safir",
+            "Smaragd"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 75,
+            "skill": 75,
+            "race": [
+                "Troll",
+                "Ork",
+                "Goblin"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "health": 6
+            }
+        }
+    },
+    {
+        "name": "Svartblodsklinga",
+        "type": "Svärd",
+        "minDamage": 8,
+        "maxDamage": 18,
+        "wield": "Enhand",
+        "breakingPoint": 99,
+        "enchant": [
+            "Prismatisk",
+            "Topas",
+            "Onyx",
+            "Safir",
+            "Smaragd"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 130,
+            "skill": 105,
+            "race": [
+                "Troll",
+                "Ork",
+                "Goblin"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "swords": 7,
+                "endurance": 7
+            }
+        }
+    },
+    {
+        "name": "Riddarsvärd",
+        "type": "Svärd",
+        "minDamage": 9,
+        "maxDamage": 14,
+        "wield": "Enhand",
+        "breakingPoint": 90,
+        "enchant": [
+            "Prismatisk",
+            "Topas",
+            "Onyx",
+            "Safir",
+            "Smaragd"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 85,
+            "skill": 105,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "health": 5
+            }
+        }
+    },
+    {
+        "name": "En Och En Halvhandssvärd",
+        "type": "Svärd",
+        "minDamage": 10,
+        "maxDamage": 17,
+        "wield": "Enhand",
+        "breakingPoint": 115,
+        "enchant": [
+            "Prismatisk",
+            "Topas",
+            "Onyx",
+            "Safir",
+            "Smaragd"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 110,
+            "skill": 110,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Besmyckat Långsvärd",
+        "type": "Svärd",
+        "minDamage": 10,
+        "maxDamage": 14,
+        "wield": "Enhand",
+        "breakingPoint": 105,
+        "enchant": [
+            "Prismatisk",
+            "Topas",
+            "Onyx",
+            "Safir",
+            "Smaragd"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 75,
+            "skill": 115,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "swords": 10
+            }
+        }
+    },
+    {
+        "name": "Silversvärd",
+        "type": "Svärd",
+        "minDamage": 8,
+        "maxDamage": 15,
+        "wield": "Enhand",
+        "breakingPoint": 95,
+        "enchant": [
+            "Prismatisk",
+            "Topas",
+            "Onyx",
+            "Safir",
+            "Smaragd"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 60,
+            "skill": 125,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "endurance": 5,
+                "dodge": 5
+            }
+        }
+    },
+    {
+        "name": "Härskarsvärd",
+        "type": "Svärd",
+        "minDamage": 9,
+        "maxDamage": 17,
+        "wield": "Enhand",
+        "breakingPoint": 110,
+        "enchant": [
+            "Prismatisk",
+            "Topas",
+            "Onyx",
+            "Safir",
+            "Smaragd"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 20,
+            "maxLevel": 45,
+            "strength": 110,
+            "skill": 120,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Gyllene Långsvärd",
+        "type": "Svärd",
+        "minDamage": 15,
+        "maxDamage": 19,
+        "wield": "Enhand",
+        "breakingPoint": 166,
+        "enchant": [
+            "Prismatisk",
+            "Topas",
+            "Onyx",
+            "Safir",
+            "Smaragd"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "strength": 115,
+            "skill": 140,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "health": 5,
+                "swords": 10
+            }
+        }
+    },
+    {
+        "name": "Kavallerisabel",
+        "type": "Svärd",
+        "minDamage": 13,
+        "maxDamage": 19,
+        "wield": "Enhand",
+        "breakingPoint": 180,
+        "enchant": [
+            "Prismatisk",
+            "Topas",
+            "Onyx",
+            "Safir",
+            "Smaragd"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "strength": 85,
+            "skill": 140,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "endurance": 10,
+                "swords": 10
+            }
+        }
+    },
+    {
+        "name": "Shamshir",
+        "type": "Svärd",
+        "minDamage": 15,
+        "maxDamage": 21,
+        "wield": "Enhand",
+        "breakingPoint": 218,
+        "enchant": [
+            "Opal",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 35,
+            "maxLevel": 45,
+            "strength": 105,
+            "skill": 155,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "percentage": {
+                "swords": 7
+            },
+            "points": {
+                "health": 15,
+                "endurance": 5
+            }
+        }
+    },
+    {
+        "name": "Grimfrost",
+        "type": "Svärd",
+        "minDamage": 16,
+        "maxDamage": 22,
+        "wield": "Enhand",
+        "breakingPoint": 190,
+        "enchant": [
+            "Prismatisk",
+            "Topas",
+            "Onyx",
+            "Safir",
+            "Smaragd"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 35,
+            "maxLevel": 45,
+            "strength": 135,
+            "skill": 155,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "swords": 7
+            },
+            "percentage": {
+                "health": 4
+            }
+        }
+    },
+    {
+        "name": "Enkel Piska",
+        "type": "Kätting",
+        "minDamage": 2,
+        "maxDamage": 5,
+        "wield": "Enhand",
+        "breakingPoint": 1,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 12,
+            "skill": 55,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "chain": 5
+            }
+        }
+    },
+    {
+        "name": "Enkel Tvåhandsslaga",
+        "type": "Kätting",
+        "minDamage": 2,
+        "maxDamage": 16,
+        "wield": "Tvåhand",
+        "breakingPoint": 35,
+        "enchant": [
+            "Opal",
+            "Rubin",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 70,
+            "skill": 60,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Rostig Tvåhandsslaga",
+        "type": "Kätting",
+        "minDamage": 4,
+        "maxDamage": 21,
+        "wield": "Tvåhand",
+        "breakingPoint": 40,
+        "enchant": [
+            "Opal",
+            "Rubin",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 85,
+            "skill": 60,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Silverbesmyckad Piska",
+        "type": "Kätting",
+        "minDamage": 5,
+        "maxDamage": 13,
+        "wield": "Enhand",
+        "breakingPoint": 37,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 50,
+            "skill": 115,
+            "race": [
+                "Alv",
+                "Människa"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "dodge": 5
+            }
+        }
+    },
+    {
+        "name": "Stor Slaga",
+        "type": "Kätting",
+        "minDamage": 7,
+        "maxDamage": 28,
+        "wield": "Tvåhand",
+        "breakingPoint": 50,
+        "enchant": [
+            "Opal",
+            "Rubin",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 100,
+            "skill": 85,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "chain": 5
+            }
+        }
+    },
+    {
+        "name": "Svartblodsslaga",
+        "type": "Kätting",
+        "minDamage": 5,
+        "maxDamage": 30,
+        "wield": "Tvåhand",
+        "breakingPoint": 90,
+        "enchant": [
+            "Opal",
+            "Rubin",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 125,
+            "skill": 70,
+            "race": [
+                "Ork",
+                "Troll"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "health": 5
+            }
+        }
+    },
+    {
+        "name": "Silverbesmyckad Piska",
+        "type": "Kätting",
+        "minDamage": 5,
+        "maxDamage": 13,
+        "wield": "Enhand",
+        "breakingPoint": 37,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 50,
+            "skill": 115,
+            "race": [
+                "Alv",
+                "Människa"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "dodge": 5
+            }
+        }
+    },
+    {
+        "name": "Skallslaga",
+        "type": "Kätting",
+        "minDamage": 11,
+        "maxDamage": 36,
+        "wield": "Tvåhand",
+        "breakingPoint": 70,
+        "enchant": [
+            "Opal",
+            "Rubin",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 145,
+            "skill": 105,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Dödsgissel",
+        "type": "Kätting",
+        "minDamage": 10,
+        "maxDamage": 42,
+        "wield": "Tvåhand",
+        "breakingPoint": 90,
+        "enchant": [
+            "Opal",
+            "Rubin",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 20,
+            "maxLevel": 45,
+            "strength": 170,
+            "skill": 125,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Niosvansad Katt",
+        "type": "Kätting",
+        "minDamage": 19,
+        "maxDamage": 47,
+        "wield": "Tvåhand",
+        "breakingPoint": 100,
+        "enchant": [
+            "Opal",
+            "Rubin",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "strength": 200,
+            "skill": 140,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Monstruöst Dödsgissel",
+        "type": "Kätting",
+        "minDamage": 20,
+        "maxDamage": 53,
+        "wield": "Tvåhand",
+        "breakingPoint": 105,
+        "enchant": [
+            "Opal",
+            "Rubin",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 35,
+            "maxLevel": 45,
+            "strength": 250,
+            "skill": 160,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "chain": 10
+            }
+        }
+    },
+    {
+        "name": "Enkel Slaga",
+        "type": "Kätting",
+        "minDamage": 2,
+        "maxDamage": 5,
+        "wield": "Enhand",
+        "breakingPoint": 17,
+        "enchant": [
+            "Opal",
+            "Rubin",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 70,
+            "skill": 35,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Övningsnät",
+        "type": "Kätting",
+        "minDamage": 1,
+        "maxDamage": 2,
+        "wield": "Enhand",
+        "breakingPoint": 20,
+        "enchant": [
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 30,
+            "skill": 45,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Sjusvansad Piska",
+        "type": "Kätting",
+        "minDamage": 1,
+        "maxDamage": 7,
+        "wield": "Enhand",
+        "breakingPoint": 12,
+        "enchant": [
+            "Rubin",
+            "Opal",
+            "Smaragd",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 35,
+            "skill": 80,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Stridsgissel",
+        "type": "Kätting",
+        "minDamage": 2,
+        "maxDamage": 9,
+        "wield": "Enhand",
+        "breakingPoint": 25,
+        "enchant": [
+            "Rubin",
+            "Opal",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 80,
+            "skill": 40,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Stridsslaga",
+        "type": "Kätting",
+        "minDamage": 5,
+        "maxDamage": 9,
+        "wield": "Enhand",
+        "breakingPoint": 26,
+        "enchant": [
+            "Rubin",
+            "Opal",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 75,
+            "skill": 60,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Enkelt Nät",
+        "type": "Kätting",
+        "minDamage": 2,
+        "maxDamage": 3,
+        "wield": "Enhand",
+        "breakingPoint": 29,
+        "enchant": [
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 40,
+            "skill": 65,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Mindre Stridsnät",
+        "type": "Kätting",
+        "minDamage": 3,
+        "maxDamage": 5,
+        "wield": "Enhand",
+        "breakingPoint": 40,
+        "enchant": [
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 60,
+            "skill": 100,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Skymningsgissel",
+        "type": "Kätting",
+        "minDamage": 5,
+        "maxDamage": 14,
+        "wield": "Enhand",
+        "breakingPoint": 37,
+        "enchant": [
+            "Rubin",
+            "Opal",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 125,
+            "skill": 80,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Besmyckad Piska",
+        "type": "Kätting",
+        "minDamage": 4,
+        "maxDamage": 12,
+        "wield": "Enhand",
+        "breakingPoint": 33,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 45,
+            "skill": 105,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "chain": 5
+            }
+        }
+    },
+    {
+        "name": "Besmyckat Stridsnät",
+        "type": "Kätting",
+        "minDamage": 4,
+        "maxDamage": 6,
+        "wield": "Enhand",
+        "breakingPoint": 68,
+        "enchant": [
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 70,
+            "skill": 130,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Gladiatornät",
+        "type": "Kätting",
+        "minDamage": 3,
+        "maxDamage": 5,
+        "wield": "Enhand",
+        "breakingPoint": 53,
+        "enchant": [
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 85,
+            "skill": 120,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "chain": 10
+            }
+        }
+    },
+    {
+        "name": "Torngissel",
+        "type": "Kätting",
+        "minDamage": 9,
+        "maxDamage": 19,
+        "wield": "Enhand",
+        "breakingPoint": 53,
+        "enchant": [
+            "Rubin",
+            "Opal",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 200,
+            "skill": 105,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Lorariuspiska",
+        "type": "Kätting",
+        "minDamage": 4,
+        "maxDamage": 16,
+        "wield": "Enhand",
+        "breakingPoint": 45,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 75,
+            "skill": 125,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "chain": 8,
+                "endurance": 5
+            }
+        }
+    },
+    {
+        "name": "Svartblodsgissel",
+        "type": "Kätting",
+        "minDamage": 5,
+        "maxDamage": 24,
+        "wield": "Enhand",
+        "breakingPoint": 58,
+        "enchant": [
+            "Rubin",
+            "Opal",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 20,
+            "maxLevel": 45,
+            "strength": 250,
+            "skill": 105,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Stridskarbas",
+        "type": "Kätting",
+        "minDamage": 4,
+        "maxDamage": 14,
+        "wield": "Enhand",
+        "breakingPoint": 51,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 20,
+            "maxLevel": 45,
+            "strength": 70,
+            "skill": 140,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "percentage": {
+                "chain": 2
+            }
+        }
+    },
+    {
+        "name": "Mästerligt Gladiatornät",
+        "type": "Kätting",
+        "minDamage": 5,
+        "maxDamage": 8,
+        "wield": "Enhand",
+        "breakingPoint": 92,
+        "enchant": [
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "strength": 100,
+            "skill": 155,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "endurance": 8
+            }
+        }
+    },
+    {
+        "name": "Tveeggsgissel",
+        "type": "Kätting",
+        "minDamage": 11,
+        "maxDamage": 25,
+        "wield": "Enhand",
+        "breakingPoint": 92,
+        "enchant": [
+            "Rubin",
+            "Opal",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "strength": 240,
+            "skill": 135,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Balatapiska",
+        "type": "Kätting",
+        "minDamage": 8,
+        "maxDamage": 19,
+        "wield": "Enhand",
+        "breakingPoint": 78,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "strength": 105,
+            "skill": 155,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "chain": 10
+            }
+        }
+    },
+    {
+        "name": "Slavdrivaren",
+        "type": "Kätting",
+        "minDamage": 12,
+        "maxDamage": 20,
+        "wield": "Enhand",
+        "breakingPoint": 80,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "strength": 135,
+            "skill": 145,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "endurance": 7
+            }
+        }
+    },
+    {
+        "name": "Paegrem",
+        "type": "Kätting",
+        "minDamage": 10,
+        "maxDamage": 20,
+        "wield": "Enhand",
+        "breakingPoint": 85,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 35,
+            "maxLevel": 45,
+            "strength": 125,
+            "skill": 170,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "percentage": {
+                "chain": 7
+            }
+        }
+    },
+    {
+        "name": "Honnörsnät",
+        "type": "Kätting",
+        "minDamage": 5,
+        "maxDamage": 9,
+        "wield": "Enhand",
+        "breakingPoint": 108,
+        "enchant": [
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 35,
+            "maxLevel": 45,
+            "strength": 130,
+            "skill": 170,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "endurance": 5
+            }
+        }
+    },
+    {
+        "name": "Krokgissel",
+        "type": "Kätting",
+        "minDamage": 11,
+        "maxDamage": 28,
+        "wield": "Enhand",
+        "breakingPoint": 110,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 35,
+            "maxLevel": 45,
+            "strength": 310,
+            "skill": 145,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "endurance": -5
+            }
+        }
+    },
+    {
+        "name": "Tvåhandsklubba",
+        "type": "Hammare",
+        "minDamage": 5,
+        "maxDamage": 16,
+        "wield": "Tvåhand",
+        "breakingPoint": 35,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 75,
+            "skill": 30,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Stridshammare",
+        "type": "Hammare",
+        "minDamage": 9,
+        "maxDamage": 21,
+        "wield": "Tvåhand",
+        "breakingPoint": 40,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 100,
+            "skill": 45,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 5
+            }
+        }
+    },
+    {
+        "name": "Tvåhandshammare",
+        "type": "Hammare",
+        "minDamage": 12,
+        "maxDamage": 30,
+        "wield": "Tvåhand",
+        "breakingPoint": 80,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 135,
+            "skill": 65,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Enorm Klubba",
+        "type": "Hammare",
+        "minDamage": 15,
+        "maxDamage": 39,
+        "wield": "Tvåhand",
+        "breakingPoint": 95,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 185,
+            "skill": 70,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Krigsslägga",
+        "type": "Hammare",
+        "minDamage": 18,
+        "maxDamage": 48,
+        "wield": "Tvåhand",
+        "breakingPoint": 120,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 20,
+            "maxLevel": 45,
+            "strength": 245,
+            "skill": 105,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Skugghammare",
+        "type": "Hammare",
+        "minDamage": 22,
+        "maxDamage": 50,
+        "wield": "Tvåhand",
+        "breakingPoint": 150,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "strength": 300,
+            "skill": 125,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "percentage": {
+                "strength": 4
+            }
+        }
+    },
+    {
+        "name": "Själsslägga",
+        "type": "Hammare",
+        "minDamage": 23,
+        "maxDamage": 56,
+        "wield": "Tvåhand",
+        "breakingPoint": 160,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 35,
+            "maxLevel": 45,
+            "strength": 400,
+            "skill": 145,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "percentage": {
+                "strength": 5
+            }
+        }
+    },
+    {
+        "name": "Spikklubba",
+        "type": "Hammare",
+        "minDamage": 4,
+        "maxDamage": 6,
+        "wield": "Enhand",
+        "breakingPoint": 27,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 40,
+            "skill": 25,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Påk",
+        "type": "Hammare",
+        "minDamage": 3,
+        "maxDamage": 4,
+        "wield": "Enhand",
+        "breakingPoint": 36,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 35,
+            "skill": 25,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "maces": 3
+            }
+        }
+    },
+    {
+        "name": "Morgonstjärna",
+        "type": "Hammare",
+        "minDamage": 6,
+        "maxDamage": 9,
+        "wield": "Enhand",
+        "breakingPoint": 40,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 50,
+            "skill": 45,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Molnhammare",
+        "type": "Hammare",
+        "minDamage": 3,
+        "maxDamage": 13,
+        "wield": "Enhand",
+        "breakingPoint": 51,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 60,
+            "skill": 85,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "maces": 3
+            }
+        }
+    },
+    {
+        "name": "Orkisk Spikklubba",
+        "type": "Hammare",
+        "minDamage": 6,
+        "maxDamage": 15,
+        "wield": "Enhand",
+        "breakingPoint": 49,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 80,
+            "skill": 75,
+            "race": [
+                "Ork",
+                "Troll"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "strength": 5
+            }
+        }
+    },
+    {
+        "name": "Träskhammare",
+        "type": "Hammare",
+        "minDamage": 10,
+        "maxDamage": 18,
+        "wield": "Enhand",
+        "breakingPoint": 92,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 90,
+            "skill": 100,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Bergets Slägga",
+        "type": "Hammare",
+        "minDamage": 10,
+        "maxDamage": 20,
+        "wield": "Enhand",
+        "breakingPoint": 98,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 155,
+            "skill": 85,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Bellum Malleo",
+        "type": "Hammare",
+        "minDamage": 12,
+        "maxDamage": 24,
+        "wield": "Enhand",
+        "breakingPoint": 93,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 20,
+            "maxLevel": 45,
+            "strength": 140,
+            "skill": 115,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Kyrasshammare",
+        "type": "Hammare",
+        "minDamage": 18,
+        "maxDamage": 22,
+        "wield": "Enhand",
+        "breakingPoint": 151,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "strength": 140,
+            "skill": 130,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Österländsk Stridshammare",
+        "type": "Hammare",
+        "minDamage": 20,
+        "maxDamage": 25,
+        "wield": "Enhand",
+        "breakingPoint": 132,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "strength": 220,
+            "skill": 125,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "percentage": {
+                "strength": 3
+            }
+        }
+    },
+    {
+        "name": "Helgjuten Järnslägga",
+        "type": "Hammare",
+        "minDamage": 20,
+        "maxDamage": 24,
+        "wield": "Enhand",
+        "breakingPoint": 210,
+        "enchant": [
+            "Opal",
+            "Onyx",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 35,
+            "maxLevel": 45,
+            "strength": 205,
+            "skill": 145,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Titansnäckshammare",
+        "type": "Hammare",
+        "minDamage": 22,
+        "maxDamage": 29,
+        "wield": "Enhand",
+        "breakingPoint": 163,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 35,
+            "maxLevel": 45,
+            "strength": 385,
+            "skill": 104,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "percentage": {
+                "strength": 5
+            }
+        }
+    },
+    {
+        "name": "Treudd",
+        "type": "Stick",
+        "minDamage": 9,
+        "maxDamage": 10,
+        "wield": "Tvåhand",
+        "breakingPoint": 50,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 45,
+            "skill": 45,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 10
+            }
+        }
+    },
+    {
+        "name": "Lans",
+        "type": "Stick",
+        "minDamage": 12,
+        "maxDamage": 14,
+        "wield": "Tvåhand",
+        "breakingPoint": 55,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 45,
+            "skill": 65,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 10
+            }
+        }
+    },
+    {
+        "name": "Pik",
+        "type": "Stick",
+        "minDamage": 16,
+        "maxDamage": 18,
+        "wield": "Tvåhand",
+        "breakingPoint": 80,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 75,
+            "skill": 80,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 15
+            }
+        }
+    },
+    {
+        "name": "Romerisk Pik",
+        "type": "Stick",
+        "minDamage": 15,
+        "maxDamage": 19,
+        "wield": "Tvåhand",
+        "breakingPoint": 60,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Safir",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 90,
+            "skill": 80,
+            "race": [
+                "Människa"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 15,
+                "spears": 5
+            }
+        }
+    },
+    {
+        "name": "Hillebard",
+        "type": "Stick",
+        "minDamage": 20,
+        "maxDamage": 25,
+        "wield": "Tvåhand",
+        "breakingPoint": 86,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Safir",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 115,
+            "skill": 105,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 20
+            }
+        }
+    },
+    {
+        "name": "Titanlans",
+        "type": "Stick",
+        "minDamage": 20,
+        "maxDamage": 23,
+        "wield": "Tvåhand",
+        "breakingPoint": 90,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Safir",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 90,
+            "skill": 110,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 20
+            }
+        }
+    },
+    {
+        "name": "Stor lans",
+        "type": "Stick",
+        "minDamage": 25,
+        "maxDamage": 27,
+        "wield": "Tvåhand",
+        "breakingPoint": 90,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Safir",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 20,
+            "maxLevel": 45,
+            "strength": 140,
+            "skill": 125,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 30
+            }
+        }
+    },
+    {
+        "name": "Alviskt Långspjut",
+        "type": "Stick",
+        "minDamage": 24,
+        "maxDamage": 25,
+        "wield": "Tvåhand",
+        "breakingPoint": 100,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Safir",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 20,
+            "maxLevel": 45,
+            "strength": 105,
+            "skill": 130,
+            "race": [
+                "Alv"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 25,
+                "dodge": 10,
+                "spears": 5
+            }
+        }
+    },
+    {
+        "name": "Makalöst Alvspjut",
+        "type": "Stick",
+        "minDamage": 28,
+        "maxDamage": 34,
+        "wield": "Tvåhand",
+        "breakingPoint": 105,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "strength": 140,
+            "skill": 150,
+            "race": [
+                "Alv",
+                "Människa"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 35,
+                "strength": 10,
+                "spears": 10
+            }
+        }
+    },
+    {
+        "name": "Besudlad Mörkerpik",
+        "type": "Stick",
+        "minDamage": 23,
+        "maxDamage": 39,
+        "wield": "Tvåhand",
+        "breakingPoint": 90,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "strength": 240,
+            "skill": 140,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 30
+            }
+        }
+    },
+    {
+        "name": "Förädlad Drakdräpare",
+        "type": "Stick",
+        "minDamage": 32,
+        "maxDamage": 44,
+        "wield": "Tvåhand",
+        "breakingPoint": 110,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 2,
+        "requirements": {
+            "minLevel": 35,
+            "maxLevel": 45,
+            "strength": 200,
+            "skill": 170,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 15,
+                "spears": 10
+            }
+        }
+    },
+    {
+        "name": "Kortspjut",
+        "type": "Stick",
+        "minDamage": 2,
+        "maxDamage": 5,
+        "wield": "Enhand",
+        "breakingPoint": 18,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 20,
+            "skill": 55,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 7
+            }
+        }
+    },
+    {
+        "name": "Enkel Dolk",
+        "type": "Stick",
+        "minDamage": 1,
+        "maxDamage": 2,
+        "wield": "Enhand",
+        "breakingPoint": 31,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 10,
+            "skill": 55,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "dodge": 5,
+                "spears": 5
+            }
+        }
+    },
+    {
+        "name": "Jaktspjut",
+        "type": "Stick",
+        "minDamage": 3,
+        "maxDamage": 9,
+        "wield": "Enhand",
+        "breakingPoint": 25,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 30,
+            "skill": 65,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 8
+            }
+        }
+    },
+    {
+        "name": "Parerdolk",
+        "type": "Stick",
+        "minDamage": 1,
+        "maxDamage": 2,
+        "wield": "Enhand",
+        "breakingPoint": 52,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 20,
+            "skill": 65,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "dodge": 10
+            }
+        }
+    },
+    {
+        "name": "Gladiatorspjut",
+        "type": "Stick",
+        "minDamage": 5,
+        "maxDamage": 13,
+        "wield": "Enhand",
+        "breakingPoint": 37,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 55,
+            "skill": 105,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 12
+            }
+        }
+    },
+    {
+        "name": "Tvärdolk",
+        "type": "Stick",
+        "minDamage": 3,
+        "maxDamage": 6,
+        "wield": "Enhand",
+        "breakingPoint": 62,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 30,
+            "skill": 105,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "spears": 8,
+                "dodge": 4
+            },
+            "percentage": {
+                "dodge": 4
+            }
+        }
+    },
+    {
+        "name": "Glimrande Spjut",
+        "type": "Stick",
+        "minDamage": 8,
+        "maxDamage": 15,
+        "wield": "Enhand",
+        "breakingPoint": 50,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 65,
+            "skill": 115,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 3,
+                "dodge": 3,
+                "spears": 3
+            },
+            "percentage": {
+                "dodge": 3,
+                "spears": 3
+            }
+        }
+    },
+    {
+        "name": "Besmyckat Jaktspjut",
+        "type": "Stick",
+        "minDamage": 8,
+        "maxDamage": 17,
+        "wield": "Enhand",
+        "breakingPoint": 54,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 85,
+            "skill": 125,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 15
+            }
+        }
+    },
+    {
+        "name": "Besmyckad Parerdolk",
+        "type": "Stick",
+        "minDamage": 4,
+        "maxDamage": 8,
+        "wield": "Enhand",
+        "breakingPoint": 97,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 40,
+            "skill": 125,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "spears": 10,
+                "dodge": 5
+            },
+            "percentage": {
+                "dodge": 5
+            }
+        }
+    },
+    {
+        "name": "Fullmånespjut",
+        "type": "Stick",
+        "minDamage": 8,
+        "maxDamage": 17,
+        "wield": "Enhand",
+        "breakingPoint": 56,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 20,
+            "maxLevel": 45,
+            "strength": 70,
+            "skill": 140,
+            "race": [
+                "Alv",
+                "Människa"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 12,
+                "dodge": 5,
+                "spears": 12
+            }
+        }
+    },
+    {
+        "name": "Infanterilans",
+        "type": "Stick",
+        "minDamage": 10,
+        "maxDamage": 24,
+        "wield": "Enhand",
+        "breakingPoint": 103,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "strength": 115,
+            "skill": 170,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 20
+            }
+        }
+    },
+    {
+        "name": "Dubbeldolk",
+        "type": "Stick",
+        "minDamage": 7,
+        "maxDamage": 12,
+        "wield": "Enhand",
+        "breakingPoint": 166,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "strength": 60,
+            "skill": 160,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "spears": 10,
+                "dodge": 10
+            },
+            "percentage": {
+                "dodge": 5
+            }
+        }
+    },
+    {
+        "name": "Trishula",
+        "type": "Stick",
+        "minDamage": 16,
+        "maxDamage": 22,
+        "wield": "Enhand",
+        "breakingPoint": 112,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 35,
+            "maxLevel": 45,
+            "strength": 120,
+            "skill": 175,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 15,
+                "spears": 15
+            }
+        }
+    },
+    {
+        "name": "Trippeldolk",
+        "type": "Stick",
+        "minDamage": 8,
+        "maxDamage": 13,
+        "wield": "Enhand",
+        "breakingPoint": 193,
+        "enchant": [
+            "Onyx",
+            "Opal",
+            "Smaragd",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 35,
+            "maxLevel": 45,
+            "strength": 80,
+            "skill": 175,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "dodge": 10
+            },
+            "percentage": {
+                "spears": 5,
+                "dodge": 7
+            }
+        }
+    },
+    {
+        "name": "Bucklare",
+        "type": "Sköldar",
+        "wield": "Enhand",
+        "absorption": 3,
+        "breakingPoint": 16,
+        "enchant": [
+            "Onyx",
+            "Rubin",
+            "Smaragd",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 25,
+            "skill": 20,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Tunnsköld",
+        "type": "Sköldar",
+        "wield": "Enhand",
+        "absorption": 10,
+        "breakingPoint": 18,
+        "enchant": [
+            "Onyx",
+            "Rubin",
+            "Smaragd",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 40,
+            "skill": 40,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Lövsköld",
+        "type": "Sköldar",
+        "wield": "Enhand",
+        "absorption": 12,
+        "breakingPoint": 21,
+        "enchant": [
+            "Onyx",
+            "Rubin",
+            "Smaragd",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 25,
+            "skill": 50,
+            "race": [
+                "Alv",
+                "Människa"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "shield": 5,
+                "dodge": 5
+            }
+        }
+    },
+    {
+        "name": "Alvsköld",
+        "type": "Sköldar",
+        "wield": "Enhand",
+        "absorption": 17,
+        "breakingPoint": 25,
+        "enchant": [
+            "Onyx",
+            "Rubin",
+            "Smaragd",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 45,
+            "skill": 65,
+            "race": [
+                "Alv",
+                "Människa"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "shield": 5,
+                "dodge": 5
+            }
+        }
+    },
+    {
+        "name": "Månsköld",
+        "type": "Sköldar",
+        "wield": "Enhand",
+        "absorption": 23,
+        "breakingPoint": 40,
+        "enchant": [
+            "Onyx",
+            "Rubin",
+            "Smaragd",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 15,
+            "maxLevel": 45,
+            "strength": 60,
+            "skill": 85,
+            "race": [
+                "Alv",
+                "Människa"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "shield": 5,
+                "dodge": 10
+            }
+        }
+    },
+    {
+        "name": "Flädersköld",
+        "type": "Sköldar",
+        "wield": "Enhand",
+        "absorption": 28,
+        "breakingPoint": 60,
+        "enchant": [
+            "Onyx",
+            "Rubin",
+            "Smaragd",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 20,
+            "maxLevel": 45,
+            "strength": 70,
+            "skill": 115,
+            "race": [
+                "Alv",
+                "Människa"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "shield": 10,
+                "dodge": 10
+            }
+        }
+    },
+    {
+        "name": "Scutum",
+        "type": "Sköldar",
+        "wield": "Enhand",
+        "absorption": 39,
+        "breakingPoint": 90,
+        "enchant": [
+            "Onyx",
+            "Rubin",
+            "Smaragd",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "strength": 140,
+            "skill": 120,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "percentage": {
+                "shield": 11
+            },
+            "points": {
+                "health": 5,
+                "strength": 5,
+                "endurance": 5,
+                "dodge": 5
+            }
+        }
+    },
+    {
+        "name": "Alvisk Väktarsköld",
+        "type": "Sköldar",
+        "wield": "Enhand",
+        "absorption": 39,
+        "breakingPoint": 112,
+        "enchant": [
+            "Onyx",
+            "Rubin",
+            "Smaragd",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 35,
+            "maxLevel": 45,
+            "strength": 140,
+            "skill": 150,
+            "race": [
+                "Alv",
+                "Människa"
+            ]
+        },
+        "bonus": {
+            "percentage": {
+                "shield": 12,
+                "dodge": 12
+            }
+        }
+    },
+    {
+        "name": "Handyxa",
+        "type": "Yxor",
+        "minDamage": 2,
+        "maxDamage": 5,
+        "wield": "Enhand",
+        "breakingPoint": 19,
+        "enchant": [
+            "Opal",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 19,
+            "strength": 20,
+            "skill": 50,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "axes": 3,
+                "dodge": 3
+            }
+        }
+    },
+    {
+        "name": "Bardiche",
+        "type": "Yxor",
+        "minDamage": 14,
+        "maxDamage": 24,
+        "wield": "Enhand",
+        "breakingPoint": 118,
+        "enchant": [
+            "Opal",
+            "Rubin",
+            "Topas",
+            "Prismatisk"
+        ],
+        "maxEnchant": 1,
+        "requirements": {
+            "minLevel": 35,
+            "maxLevel": 45,
+            "strength": 115,
+            "skill": 175,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "percentage": {
+                "axes": 6,
+                "dodge": 6
+            },
+            "points": {
+                "dodge": 6
+            }
+        }
+    }
+]

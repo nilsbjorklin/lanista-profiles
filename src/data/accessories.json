@@ -1,0 +1,357 @@
+[
+    {
+        "name": "Röd Stridsmantel",
+        "type": "Mantel",
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "health": 1,
+                "strength": 1,
+                "endurance": 1,
+                "dodge": 1
+            }
+        }
+    },
+    {
+        "name": "Gruvans Mantel",
+        "type": "Mantel",
+        "requirements": {
+            "minLevel": 20,
+            "maxLevel": 45,
+            "race": [
+                "Dvärg"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "health": 4,
+                "endurance": 6
+            }
+        }
+    },
+    {
+        "name": "Lärdomsmantel",
+        "type": "Mantel",
+        "requirements": {
+            "minLevel": 1,
+            "maxLevel": 45,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Alvernas Mantel",
+        "type": "Mantel",
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "race": [
+                "Alv"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "health": 5
+            }
+        }
+    },
+    {
+        "name": "Kavalleriets Mantel",
+        "type": "Mantel",
+        "requirements": {
+            "minLevel": 20,
+            "maxLevel": 45,
+            "race": [
+                "Människa"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 6,
+                "dodge": 2
+            }
+        }
+    },
+    {
+        "name": "Elefantmantel",
+        "type": "Mantel",
+        "requirements": {
+            "minLevel": 10,
+            "maxLevel": 45,
+            "strength": 100,
+            "race": [
+                "Ork",
+                "Troll",
+                "Goblin"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "strength": 5
+            }
+        }
+    },
+    {
+        "name": "Svartblodsmantel",
+        "type": "Mantel",
+        "requirements": {
+            "minLevel": 20,
+            "maxLevel": 45,
+            "strength": 160,
+            "race": [
+                "Ork",
+                "Troll",
+                "Goblin"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "health": 5,
+                "strength": 3
+            }
+        }
+    },
+    {
+        "name": "Orkisk Mantel",
+        "type": "Mantel",
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "race": [
+                "Ork"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "health": 10,
+                "strength": 5
+            }
+        }
+    },
+    {
+        "name": "Generalens Sjal",
+        "type": "Mantel",
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {}
+    },
+    {
+        "name": "Zurins Mantel",
+        "type": "Mantel",
+        "requirements": {
+            "minLevel": 45,
+            "maxLevel": 45,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "initiative": 6,
+                "health": 7
+            }
+        }
+    },
+    {
+        "name": "Svart Virtuoskappa",
+        "type": "Mantel",
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "reputation": -600,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "strength": 5
+            }
+        }
+    },
+    {
+        "name": "Blodmånemantel",
+        "type": "Mantel",
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "reputation": -600,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "health": 10,
+                "endurance": 5
+            }
+        }
+    },
+    {
+        "name": "Skymningsmantel",
+        "type": "Mantel",
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "reputation": -600,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "strength": 5,
+                "initiative": 5,
+                "endurance": 5
+            }
+        }
+    },
+    {
+        "name": "Förbannelsens Kaftan",
+        "type": "Mantel",
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "reputation": -600,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "strength": 3,
+                "endurance": 3
+            }
+        }
+    },
+    {
+        "name": "Nekromantikermantel",
+        "type": "Mantel",
+        "requirements": {
+            "minLevel": 35,
+            "maxLevel": 45,
+            "race": "Odöd"
+        },
+        "bonus": {
+            "points": {
+                "endurance": -20
+            },
+            "percentage": {
+                "health": 4,
+                "strength": 4,
+                "initiative": 4,
+                "dodge": 4
+            }
+        }
+    },
+    {
+        "name": "Zenitkåpa",
+        "type": "Mantel",
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "reputation": 600,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "health": 8,
+                "initiative": 4
+            }
+        }
+    },
+    {
+        "name": "Adelsmantel",
+        "type": "Mantel",
+        "requirements": {
+            "minLevel": 26,
+            "maxLevel": 45,
+            "reputation": 600,
+            "race": [
+                "Människa",
+                "Alv",
+                "Dvärg",
+                "Ork",
+                "Troll",
+                "Goblin",
+                "Odöd"
+            ]
+        },
+        "bonus": {
+            "points": {
+                "health": 6,
+                "strength": 6,
+                "endurance": 4
+            }
+        }
+    }
+]
