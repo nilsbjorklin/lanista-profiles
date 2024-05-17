@@ -105,7 +105,6 @@ export function ProfileProvider(props: { children: any }) {
     }
 
     const addProfile = (name: string) => {
-        console.log('addProfile');
         const newId = uniqueId();
         setProfileList((prev) => {
             let newSelected = {
@@ -131,17 +130,13 @@ export function ProfileProvider(props: { children: any }) {
     }
 
     const renameProfile = (name: string) => {
-        console.log('renameProfile');
         setProfileList((prev) => {
-            console.log(name);
             prev.selected.name = name;
             return structuredClone(prev);
         });
     }
 
     const cloneProfile = (name: string) => {
-        console.log('cloneProfile');
-
         const newId = uniqueId();
         setProfileList((prev) => {
             let newSelected = {
