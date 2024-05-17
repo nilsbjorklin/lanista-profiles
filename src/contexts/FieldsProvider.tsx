@@ -1,8 +1,8 @@
 import { createContext, createMemo, useContext } from "solid-js";
 import compareObjects from "../compareObjects";
 import RaceData from '../data/raceData.json';
-import { useProfile } from "./ProfileProvider";
 import AttributesCalculator from "./AttributesCalculator";
+import { useProfile } from "./ProfileProvider";
 import TargetCalculator from "./TargetCalculator";
 
 const baseStats: Stat[] = ['health', 'strength', 'endurance', 'initiative', 'dodge'];
@@ -31,6 +31,7 @@ const FieldsContext = createContext<{
         set: (level: number, stat: Stat, value: number) => void,
         equipment: () => Target,
         total: () => Target,
+        addTargetForLevel: (level: number) => void
     },
     equipment: () => Equipment,
     test: () => void
@@ -94,6 +95,7 @@ export function FieldsProvider(props: { children: any }) {
 
     //equipment
     const equipment = createMemo(() => getProfile()?.equipment ?? {}, {});
+
     return (
         <FieldsContext.Provider value={{
             race,

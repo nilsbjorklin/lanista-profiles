@@ -1,4 +1,4 @@
-import { Index, Match, Switch, createSignal, type Component } from 'solid-js';
+import { Index, Match, Switch, type Component } from 'solid-js';
 import { useFields } from '../contexts/FieldsProvider';
 import { useLayout } from '../contexts/LayoutProvider';
 import Row from './Row';
@@ -15,11 +15,6 @@ const TargetRow: Component<{ level: number, openModal: (level: number, equipment
     const attributesTotal = useFields()?.attributes.total as () => Attributes;
     const target = useFields()?.target.values as () => Target;
     const targetEquipment = useFields()?.target.equipment as () => Target;
-
-    const headerStyle = 'select-none py-3 text-center font-bold border-l sm:border-l-0 font-mono flex hover';
-    const headerStyle5 = 'col-span-5';
-    const headerStyle6 = 'col-span-6';
-    const headerStyle7 = 'col-span-7';
 
     function attribute(stat: Stat): number {
         return ((attributesTotal()[stat]?.[props.level - 1] ?? 0) * (modifiers()[stat] ?? 1));

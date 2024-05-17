@@ -108,5 +108,12 @@ export default function TargetCalculator(getProfile: () => Profile, setProfile: 
         return result;
     }
 
-    return { values:target, set:setTarget, equipment: equipmentTarget, total: totalTarget };
+    function addTargetForLevel(level: number) {
+        setProfile((prev) => {
+            prev.target[level] = {};
+            return prev;
+        })
+    }
+
+    return { values: target, set: setTarget, equipment: equipmentTarget, total: totalTarget, addTargetForLevel };
 }

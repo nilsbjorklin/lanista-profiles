@@ -12,6 +12,7 @@
     "noEmit": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
-    "exactOptionalPropertyTypes" :true
+    "exactOptionalPropertyTypes" :true,
   },
+  "exclude": ["node_modules"]
 }
