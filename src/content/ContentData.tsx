@@ -29,7 +29,7 @@ const ContentData: Component<{}> = () => {
                         <LevelHeader level={index + 1} openModal={openModal} />
                         <AttributeRow index={index} />
                         <AttributeResultRow index={index} />
-                        <TargetRow level={index + 1} openModal={openModal} />
+                        <TargetRow level={index + 1} />
                     </div>
                 }
             </Index>

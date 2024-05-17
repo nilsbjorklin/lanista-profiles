@@ -31,7 +31,8 @@ const FieldsContext = createContext<{
         set: (level: number, stat: Stat, value: number) => void,
         equipment: () => Target,
         total: () => Target,
-        addTargetForLevel: (level: number) => void
+        addTargetForLevel: (level: number) => void,
+        removeTargetForLevel: (level: number) => void
     },
     equipment: () => Equipment,
     test: () => void

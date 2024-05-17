@@ -6,7 +6,7 @@ import RowCell from './RowCell';
 import RowInput from './RowInput';
 import RowLabel from './RowLabel';
 
-const TargetRow: Component<{ level: number, openModal: (level: number, equipment: EquipmentForLevel | undefined) => void }> = (props) => {
+const TargetRow: Component<{ level: number }> = (props) => {
     const usedStats = useFields()?.usedStats as () => Stat[];
     const modifiers = useFields()?.modifiers as () => { [key in Stat]?: number };
     const twoHanded = useFields()?.twoHanded as () => boolean;
@@ -29,7 +29,7 @@ const TargetRow: Component<{ level: number, openModal: (level: number, equipment
         } else if (!twoHanded && (mainhand || offhand)) {
             return [<span class='w-1/2'>{mainhand ?? 'Ej vald'}</span>, <span class='w-1/2'>{offhand ?? 'Ej vald'}</span>]
         }
-        return <span class='w-full'>Välj utrustning</span>;
+        return <span class='w-full'>Ingen utrustning vald</span>;
     }
 
     function targetIsReached(stat: Stat, value: number) {
@@ -42,24 +42,26 @@ const TargetRow: Component<{ level: number, openModal: (level: number, equipment
                 <div>
                     <Row class='contrast'>
                         {useLayout()?.desktop() && <RowLabel>Kravtyp</RowLabel>}
-                        <a role='button'
-                            classList={{ 'col-span-5': usedStats().length === 5, 'col-span-6': usedStats().length === 6, 'col-span-7': usedStats().length === 7 }}
-                            class='select-none py-3 text-center font-bold border-l sm:border-l-0 font-mono flex hover'
-                            onclick={() => props.openModal(props.level, equipment)}>
+                        <a classList={{ 'col-span-5': usedStats().length === 5, 'col-span-6': usedStats().length === 6, 'col-span-7': usedStats().length === 7 }}
+                            class='select-none py-3 text-center font-bold border-l sm:border-l-0 font-mono flex'>
                             {getTextForHeader(equipment, twoHanded())}
                         </a>
                     </Row>
-                    <Row class='contrast border-t'>
-                        <RowLabel>Egna</RowLabel>
-                        <Index each={usedStats()}>
-                            {stat =>
-                                <RowInput
-                                    value={target()?.[props.level]?.[stat()] ?? 0}
-                                    class={targetIsReached(stat(), target()?.[props.level]?.[stat()] ?? 0) ? 'contrast' : 'warning'}
-                                    onInput={(e) => setTarget(props.level, stat(), Number(e.target.value))} />
-                            }
-                        </Index>
-                    </Row>
+                    <Switch>
+                        <Match when={target()[props.level]}>
+                            <Row class='contrast border-t'>
+                                <RowLabel>Egna</RowLabel>
+                                <Index each={usedStats()}>
+                                    {stat =>
+                                        <RowInput
+                                            value={target()?.[props.level]?.[stat()] ?? 0}
+                                            class={targetIsReached(stat(), target()?.[props.level]?.[stat()] ?? 0) ? 'contrast' : 'warning'}
+                                            onInput={(e) => setTarget(props.level, stat(), Number(e.target.value))} />
+                                    }
+                                </Index>
+                            </Row>
+                        </Match>
+                    </Switch>
                     <Switch>
                         <Match when={targetEquipment()[props.level]}>
                             <Row class='contrast border-t'>

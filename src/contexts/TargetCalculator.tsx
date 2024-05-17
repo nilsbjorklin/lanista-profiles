@@ -115,5 +115,14 @@ export default function TargetCalculator(getProfile: () => Profile, setProfile: 
         })
     }
 
-    return { values: target, set: setTarget, equipment: equipmentTarget, total: totalTarget, addTargetForLevel };
+    function removeTargetForLevel(level: number) {
+        if (window.confirm(`Är du säker att du vill ta bort kvar för Grad ${level}?`)) {
+            setProfile((prev) => {
+                delete prev.target[level];
+                return prev;
+            })
+        }
+    }
+
+    return { values: target, set: setTarget, equipment: equipmentTarget, total: totalTarget, addTargetForLevel, removeTargetForLevel };
 }

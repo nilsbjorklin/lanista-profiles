@@ -1,6 +1,6 @@
-import { type Component } from 'solid-js';
+import { createMemo, type Component } from 'solid-js';
 import { useFields } from '../contexts/FieldsProvider';
-import { ChildButton, Collapsable } from './Components';
+import { Collapsable } from './Components';
 
 const WeaponTypes: { id: UsedAttribute, name: string }[] = [
     { id: 'axes', name: 'Yxor' },
@@ -14,13 +14,17 @@ const WeaponTypes: { id: UsedAttribute, name: string }[] = [
 ]
 
 const Weapons: Component<{}> = () => {
-    const usedAttributes = useFields()?.usedAttributes as () => UsedAttribute[];
-    const toggleWeapon = useFields()?.toggleWeapon as (prev: UsedAttribute) => void;    
+    const usedAttributes = createMemo(() => useFields()?.usedAttributes() as UsedAttribute[], [], { equals: (prev, next) => prev.equals(next) });
+    const toggleWeapon = useFields()?.toggleWeapon as (prev: UsedAttribute) => void;
 
-    let children: ChildButton[] = WeaponTypes.map(weapon => { return { selected: usedAttributes().includes(weapon.id), text: weapon.name, action: () => toggleWeapon(weapon.id) } })
+    const getButtons = () => {
+        return WeaponTypes.map(weapon => { return { selected: usedAttributes().includes(weapon.id), text: weapon.name, action: () => toggleWeapon(weapon.id) } });
+    }
+
+    const buttons = createMemo(getButtons, [], { equals: (prev, next) => prev.equals(next) })
 
     return (
-        <Collapsable collapsedText='Vapentyp' children={children} selectable={true} />
+        <Collapsable collapsedText='Vapentyp' children={buttons()} selectable={true} />
     )
 }
 
