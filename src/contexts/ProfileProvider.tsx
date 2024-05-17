@@ -28,6 +28,10 @@ export function useProfile() {
     return useContext(ProfileContext);
 }
 
+const uniqueId = () => {
+    return Date.now().toString(36) + Math.random().toString(36).slice(2);
+}
+
 export function ProfileProvider(props: { children: any }) {
     const [profileList, setProfileList] = createSignal<ProfileList>(getProfileList());
     const [activeProfile, setActiveProfile] = createSignal<Profile>(getProfile());
@@ -43,16 +47,13 @@ export function ProfileProvider(props: { children: any }) {
         localStorage.setItem(ProfileListKey, JSON.stringify(profileList()))
     })
 
-    const uniqueId = () => {
-        return Date.now().toString(36) + Math.random().toString(36).slice(2);
-    };
-
     function getProfileList(): ProfileList {
         let storageProfileList = localStorage.getItem(ProfileListKey);
         if (storageProfileList) {
             return JSON.parse(storageProfileList) as ProfileList
         }
-        throw new Error('ProfileList not found in storage');
+        console.error('ProfileList not found in storage');
+        return { selected: { id: uniqueId(), name: 'Standard' }, profiles: [] };
     }
 
     function getProfile(): Profile {
@@ -61,7 +62,16 @@ export function ProfileProvider(props: { children: any }) {
             if (storageProfile) {
                 return JSON.parse(storageProfile) as Profile
             } else {
-                throw new Error('Active profile not found in storage');
+                console.error('Active profile not found in storage');
+                return {
+                    id: profileList().selected.id,
+                    name: profileList().selected.name,
+                    race: 'human',
+                    usedAttributes: [],
+                    attributes: {},
+                    equipment: {},
+                    target: { 1: {} }
+                };
             }
         } else {
             throw new Error('ProfileList not found');
@@ -112,7 +122,7 @@ export function ProfileProvider(props: { children: any }) {
                     usedAttributes: [],
                     attributes: {},
                     equipment: {},
-                    target: {1:{}}
+                    target: { 1: {} }
                 }))
                 return { selected: newSelected, profiles: newProfiles };
             }
@@ -123,7 +133,7 @@ export function ProfileProvider(props: { children: any }) {
     const renameProfile = (name: string) => {
         console.log('renameProfile');
         setProfileList((prev) => {
-            console.log(name);            
+            console.log(name);
             prev.selected.name = name;
             return structuredClone(prev);
         });
@@ -131,7 +141,7 @@ export function ProfileProvider(props: { children: any }) {
 
     const cloneProfile = (name: string) => {
         console.log('cloneProfile');
-        
+
         const newId = uniqueId();
         setProfileList((prev) => {
             let newSelected = {
