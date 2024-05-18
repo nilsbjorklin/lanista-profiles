@@ -9,7 +9,7 @@ import RowLabel from './RowLabel';
 
 const EquipmentModalHeader: Component<{ equipment: Accessor<EquipmentForLevel | undefined> }> = (props) => {
     return (
-        <div class='p-3 flex gap-20 justify-between sm:text-sm'>
+        <div class='p-3 flex justify-between sm:text-sm'>
             <div class='pb-2'>
                 <h2 class='font-bold text-lg sm:text-base'>Vapen</h2>
                 <Show when={props.equipment()?.weapon} fallback='Inga vapen valda'>
@@ -50,9 +50,7 @@ const EquipmentChoice: Component<{ level: number, tab: string }> = (props) => {
         return (b.requirements.minLevel ?? 0) - (a.requirements.minLevel ?? 0);
     }
     const weapons = (Weapons as Weapon[]).sort(minLevelSort);
-
-    let dataStyleSmall = 'p-3 text-center ';
-    let dataStyle = 'p-3 text-center border-l first:border-l-0 ';
+    let dataStyle = 'p-3 text-center border-l first:border-l-0 no whitespace-nowrap  truncate ';
     let headerStyle = dataStyle + 'font-bold ';
 
     function meetsRequirements(equipment: Weapon) {
@@ -67,26 +65,35 @@ const EquipmentChoice: Component<{ level: number, tab: string }> = (props) => {
         return true;
     }
 
+    const EquipmentRow: Component<{ children: any, onClick?: () => void }> = (props) => {
+        let func = () => { };
+        return <div
+            classList={{ 'hover': Boolean(props.onClick) }}
+            class='grid grid-flow-col auto-cols-fr'
+            onClick={props.onClick ?? func}>
+            {props.children}
+        </div >;
+    }
+
     return (
-        <div class={'border sm:text-xs w-fit'}>
+        <div class='border-t text-xs overflow-x-scroll scrollbar-none'>
             <Switch>
                 <Match when={props.tab === 'Vapen'}>
-                    <div class='grid auto-cols-fr grid-flow-col'>
-                        <div class={headerStyle + 'col-span-2'}>Namn</div>
-                        <div class={headerStyle}>Typ</div>
-                        <div class={headerStyle}>Fattning</div>
-                        <div class={headerStyle}>Grad</div>
-                        <div class={headerStyle}>Skada</div>
-                        <div class={headerStyle}>BV</div>
-                        <div class={headerStyle}>Styrka</div>
-                        <div class={headerStyle}>VF</div>
-                    </div>
-                    <div class='overflow-y-scroll max-h-96 scrollbar-none'>
+                    <div class='min-w-[600px]'>
+                        <EquipmentRow>
+                            <div class={headerStyle + 'col-span-2'}>Namn</div>
+                            <div class={headerStyle}>Typ</div>
+                            <div class={headerStyle}>Fattning</div>
+                            <div class={headerStyle}>Grad</div>
+                            <div class={headerStyle}>Skada</div>
+                            <div class={headerStyle}>BV</div>
+                            <div class={headerStyle}>Styrka</div>
+                            <div class={headerStyle}>VF</div>
+                        </EquipmentRow>
                         <For each={weapons}>
                             {(equipment) =>
                                 <Show when={meetsRequirements(equipment)}>
-                                    <div class='grid auto-cols-fr grid-flow-col border-t hover'
-                                        onClick={() => console.log(equipment)}>
+                                    <EquipmentRow onClick={() => console.log(equipment)}>
                                         <div class={dataStyle + 'col-span-2'}>{equipment.name}</div>
                                         <div class={dataStyle}>{WeaponNames[equipment.type]}</div>
                                         <div class={dataStyle}>{WeaponNames[equipment.wield]}</div>
@@ -95,7 +102,7 @@ const EquipmentChoice: Component<{ level: number, tab: string }> = (props) => {
                                         <div class={dataStyle}>{equipment.breakingPoint}</div>
                                         <div class={dataStyle}>{equipment.requirements.strength}</div>
                                         <div class={dataStyle}>{equipment.requirements.skill}</div>
-                                    </div>
+                                    </EquipmentRow>
                                 </Show>
                             }
                         </For>
@@ -132,7 +139,7 @@ const EquipmentModal: Component<{
     const [selectedTab, setSelectedTab] = createSignal('Vapen');
     const tabs = ['Vapen', 'Rustning', 'Föremål']
     return (
-        <Modal title={props.title} display={props.display} setDisplay={props.setDisplay}>
+        <Modal title={props.title} fullsize={true} display={props.display} setDisplay={props.setDisplay}>
             <EquipmentModalHeader equipment={props.equipment} />
             <div class='flex flex-row items-start gap-1'>
                 <For each={tabs}>
