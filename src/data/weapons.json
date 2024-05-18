@@ -1,43 +1,44 @@
 [
     {
         "name": "Liten Sten",
-        "type": "Distans",
+        "type": "distance",
         "minDamage": 1,
         "maxDamage": 1,
-        "wield": "Distans",
+        "wield": "distance",
         "enchant": [
-            "Distans",
-            "Prismatisk"
+            "distance",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
             "minLevel": 1,
             "maxLevel": 45,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Större Träningssvärd",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 9,
         "maxDamage": 11,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 49,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Safir",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -46,13 +47,14 @@
             "strength": 55,
             "skill": 40,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -63,17 +65,17 @@
     },
     {
         "name": "Bastardsvärd",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 15,
         "maxDamage": 19,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 90,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Safir",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -82,13 +84,14 @@
             "strength": 90,
             "skill": 75,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -100,18 +103,18 @@
     },
     {
         "name": "Tvåhandssvärd",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 20,
         "maxDamage": 24,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 120,
         "enchant": [
-            "Onyx",
-            "Topas",
-            "Opal",
-            "Smaragd",
-            "Safir",
-            "Prismatisk"
+            "onyx",
+            "topaz",
+            "opal",
+            "emerald",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -120,13 +123,14 @@
             "strength": 115,
             "skill": 100,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -140,18 +144,18 @@
     },
     {
         "name": "Ormsvärd",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 24,
         "maxDamage": 27,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 130,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Safir",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "sapphire",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -160,13 +164,14 @@
             "strength": 150,
             "skill": 115,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -181,18 +186,18 @@
     },
     {
         "name": "Cain",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 27,
         "maxDamage": 32,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 175,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Safir",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "sapphire",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -201,13 +206,14 @@
             "strength": 180,
             "skill": 140,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -222,17 +228,17 @@
     },
     {
         "name": "Durendal",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 32,
         "maxDamage": 36,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 242,
         "enchant": [
-            "Onyx",
-            "Smaragd",
-            "Safir",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "emerald",
+            "sapphire",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -241,13 +247,14 @@
             "strength": 230,
             "skill": 160,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -261,17 +268,17 @@
     },
     {
         "name": "Uttjänt Kortsvärd",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 1,
         "maxDamage": 2,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 26,
         "enchant": [
-            "Prismatisk",
-            "Topas",
-            "Onyx",
-            "Safir",
-            "Smaragd"
+            "prismatic",
+            "topaz",
+            "onyx",
+            "sapphire",
+            "emerald"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -280,30 +287,31 @@
             "strength": 25,
             "skill": 35,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Kortsvärd",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 2,
         "maxDamage": 4,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 35,
         "enchant": [
-            "Prismatisk",
-            "Topas",
-            "Onyx",
-            "Safir",
-            "Smaragd"
+            "prismatic",
+            "topaz",
+            "onyx",
+            "sapphire",
+            "emerald"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -312,13 +320,14 @@
             "strength": 25,
             "skill": 40,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -330,17 +339,17 @@
     },
     {
         "name": "Oljeklinga",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 5,
         "maxDamage": 8,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 49,
         "enchant": [
-            "Prismatisk",
-            "Topas",
-            "Onyx",
-            "Safir",
-            "Smaragd"
+            "prismatic",
+            "topaz",
+            "onyx",
+            "sapphire",
+            "emerald"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -349,13 +358,14 @@
             "strength": 50,
             "skill": 70,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -366,17 +376,17 @@
     },
     {
         "name": "Långsvärd",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 7,
         "maxDamage": 10,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 70,
         "enchant": [
-            "Prismatisk",
-            "Topas",
-            "Onyx",
-            "Safir",
-            "Smaragd"
+            "prismatic",
+            "topaz",
+            "onyx",
+            "sapphire",
+            "emerald"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -385,13 +395,14 @@
             "strength": 50,
             "skill": 95,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -402,17 +413,17 @@
     },
     {
         "name": "Romeriskt Krigssvärd",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 6,
         "maxDamage": 14,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 60,
         "enchant": [
-            "Prismatisk",
-            "Topas",
-            "Onyx",
-            "Safir",
-            "Smaragd"
+            "prismatic",
+            "topaz",
+            "onyx",
+            "sapphire",
+            "emerald"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -421,7 +432,7 @@
             "strength": 60,
             "skill": 105,
             "race": [
-                "Människa"
+                "human"
             ]
         },
         "bonus": {
@@ -432,17 +443,17 @@
     },
     {
         "name": "Besudlat Krigssvärd",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 6,
         "maxDamage": 13,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 72,
         "enchant": [
-            "Prismatisk",
-            "Topas",
-            "Onyx",
-            "Safir",
-            "Smaragd"
+            "prismatic",
+            "topaz",
+            "onyx",
+            "sapphire",
+            "emerald"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -451,9 +462,9 @@
             "strength": 75,
             "skill": 75,
             "race": [
-                "Troll",
-                "Ork",
-                "Goblin"
+                "troll",
+                "orc",
+                "troll"
             ]
         },
         "bonus": {
@@ -464,17 +475,17 @@
     },
     {
         "name": "Svartblodsklinga",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 8,
         "maxDamage": 18,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 99,
         "enchant": [
-            "Prismatisk",
-            "Topas",
-            "Onyx",
-            "Safir",
-            "Smaragd"
+            "prismatic",
+            "topaz",
+            "onyx",
+            "sapphire",
+            "emerald"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -483,9 +494,9 @@
             "strength": 130,
             "skill": 105,
             "race": [
-                "Troll",
-                "Ork",
-                "Goblin"
+                "troll",
+                "orc",
+                "troll"
             ]
         },
         "bonus": {
@@ -497,17 +508,17 @@
     },
     {
         "name": "Riddarsvärd",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 9,
         "maxDamage": 14,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 90,
         "enchant": [
-            "Prismatisk",
-            "Topas",
-            "Onyx",
-            "Safir",
-            "Smaragd"
+            "prismatic",
+            "topaz",
+            "onyx",
+            "sapphire",
+            "emerald"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -516,13 +527,14 @@
             "strength": 85,
             "skill": 105,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -533,17 +545,17 @@
     },
     {
         "name": "En Och En Halvhandssvärd",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 10,
         "maxDamage": 17,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 115,
         "enchant": [
-            "Prismatisk",
-            "Topas",
-            "Onyx",
-            "Safir",
-            "Smaragd"
+            "prismatic",
+            "topaz",
+            "onyx",
+            "sapphire",
+            "emerald"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -552,30 +564,31 @@
             "strength": 110,
             "skill": 110,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Besmyckat Långsvärd",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 10,
         "maxDamage": 14,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 105,
         "enchant": [
-            "Prismatisk",
-            "Topas",
-            "Onyx",
-            "Safir",
-            "Smaragd"
+            "prismatic",
+            "topaz",
+            "onyx",
+            "sapphire",
+            "emerald"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -584,13 +597,14 @@
             "strength": 75,
             "skill": 115,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -601,17 +615,17 @@
     },
     {
         "name": "Silversvärd",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 8,
         "maxDamage": 15,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 95,
         "enchant": [
-            "Prismatisk",
-            "Topas",
-            "Onyx",
-            "Safir",
-            "Smaragd"
+            "prismatic",
+            "topaz",
+            "onyx",
+            "sapphire",
+            "emerald"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -620,13 +634,14 @@
             "strength": 60,
             "skill": 125,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -638,17 +653,17 @@
     },
     {
         "name": "Härskarsvärd",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 9,
         "maxDamage": 17,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 110,
         "enchant": [
-            "Prismatisk",
-            "Topas",
-            "Onyx",
-            "Safir",
-            "Smaragd"
+            "prismatic",
+            "topaz",
+            "onyx",
+            "sapphire",
+            "emerald"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -657,30 +672,31 @@
             "strength": 110,
             "skill": 120,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Gyllene Långsvärd",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 15,
         "maxDamage": 19,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 166,
         "enchant": [
-            "Prismatisk",
-            "Topas",
-            "Onyx",
-            "Safir",
-            "Smaragd"
+            "prismatic",
+            "topaz",
+            "onyx",
+            "sapphire",
+            "emerald"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -689,13 +705,14 @@
             "strength": 115,
             "skill": 140,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -707,17 +724,17 @@
     },
     {
         "name": "Kavallerisabel",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 13,
         "maxDamage": 19,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 180,
         "enchant": [
-            "Prismatisk",
-            "Topas",
-            "Onyx",
-            "Safir",
-            "Smaragd"
+            "prismatic",
+            "topaz",
+            "onyx",
+            "sapphire",
+            "emerald"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -726,13 +743,14 @@
             "strength": 85,
             "skill": 140,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -744,16 +762,16 @@
     },
     {
         "name": "Shamshir",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 15,
         "maxDamage": 21,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 218,
         "enchant": [
-            "Opal",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "opal",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -762,13 +780,14 @@
             "strength": 105,
             "skill": 155,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -783,17 +802,17 @@
     },
     {
         "name": "Grimfrost",
-        "type": "Svärd",
+        "type": "swords",
         "minDamage": 16,
         "maxDamage": 22,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 190,
         "enchant": [
-            "Prismatisk",
-            "Topas",
-            "Onyx",
-            "Safir",
-            "Smaragd"
+            "prismatic",
+            "topaz",
+            "onyx",
+            "sapphire",
+            "emerald"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -802,13 +821,14 @@
             "strength": 135,
             "skill": 155,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -822,17 +842,17 @@
     },
     {
         "name": "Enkel Piska",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 2,
         "maxDamage": 5,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 1,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -841,13 +861,14 @@
             "strength": 12,
             "skill": 55,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -858,16 +879,16 @@
     },
     {
         "name": "Enkel Tvåhandsslaga",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 2,
         "maxDamage": 16,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 35,
         "enchant": [
-            "Opal",
-            "Rubin",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "ruby",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -876,29 +897,30 @@
             "strength": 70,
             "skill": 60,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Rostig Tvåhandsslaga",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 4,
         "maxDamage": 21,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 40,
         "enchant": [
-            "Opal",
-            "Rubin",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "ruby",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -907,30 +929,31 @@
             "strength": 85,
             "skill": 60,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Silverbesmyckad Piska",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 5,
         "maxDamage": 13,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 37,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -939,8 +962,8 @@
             "strength": 50,
             "skill": 115,
             "race": [
-                "Alv",
-                "Människa"
+                "elf",
+                "human"
             ]
         },
         "bonus": {
@@ -951,16 +974,16 @@
     },
     {
         "name": "Stor Slaga",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 7,
         "maxDamage": 28,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 50,
         "enchant": [
-            "Opal",
-            "Rubin",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "ruby",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -969,13 +992,14 @@
             "strength": 100,
             "skill": 85,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -986,16 +1010,16 @@
     },
     {
         "name": "Svartblodsslaga",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 5,
         "maxDamage": 30,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 90,
         "enchant": [
-            "Opal",
-            "Rubin",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "ruby",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -1004,8 +1028,8 @@
             "strength": 125,
             "skill": 70,
             "race": [
-                "Ork",
-                "Troll"
+                "orc",
+                "troll"
             ]
         },
         "bonus": {
@@ -1016,17 +1040,17 @@
     },
     {
         "name": "Silverbesmyckad Piska",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 5,
         "maxDamage": 13,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 37,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1035,8 +1059,8 @@
             "strength": 50,
             "skill": 115,
             "race": [
-                "Alv",
-                "Människa"
+                "elf",
+                "human"
             ]
         },
         "bonus": {
@@ -1047,16 +1071,16 @@
     },
     {
         "name": "Skallslaga",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 11,
         "maxDamage": 36,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 70,
         "enchant": [
-            "Opal",
-            "Rubin",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "ruby",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -1065,29 +1089,30 @@
             "strength": 145,
             "skill": 105,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Dödsgissel",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 10,
         "maxDamage": 42,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 90,
         "enchant": [
-            "Opal",
-            "Rubin",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "ruby",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -1096,29 +1121,30 @@
             "strength": 170,
             "skill": 125,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Niosvansad Katt",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 19,
         "maxDamage": 47,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 100,
         "enchant": [
-            "Opal",
-            "Rubin",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "ruby",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -1127,29 +1153,30 @@
             "strength": 200,
             "skill": 140,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Monstruöst Dödsgissel",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 20,
         "maxDamage": 53,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 105,
         "enchant": [
-            "Opal",
-            "Rubin",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "ruby",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -1158,13 +1185,14 @@
             "strength": 250,
             "skill": 160,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -1175,16 +1203,16 @@
     },
     {
         "name": "Enkel Slaga",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 2,
         "maxDamage": 5,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 17,
         "enchant": [
-            "Opal",
-            "Rubin",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "ruby",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1193,28 +1221,29 @@
             "strength": 70,
             "skill": 35,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Övningsnät",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 1,
         "maxDamage": 2,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 20,
         "enchant": [
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1223,30 +1252,31 @@
             "strength": 30,
             "skill": 45,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Sjusvansad Piska",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 1,
         "maxDamage": 7,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 12,
         "enchant": [
-            "Rubin",
-            "Opal",
-            "Smaragd",
-            "Topas",
-            "Prismatisk"
+            "ruby",
+            "opal",
+            "emerald",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1255,29 +1285,30 @@
             "strength": 35,
             "skill": 80,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Stridsgissel",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 2,
         "maxDamage": 9,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 25,
         "enchant": [
-            "Rubin",
-            "Opal",
-            "Safir",
-            "Prismatisk"
+            "ruby",
+            "opal",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1286,29 +1317,30 @@
             "strength": 80,
             "skill": 40,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Stridsslaga",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 5,
         "maxDamage": 9,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 26,
         "enchant": [
-            "Rubin",
-            "Opal",
-            "Safir",
-            "Prismatisk"
+            "ruby",
+            "opal",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1317,28 +1349,29 @@
             "strength": 75,
             "skill": 60,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Enkelt Nät",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 2,
         "maxDamage": 3,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 29,
         "enchant": [
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1347,28 +1380,29 @@
             "strength": 40,
             "skill": 65,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Mindre Stridsnät",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 3,
         "maxDamage": 5,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 40,
         "enchant": [
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1377,29 +1411,30 @@
             "strength": 60,
             "skill": 100,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Skymningsgissel",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 5,
         "maxDamage": 14,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 37,
         "enchant": [
-            "Rubin",
-            "Opal",
-            "Safir",
-            "Prismatisk"
+            "ruby",
+            "opal",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1408,30 +1443,31 @@
             "strength": 125,
             "skill": 80,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Besmyckad Piska",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 4,
         "maxDamage": 12,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 33,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1440,13 +1476,14 @@
             "strength": 45,
             "skill": 105,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -1457,15 +1494,15 @@
     },
     {
         "name": "Besmyckat Stridsnät",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 4,
         "maxDamage": 6,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 68,
         "enchant": [
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1474,28 +1511,29 @@
             "strength": 70,
             "skill": 130,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Gladiatornät",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 3,
         "maxDamage": 5,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 53,
         "enchant": [
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1504,13 +1542,14 @@
             "strength": 85,
             "skill": 120,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -1521,16 +1560,16 @@
     },
     {
         "name": "Torngissel",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 9,
         "maxDamage": 19,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 53,
         "enchant": [
-            "Rubin",
-            "Opal",
-            "Safir",
-            "Prismatisk"
+            "ruby",
+            "opal",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1539,30 +1578,31 @@
             "strength": 200,
             "skill": 105,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Lorariuspiska",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 4,
         "maxDamage": 16,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 45,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1571,13 +1611,14 @@
             "strength": 75,
             "skill": 125,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -1589,16 +1630,16 @@
     },
     {
         "name": "Svartblodsgissel",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 5,
         "maxDamage": 24,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 58,
         "enchant": [
-            "Rubin",
-            "Opal",
-            "Safir",
-            "Prismatisk"
+            "ruby",
+            "opal",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1607,30 +1648,31 @@
             "strength": 250,
             "skill": 105,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Stridskarbas",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 4,
         "maxDamage": 14,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 51,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1639,13 +1681,14 @@
             "strength": 70,
             "skill": 140,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -1656,15 +1699,15 @@
     },
     {
         "name": "Mästerligt Gladiatornät",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 5,
         "maxDamage": 8,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 92,
         "enchant": [
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1673,13 +1716,14 @@
             "strength": 100,
             "skill": 155,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -1690,16 +1734,16 @@
     },
     {
         "name": "Tveeggsgissel",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 11,
         "maxDamage": 25,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 92,
         "enchant": [
-            "Rubin",
-            "Opal",
-            "Safir",
-            "Prismatisk"
+            "ruby",
+            "opal",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1708,30 +1752,31 @@
             "strength": 240,
             "skill": 135,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Balatapiska",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 8,
         "maxDamage": 19,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 78,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1740,13 +1785,14 @@
             "strength": 105,
             "skill": 155,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -1757,17 +1803,17 @@
     },
     {
         "name": "Slavdrivaren",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 12,
         "maxDamage": 20,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 80,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1776,13 +1822,14 @@
             "strength": 135,
             "skill": 145,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -1793,17 +1840,17 @@
     },
     {
         "name": "Paegrem",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 10,
         "maxDamage": 20,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 85,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1812,13 +1859,14 @@
             "strength": 125,
             "skill": 170,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -1829,15 +1877,15 @@
     },
     {
         "name": "Honnörsnät",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 5,
         "maxDamage": 9,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 108,
         "enchant": [
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1846,13 +1894,14 @@
             "strength": 130,
             "skill": 170,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -1863,17 +1912,17 @@
     },
     {
         "name": "Krokgissel",
-        "type": "Kätting",
+        "type": "chain",
         "minDamage": 11,
         "maxDamage": 28,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 110,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -1882,13 +1931,14 @@
             "strength": 310,
             "skill": 145,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -1899,16 +1949,16 @@
     },
     {
         "name": "Tvåhandsklubba",
-        "type": "Hammare",
+        "type": "maces",
         "minDamage": 5,
         "maxDamage": 16,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 35,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -1917,29 +1967,30 @@
             "strength": 75,
             "skill": 30,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Stridshammare",
-        "type": "Hammare",
+        "type": "maces",
         "minDamage": 9,
         "maxDamage": 21,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 40,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -1948,13 +1999,14 @@
             "strength": 100,
             "skill": 45,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -1965,16 +2017,16 @@
     },
     {
         "name": "Tvåhandshammare",
-        "type": "Hammare",
+        "type": "maces",
         "minDamage": 12,
         "maxDamage": 30,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 80,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -1983,29 +2035,30 @@
             "strength": 135,
             "skill": 65,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Enorm Klubba",
-        "type": "Hammare",
+        "type": "maces",
         "minDamage": 15,
         "maxDamage": 39,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 95,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -2014,29 +2067,30 @@
             "strength": 185,
             "skill": 70,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Krigsslägga",
-        "type": "Hammare",
+        "type": "maces",
         "minDamage": 18,
         "maxDamage": 48,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 120,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -2045,29 +2099,30 @@
             "strength": 245,
             "skill": 105,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Skugghammare",
-        "type": "Hammare",
+        "type": "maces",
         "minDamage": 22,
         "maxDamage": 50,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 150,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -2076,13 +2131,14 @@
             "strength": 300,
             "skill": 125,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -2093,16 +2149,16 @@
     },
     {
         "name": "Själsslägga",
-        "type": "Hammare",
+        "type": "maces",
         "minDamage": 23,
         "maxDamage": 56,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 160,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -2111,13 +2167,14 @@
             "strength": 400,
             "skill": 145,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -2128,16 +2185,16 @@
     },
     {
         "name": "Spikklubba",
-        "type": "Hammare",
+        "type": "maces",
         "minDamage": 4,
         "maxDamage": 6,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 27,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -2146,29 +2203,30 @@
             "strength": 40,
             "skill": 25,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Påk",
-        "type": "Hammare",
+        "type": "maces",
         "minDamage": 3,
         "maxDamage": 4,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 36,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -2177,13 +2235,14 @@
             "strength": 35,
             "skill": 25,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -2194,16 +2253,16 @@
     },
     {
         "name": "Morgonstjärna",
-        "type": "Hammare",
+        "type": "maces",
         "minDamage": 6,
         "maxDamage": 9,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 40,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -2212,29 +2271,30 @@
             "strength": 50,
             "skill": 45,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Molnhammare",
-        "type": "Hammare",
+        "type": "maces",
         "minDamage": 3,
         "maxDamage": 13,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 51,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -2243,13 +2303,14 @@
             "strength": 60,
             "skill": 85,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -2260,16 +2321,16 @@
     },
     {
         "name": "Orkisk Spikklubba",
-        "type": "Hammare",
+        "type": "maces",
         "minDamage": 6,
         "maxDamage": 15,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 49,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -2278,8 +2339,8 @@
             "strength": 80,
             "skill": 75,
             "race": [
-                "Ork",
-                "Troll"
+                "orc",
+                "troll"
             ]
         },
         "bonus": {
@@ -2290,16 +2351,16 @@
     },
     {
         "name": "Träskhammare",
-        "type": "Hammare",
+        "type": "maces",
         "minDamage": 10,
         "maxDamage": 18,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 92,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -2308,29 +2369,30 @@
             "strength": 90,
             "skill": 100,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Bergets Slägga",
-        "type": "Hammare",
+        "type": "maces",
         "minDamage": 10,
         "maxDamage": 20,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 98,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -2339,29 +2401,30 @@
             "strength": 155,
             "skill": 85,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Bellum Malleo",
-        "type": "Hammare",
+        "type": "maces",
         "minDamage": 12,
         "maxDamage": 24,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 93,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -2370,29 +2433,30 @@
             "strength": 140,
             "skill": 115,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Kyrasshammare",
-        "type": "Hammare",
+        "type": "maces",
         "minDamage": 18,
         "maxDamage": 22,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 151,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -2401,29 +2465,30 @@
             "strength": 140,
             "skill": 130,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Österländsk Stridshammare",
-        "type": "Hammare",
+        "type": "maces",
         "minDamage": 20,
         "maxDamage": 25,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 132,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -2432,13 +2497,14 @@
             "strength": 220,
             "skill": 125,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -2449,16 +2515,16 @@
     },
     {
         "name": "Helgjuten Järnslägga",
-        "type": "Hammare",
+        "type": "maces",
         "minDamage": 20,
         "maxDamage": 24,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 210,
         "enchant": [
-            "Opal",
-            "Onyx",
-            "Safir",
-            "Prismatisk"
+            "opal",
+            "onyx",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -2467,30 +2533,31 @@
             "strength": 205,
             "skill": 145,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Titansnäckshammare",
-        "type": "Hammare",
+        "type": "maces",
         "minDamage": 22,
         "maxDamage": 29,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 163,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -2499,13 +2566,14 @@
             "strength": 385,
             "skill": 104,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -2516,17 +2584,17 @@
     },
     {
         "name": "Treudd",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 9,
         "maxDamage": 10,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 50,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Safir",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -2535,13 +2603,14 @@
             "strength": 45,
             "skill": 45,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -2552,17 +2621,17 @@
     },
     {
         "name": "Lans",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 12,
         "maxDamage": 14,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 55,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Safir",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -2571,13 +2640,14 @@
             "strength": 45,
             "skill": 65,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -2588,17 +2658,17 @@
     },
     {
         "name": "Pik",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 16,
         "maxDamage": 18,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 80,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Safir",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -2607,13 +2677,14 @@
             "strength": 75,
             "skill": 80,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -2624,17 +2695,17 @@
     },
     {
         "name": "Romerisk Pik",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 15,
         "maxDamage": 19,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 60,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Safir",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "sapphire",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -2643,7 +2714,7 @@
             "strength": 90,
             "skill": 80,
             "race": [
-                "Människa"
+                "human"
             ]
         },
         "bonus": {
@@ -2655,18 +2726,18 @@
     },
     {
         "name": "Hillebard",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 20,
         "maxDamage": 25,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 86,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Safir",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "sapphire",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -2675,13 +2746,14 @@
             "strength": 115,
             "skill": 105,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -2692,18 +2764,18 @@
     },
     {
         "name": "Titanlans",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 20,
         "maxDamage": 23,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 90,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Safir",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "sapphire",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -2712,13 +2784,14 @@
             "strength": 90,
             "skill": 110,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -2729,18 +2802,18 @@
     },
     {
         "name": "Stor lans",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 25,
         "maxDamage": 27,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 90,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Safir",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "sapphire",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -2749,13 +2822,14 @@
             "strength": 140,
             "skill": 125,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -2766,18 +2840,18 @@
     },
     {
         "name": "Alviskt Långspjut",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 24,
         "maxDamage": 25,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 100,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Safir",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "sapphire",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -2786,7 +2860,7 @@
             "strength": 105,
             "skill": 130,
             "race": [
-                "Alv"
+                "elf"
             ]
         },
         "bonus": {
@@ -2799,18 +2873,18 @@
     },
     {
         "name": "Makalöst Alvspjut",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 28,
         "maxDamage": 34,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 105,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -2819,8 +2893,8 @@
             "strength": 140,
             "skill": 150,
             "race": [
-                "Alv",
-                "Människa"
+                "elf",
+                "human"
             ]
         },
         "bonus": {
@@ -2833,18 +2907,18 @@
     },
     {
         "name": "Besudlad Mörkerpik",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 23,
         "maxDamage": 39,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 90,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -2853,13 +2927,14 @@
             "strength": 240,
             "skill": 140,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -2870,18 +2945,18 @@
     },
     {
         "name": "Förädlad Drakdräpare",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 32,
         "maxDamage": 44,
-        "wield": "Tvåhand",
+        "wield": "2h",
         "breakingPoint": 110,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 2,
         "requirements": {
@@ -2890,13 +2965,14 @@
             "strength": 200,
             "skill": 170,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -2908,18 +2984,18 @@
     },
     {
         "name": "Kortspjut",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 2,
         "maxDamage": 5,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 18,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -2928,13 +3004,14 @@
             "strength": 20,
             "skill": 55,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -2945,18 +3022,18 @@
     },
     {
         "name": "Enkel Dolk",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 1,
         "maxDamage": 2,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 31,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -2965,13 +3042,14 @@
             "strength": 10,
             "skill": 55,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -2983,18 +3061,18 @@
     },
     {
         "name": "Jaktspjut",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 3,
         "maxDamage": 9,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 25,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3003,13 +3081,14 @@
             "strength": 30,
             "skill": 65,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -3020,18 +3099,18 @@
     },
     {
         "name": "Parerdolk",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 1,
         "maxDamage": 2,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 52,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3040,13 +3119,14 @@
             "strength": 20,
             "skill": 65,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -3057,18 +3137,18 @@
     },
     {
         "name": "Gladiatorspjut",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 5,
         "maxDamage": 13,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 37,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3077,13 +3157,14 @@
             "strength": 55,
             "skill": 105,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -3094,18 +3175,18 @@
     },
     {
         "name": "Tvärdolk",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 3,
         "maxDamage": 6,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 62,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3114,13 +3195,14 @@
             "strength": 30,
             "skill": 105,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -3135,18 +3217,18 @@
     },
     {
         "name": "Glimrande Spjut",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 8,
         "maxDamage": 15,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 50,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3155,13 +3237,14 @@
             "strength": 65,
             "skill": 115,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -3178,18 +3261,18 @@
     },
     {
         "name": "Besmyckat Jaktspjut",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 8,
         "maxDamage": 17,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 54,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3198,13 +3281,14 @@
             "strength": 85,
             "skill": 125,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -3215,18 +3299,18 @@
     },
     {
         "name": "Besmyckad Parerdolk",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 4,
         "maxDamage": 8,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 97,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3235,13 +3319,14 @@
             "strength": 40,
             "skill": 125,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -3256,18 +3341,18 @@
     },
     {
         "name": "Fullmånespjut",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 8,
         "maxDamage": 17,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 56,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3276,8 +3361,8 @@
             "strength": 70,
             "skill": 140,
             "race": [
-                "Alv",
-                "Människa"
+                "elf",
+                "human"
             ]
         },
         "bonus": {
@@ -3290,18 +3375,18 @@
     },
     {
         "name": "Infanterilans",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 10,
         "maxDamage": 24,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 103,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3310,13 +3395,14 @@
             "strength": 115,
             "skill": 170,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -3327,18 +3413,18 @@
     },
     {
         "name": "Dubbeldolk",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 7,
         "maxDamage": 12,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 166,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3347,13 +3433,14 @@
             "strength": 60,
             "skill": 160,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -3368,18 +3455,18 @@
     },
     {
         "name": "Trishula",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 16,
         "maxDamage": 22,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 112,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3388,13 +3475,14 @@
             "strength": 120,
             "skill": 175,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -3406,18 +3494,18 @@
     },
     {
         "name": "Trippeldolk",
-        "type": "Stick",
+        "type": "spears",
         "minDamage": 8,
         "maxDamage": 13,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 193,
         "enchant": [
-            "Onyx",
-            "Opal",
-            "Smaragd",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "opal",
+            "emerald",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3426,13 +3514,14 @@
             "strength": 80,
             "skill": 175,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -3447,16 +3536,16 @@
     },
     {
         "name": "Bucklare",
-        "type": "Sköldar",
-        "wield": "Enhand",
+        "type": "shield",
+        "wield": "1h",
         "absorption": 3,
         "breakingPoint": 16,
         "enchant": [
-            "Onyx",
-            "Rubin",
-            "Smaragd",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "ruby",
+            "emerald",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3465,29 +3554,30 @@
             "strength": 25,
             "skill": 20,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Tunnsköld",
-        "type": "Sköldar",
-        "wield": "Enhand",
+        "type": "shield",
+        "wield": "1h",
         "absorption": 10,
         "breakingPoint": 18,
         "enchant": [
-            "Onyx",
-            "Rubin",
-            "Smaragd",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "ruby",
+            "emerald",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3496,29 +3586,30 @@
             "strength": 40,
             "skill": 40,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {}
     },
     {
         "name": "Lövsköld",
-        "type": "Sköldar",
-        "wield": "Enhand",
+        "type": "shield",
+        "wield": "1h",
         "absorption": 12,
         "breakingPoint": 21,
         "enchant": [
-            "Onyx",
-            "Rubin",
-            "Smaragd",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "ruby",
+            "emerald",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3527,8 +3618,8 @@
             "strength": 25,
             "skill": 50,
             "race": [
-                "Alv",
-                "Människa"
+                "elf",
+                "human"
             ]
         },
         "bonus": {
@@ -3539,17 +3630,17 @@
         }
     },
     {
-        "name": "Alvsköld",
-        "type": "Sköldar",
-        "wield": "Enhand",
+        "name": "elfsköld",
+        "type": "shield",
+        "wield": "1h",
         "absorption": 17,
         "breakingPoint": 25,
         "enchant": [
-            "Onyx",
-            "Rubin",
-            "Smaragd",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "ruby",
+            "emerald",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3558,8 +3649,8 @@
             "strength": 45,
             "skill": 65,
             "race": [
-                "Alv",
-                "Människa"
+                "elf",
+                "human"
             ]
         },
         "bonus": {
@@ -3571,16 +3662,16 @@
     },
     {
         "name": "Månsköld",
-        "type": "Sköldar",
-        "wield": "Enhand",
+        "type": "shield",
+        "wield": "1h",
         "absorption": 23,
         "breakingPoint": 40,
         "enchant": [
-            "Onyx",
-            "Rubin",
-            "Smaragd",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "ruby",
+            "emerald",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3589,8 +3680,8 @@
             "strength": 60,
             "skill": 85,
             "race": [
-                "Alv",
-                "Människa"
+                "elf",
+                "human"
             ]
         },
         "bonus": {
@@ -3602,16 +3693,16 @@
     },
     {
         "name": "Flädersköld",
-        "type": "Sköldar",
-        "wield": "Enhand",
+        "type": "shield",
+        "wield": "1h",
         "absorption": 28,
         "breakingPoint": 60,
         "enchant": [
-            "Onyx",
-            "Rubin",
-            "Smaragd",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "ruby",
+            "emerald",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3620,8 +3711,8 @@
             "strength": 70,
             "skill": 115,
             "race": [
-                "Alv",
-                "Människa"
+                "elf",
+                "human"
             ]
         },
         "bonus": {
@@ -3633,16 +3724,16 @@
     },
     {
         "name": "Scutum",
-        "type": "Sköldar",
-        "wield": "Enhand",
+        "type": "shield",
+        "wield": "1h",
         "absorption": 39,
         "breakingPoint": 90,
         "enchant": [
-            "Onyx",
-            "Rubin",
-            "Smaragd",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "ruby",
+            "emerald",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3651,13 +3742,14 @@
             "strength": 140,
             "skill": 120,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -3674,16 +3766,16 @@
     },
     {
         "name": "Alvisk Väktarsköld",
-        "type": "Sköldar",
-        "wield": "Enhand",
+        "type": "shield",
+        "wield": "1h",
         "absorption": 39,
         "breakingPoint": 112,
         "enchant": [
-            "Onyx",
-            "Rubin",
-            "Smaragd",
-            "Topas",
-            "Prismatisk"
+            "onyx",
+            "ruby",
+            "emerald",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3692,8 +3784,8 @@
             "strength": 140,
             "skill": 150,
             "race": [
-                "Alv",
-                "Människa"
+                "elf",
+                "human"
             ]
         },
         "bonus": {
@@ -3708,13 +3800,13 @@
         "type": "Yxor",
         "minDamage": 2,
         "maxDamage": 5,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 19,
         "enchant": [
-            "Opal",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "opal",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3723,13 +3815,14 @@
             "strength": 20,
             "skill": 50,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
@@ -3744,13 +3837,13 @@
         "type": "Yxor",
         "minDamage": 14,
         "maxDamage": 24,
-        "wield": "Enhand",
+        "wield": "1h",
         "breakingPoint": 118,
         "enchant": [
-            "Opal",
-            "Rubin",
-            "Topas",
-            "Prismatisk"
+            "opal",
+            "ruby",
+            "topaz",
+            "prismatic"
         ],
         "maxEnchant": 1,
         "requirements": {
@@ -3759,13 +3852,14 @@
             "strength": 115,
             "skill": 175,
             "race": [
-                "Människa",
-                "Alv",
-                "Dvärg",
-                "Ork",
-                "Troll",
-                "Goblin",
-                "Odöd"
+                "human",
+                "elf",
+                "dwarf",
+                "orc",
+                "troll",
+                "troll",
+                "undead",
+                "salamanther"
             ]
         },
         "bonus": {
